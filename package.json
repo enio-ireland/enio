@@ -50,6 +50,8 @@
     "@nrwl/storybook": "^15.0.4",
     "@nrwl/web": "15.0.4",
     "@nrwl/workspace": "^15.0.4",
+    "@nx-extend/firebase-hosting": "^1.0.1",
+    "@nxtend/firebase": "^12.1.0",
     "@testing-library/react": "13.4.0",
     "@types/jest": "28.1.1",
     "@types/mocha": "^9.1.1",
