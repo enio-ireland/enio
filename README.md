@@ -39,7 +39,7 @@ This project was generated using [Nx](https://nx.dev).
 
 ## Development server
 
-Run `npm run server` followed by the name of your application for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
+Run `npm run serve` followed by the name of your application for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
 
 ---
 
