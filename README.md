@@ -3,10 +3,10 @@
 # Enio
 
 <p style="align: center">
-  <img src="https://github.com/enio-ireland/enio/blob/develop/images/enio.png?raw=true">
+  <img src="https://github.com/enio-ireland/enio/blob/develop/images/enio.png?raw=true" width="300">
   <br />
   <br />
-  A hub for great inventions built by [Enio](https://github.com/enio-ireland).
+  A hub for great inventions built by <a href="https://github.com/enio-ireland">Enio</a>.
 </p>
 
 ---
