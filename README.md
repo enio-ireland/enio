@@ -23,6 +23,7 @@ This project was generated using [Nx](https://nx.dev).
 | :-- | :-- |
 | Create a frontend application with [Next](https://nextjs.org) | `npm run create.app.next` |
 | Create a frontend application with [React](https://reactjs.org) | `npm run create.app.react` |
+| Create a mobile application with [React-Native](https://reactnative.dev) | `npm run create.app.react-native` |
 | Create server-side application with [Nest](https://nestjs.com/)  | `npm run create.app.nest` |
 
 ---
@@ -31,10 +32,11 @@ This project was generated using [Nx](https://nx.dev).
 
 | Description | Command |
 | :-- | :-- |
-| Create a [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) library using [Typescript](https://www.typescriptlang.org/). See [options](). | `npm run create.lib.ts` |
-| Create a UI component library with [React](https://reactjs.org). See [options]().  | `npm run create.lib.react` |
-| Create server-side library with [Nest](https://nestjs.com/).  See [options]().  | `npm run create.lib.nest` |
-| Create a UI component library with [Next](https://nextjs.org). See [options]().  | `npm run create.lib.next` |
+| Create a [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) library using [Typescript](https://www.typescriptlang.org/). [[Docs]](https://nx.dev/packages/js/generators/library#@nrwl/js:library). | `npm run create.lib.ts` |
+| Create a UI component library with [React](https://reactjs.org). [[Docs]](https://nx.dev/packages/react).  | `npm run create.lib.react` |
+| Create a mobile component library with [React-Native](https://reactnative.dev). [[Docs]](https://nx.dev/packages/react-native). | `npm run create.lib.react-native` |
+| Create server-side library with [Nest](https://nestjs.com/).  [[Docs]](https://nx.dev/packages/nest).  | `npm run create.lib.nest` |
+| Create a UI component library with [Next](https://nextjs.org). [[Docs]](https://nx.dev/packages/next).  | `npm run create.lib.next` |
 
 > You should specify the following flags `--buildable` and/or `--publishable` when building new libraries. See [docs](https://nx.dev/more-concepts/buildable-and-publishable-libraries).
 
