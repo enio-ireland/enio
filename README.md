@@ -2,7 +2,7 @@
 
 # Enio
 
-<p style="align: center"><img src="https://raw.githubusercontent.com/enio-ireland/enio/master/images/enio.png" width="512"></p>
+<p style="align: center"><img src="https://github.com/enio-ireland/enio/blob/develop/images/enio.png?raw=true" width="512"></p>
 
 ---
 
