@@ -102,11 +102,11 @@ Apps and libraries contained here that are meant to be available outside this re
 
 Here are a few commands that are available to publish applications.
 
-| Description                                                                                                 | Command                                 |
-| :---------------------------------------------------------------------------------------------------------- | :-------------------------------------- |
-| Configure a project to be deployable using [Firebase Hosting](https://firebase.google.com/products/hosting) | `npm run setup.firebase.hosting`        |
-| Configure one or more projects with [Firebase](https://firebase.google.com) at once                         | `npm run setup.firebase`                |
-| Deploy an app with [Firebase] ()                                                                            | `nx run {my-app}:firebase --cmd deploy` |
+| Description                                                                                                                    | Command                                 |
+| :----------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------- |
+| Configure a project to be deployable using [Firebase Hosting](https://firebase.google.com/products/hosting)                    | `npm run setup.firebase.hosting`        |
+| Configure one or more projects with [Firebase](https://firebase.google.com) at once                                            | `npm run setup.firebase`                |
+| Deploy an app with [Firebase](https://medium.com/google-developer-experts/deploy-your-app-to-firebase-in-seconds-b3a9a37dff47) | `nx run {my-app}:firebase --cmd deploy` |
 
 > Learn more about firebase and nx integration [:blue_book:](https://nxtend.dev/docs/firebase/getting-started)
 
