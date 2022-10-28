@@ -2,7 +2,12 @@
 
 # Enio
 
-<p style="align: center"><img src="https://github.com/enio-ireland/enio/blob/develop/images/enio.png?raw=true" width="512"></p>
+<p style="align: center">
+  <img src="https://github.com/enio-ireland/enio/blob/develop/images/enio.png?raw=true">
+  <br />
+  <br />
+  A hub for great inventions built by [Enio](https://github.com/enio-ireland).
+</p>
 
 ---
 
@@ -34,6 +39,23 @@ This project was generated using [Nx](https://nx.dev).
 > You should specify the following flags `--buildable` and/or `--publishable` when building new libraries. See [docs](https://nx.dev/more-concepts/buildable-and-publishable-libraries).
 
 > Libraries are shareable across libraries and applications. They can be imported from `@enio/mylib`.
+
+---
+
+## Setup documentation automation
+
+Run `npm run create.docs` followed by the name of your project. This will automatically collect details of your project
+to produce technical documentation. See [documentation](https://www.npmjs.com/package/@twittwer/compodoc).
+
+---
+
+## Setup a delovepment environment
+
+Storybook is a development environment for UI components. It allows you to browse a component library, view the different states of each component, and interactively develop and test components. Run `npm run create.book`  followed by the name of your project. See [documentation](https://nx.dev/packages/storybook).
+
+Run `npm run serve.book` to build the environment to showcase the UI components in memory and serve it to a particular port for local development.
+
+Run `npm run build.book` to built a static site to demo and possibly deploy publicly to showcase the UI components in the frontend library.
 
 ---
 
