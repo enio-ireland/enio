@@ -17,6 +17,6 @@ module.exports = {
     '!**/*.config.*',
     '!**/index.*'
   ],
-  coverageReporters: ['clover', 'lcov', 'text'],
+  coverageReporters: ['lcov', 'text'],
   reporters: ['default', 'github-actions']
 }
