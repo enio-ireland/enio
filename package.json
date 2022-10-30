@@ -31,6 +31,7 @@
     "graph": "nx graph",
     "remove": "nx g rm",
     "update": "nx migrate latest",
+    "reset": "nx reset",
     "commit": "cz"
   },
   "private": true,
