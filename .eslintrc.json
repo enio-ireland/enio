@@ -30,6 +30,12 @@
       "files": ["*.js", "*.jsx"],
       "extends": ["plugin:@nrwl/nx/javascript"],
       "rules": {}
+    },
+    {
+      "files": ["*.spec.ts", "*.spec.js"],
+      "rules": {
+        "@typescript-eslint/no-empty-function": "off"
+      }
     }
   ]
 }

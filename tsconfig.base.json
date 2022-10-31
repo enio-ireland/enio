@@ -15,8 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@enio.ai/data-ferret": ["packages/data-ferret/src/index.ts"],
-      "@enio.ai/syntaxure": ["packages/syntaxture/src/index.ts"]
+      "@enio.ai/data-ferret": ["packages/data-ferret/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
