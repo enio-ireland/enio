@@ -21,5 +21,6 @@
       "type" : "github",
       "url" : "https://github.com/orgs/enio-ireland/dashboard"
     }
-  ]
+  ],
+  "sideEffects": false
 }
