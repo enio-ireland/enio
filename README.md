@@ -5,15 +5,13 @@
   A hub for great inventions built by <a href="https://github.com/enio-ireland">Enio</a>.
 </p>
 
-
-
 <br>
 <br>
 
 ## Open Source Portfolio
 
-| Name                                                                                                                      | Description                           |
-| :------ | :----------- |
+| Name                                                                                                                                                                                                                                                            | Description                                                                             |
+| :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------- |
 | <a href="https://github.com/enio-ireland/enio/tree/develop/packages/data-ferret"><div><img src="https://github.com/enio-ireland/enio/blob/develop/images/data-ferret.png?raw=true" width="100"></div><div align="center"><strong>data-ferret</strong></div></a> | A powerful, yet tiny util library to scan or transform deeply nested objects with ease. |
 
 <br>

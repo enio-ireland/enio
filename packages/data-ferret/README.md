@@ -7,8 +7,6 @@
   <a href="https://github.com/enio-ireland/enio/tree/develop/packages/data-ferret">data-ferret</a> is a powerful, yet tiny util library to scan or transform deeply nested objects with ease. It is created, maintained, and released as open source under MIT license by a group of passionate individuals in <a href="https://github.com/enio-ireland/enio">Enio</a>.
 </p>
 
-
-
 <br>
 <br>
 

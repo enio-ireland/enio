@@ -25,6 +25,7 @@
     "serve.book": "nx storybook",
     "build.book": "nx build-storybook",
     "serve": "nx serve",
+    "format": "nx format:write",
     "lint": "nx lint",
     "test": "nx test",
     "test:affected": "nx affected:test",
@@ -104,15 +105,15 @@
   },
   "contributors": [
     {
-      "name" : "Andrew Redican",
-      "email" : "andrew.redican.mejia@gmail.com",
-      "url" : "https://github.com/AndrewRedican/"
+      "name": "Andrew Redican",
+      "email": "andrew.redican.mejia@gmail.com",
+      "url": "https://github.com/AndrewRedican/"
     }
   ],
   "funding": [
     {
-      "type" : "github",
-      "url" : "https://github.com/orgs/enio-ireland/dashboard"
+      "type": "github",
+      "url": "https://github.com/orgs/enio-ireland/dashboard"
     }
   ]
 }
