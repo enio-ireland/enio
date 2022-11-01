@@ -1,5 +1,26 @@
 {
   "name": "@enio.ai/data-ferret",
   "version": "0.0.1",
-  "type": "commonjs"
+  "license": "MIT",
+  "author": "Enio Authors",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/enio-ireland/enio/tree/develop/packages/data-ferret"
+  },
+  "private": false,
+  "contributors": [
+    {
+      "name" : "Andrew Redican",
+      "email" : "andrew.redican.mejia@gmail.com",
+      "url" : "https://github.com/AndrewRedican/"
+    }
+  ],
+  "funding": [
+    {
+      "type" : "github",
+      "url" : "https://github.com/orgs/enio-ireland/dashboard"
+    }
+  ],
+  "sideEffects": false
 }

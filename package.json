@@ -2,6 +2,11 @@
   "name": "enio",
   "version": "0.0.0",
   "license": "MIT",
+  "author": "Enio Authors",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/enio-ireland/enio"
+  },
   "scripts": {
     "create.app.electron": "nx g nx-electron:app",
     "create.app.react-native": "nx g @nrwl/react-native:app",
@@ -31,6 +36,7 @@
     "graph": "nx graph",
     "remove": "nx g rm",
     "update": "nx migrate latest",
+    "reset": "nx reset",
     "commit": "cz"
   },
   "private": true,
@@ -95,5 +101,18 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
-  }
+  },
+  "contributors": [
+    {
+      "name" : "Andrew Redican",
+      "email" : "andrew.redican.mejia@gmail.com",
+      "url" : "https://github.com/AndrewRedican/"
+    }
+  ],
+  "funding": [
+    {
+      "type" : "github",
+      "url" : "https://github.com/orgs/enio-ireland/dashboard"
+    }
+  ]
 }
