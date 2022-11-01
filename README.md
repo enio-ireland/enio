@@ -1,11 +1,11 @@
-<div>
-  <span style="display: inline-block; width: 32%"></span>
-  <span style="display: inline-block; width: 34%"><img src="https://github.com/enio-ireland/enio/blob/develop/images/enio.png?raw=true" width="100%"></span>
-  <span style="display: inline-block; width: 32%"></span>
-</div>
-<div style="text-align: center">
+<p align="center">
+  <img width="197" src="https://github.com/enio-ireland/enio/blob/develop/images/enio.png">
+</p>
+<p align="center">
   A hub for great inventions built by <a href="https://github.com/enio-ireland">Enio</a>.
-</div>
+</p>
+
+
 
 <br>
 <br>
@@ -14,7 +14,7 @@
 
 | Name                                                                                                                      | Description                           |
 | :------ | :----------- |
-| <a style="text-align: center"><br><div><img src="https://github.com/enio-ireland/enio/blob/develop/images/data-ferret.png?raw=true" width="100"></div><div><strong>data-ferret</strong></div></a> | A powerful, yet tiny util library to scan or transform deeply nested objects with ease. |
+| <a href="https://github.com/enio-ireland/enio/tree/develop/packages/data-ferret"><div><img src="https://github.com/enio-ireland/enio/blob/develop/images/data-ferret.png?raw=true" width="100"></div><div align="center"><strong>data-ferret</strong></div></a> | A powerful, yet tiny util library to scan or transform deeply nested objects with ease. |
 
 <br>
 
