@@ -6,9 +6,9 @@ describe('registerClassTypes', () => {
     class A {}
     class B {}
     registerClassTypes(A, B)
-    // @ts-expect-error TS2571 Using unusual way of referencing.
+    // @ts-expect-error TS2571 Using unusual way of referencing classes.
     expect(new registeredClasses[0]()).toBeInstanceOf(A)
-    // @ts-expect-error TS2571 Using unusual way of referencing.
+    // @ts-expect-error TS2571 Using unusual way of referencing classes.
     expect(new registeredClasses[1]()).toBeInstanceOf(B)
   })
 
@@ -16,9 +16,9 @@ describe('registerClassTypes', () => {
     class C {}
     class D {}
     registerClassTypes(C, D)
-    // @ts-expect-error TS2571 Using unusual way of referencing.
+    // @ts-expect-error TS2571 Using unusual way of referencing classes.
     expect(new registeredClasses[0]()).toBeInstanceOf(C)
-    // @ts-expect-error TS2571 Using unusual way of referencing.
+    // @ts-expect-error TS2571 Using unusual way of referencing classes.
     expect(new registeredClasses[1]()).toBeInstanceOf(D)
   })
 })
