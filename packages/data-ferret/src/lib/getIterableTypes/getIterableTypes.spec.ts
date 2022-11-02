@@ -10,8 +10,8 @@ describe('getIterableTypes', () => {
 describe('getIterableTypes - extended iterable class types', () => {
   beforeEach(() =>
     registerIterableClass(
-      { classRef: Map, getKeys: map => map.keys() as string[] },
-      { classRef: Set, getKeys: map => map.keys() as string[] }
+      { classRef: Map, getKeys: map => Array.from(map.keys()) as string[] },
+      { classRef: Set, getKeys: map => Array.from(map.keys()) as string[] }
     )
   )
 
