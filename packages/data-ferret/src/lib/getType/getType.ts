@@ -1,5 +1,5 @@
-import { registeredClasses } from '../shared/consts'
 import { DataType } from '../shared/model'
+import { registeredClasses } from '../shared/consts'
 
 /**
  * Returns the data type of target.
