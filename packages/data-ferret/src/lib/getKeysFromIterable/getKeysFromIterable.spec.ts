@@ -21,7 +21,7 @@ describe('getKeysFromIterable - extended iterable class types', () => {
   afterEach(() => registerIterableClass())
 
   it('returns keys from Map becaue it has been registered', () => {
-    const rosterWithAge = new Map<string, number>();
+    const rosterWithAge = new Map<string, number>()
     rosterWithAge.set('Tom', 33)
     rosterWithAge.set('Luca', 21)
     registerIterableClass({ classRef: Map, getKeys: map => Array.from(map.keys()) as string[] })

@@ -11,3 +11,10 @@ export interface RegisteredIterableClassEntry {
   /** Returns list of iterable keys. */
   getKeys: (target: any) => string[]
 }
+
+export interface Config {
+  /**
+   * A flag that indicates the API that two values can match if their properties are in the same order when set to true.
+   **/
+  samePositionOfOwnProperties: boolean
+}
