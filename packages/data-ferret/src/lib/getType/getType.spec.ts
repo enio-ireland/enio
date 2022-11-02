@@ -1,3 +1,4 @@
+import { registerClassTypes } from '../registerClassTypes/registerClassTypes'
 import { getType } from './getType'
 
 describe('getType', () => {
@@ -124,5 +125,21 @@ describe('getType', () => {
 
   it('should return "symbol" for a reference set to a named Symbol', () => {
     expect(getType(Symbol('foo'))).toEqual('symbol')
+  })
+})
+
+describe('getType - extended class types', () => {
+  class A {}
+
+  beforeEach(() => registerClassTypes(A))
+
+  afterEach(() => registerClassTypes())
+
+  it('should return the class name as data type the for a reference set to an instance of the corresponding class', () => {
+    expect(getType(new A())).toEqual('A')
+  })
+
+  it("should return 'object' for a reference set to an object, despite having same apparent interface to a registered class", () => {
+    expect(getType({})).toEqual('object')
   })
 })
