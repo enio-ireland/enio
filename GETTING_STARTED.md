@@ -12,13 +12,13 @@
 
 ## Create a library
 
-| Description                                                                                                                                                                                                               | Command                           |
-| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :-------------------------------- |
-| Create a [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) library using [Typescript](https://www.typescriptlang.org/). [:blue_book:](https://nx.dev/packages/js/generators/library#@nrwl/js:library) | `npm run create.lib.ts <libname> -- --buildable --publishable --importPath @enio.ai/<libname>`           |
-| Create a UI component library with [React](https://reactjs.org). [:blue_book:](https://nx.dev/packages/react)                                                                                                             | `npm run create.lib.react`        |
-| Create a mobile component library with [React-Native](https://reactnative.dev). [:blue_book:](https://nx.dev/packages/react-native)                                                                                       | `npm run create.lib.react-native` |
-| Create server-side library with [Nest](https://nestjs.com/).  [:blue_book:](https://nx.dev/packages/nest)                                                                                                                 | `npm run create.lib.nest`         |
-| Create a UI component library with [Next](https://nextjs.org). [:blue_book:](https://nx.dev/packages/next)                                                                                                                | `npm run create.lib.next`         |
+| Description                                                                                                                                                                                                               | Command                                                                                        |
+| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :--------------------------------------------------------------------------------------------- |
+| Create a [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) library using [Typescript](https://www.typescriptlang.org/). [:blue_book:](https://nx.dev/packages/js/generators/library#@nrwl/js:library) | `npm run create.lib.ts <libname> -- --buildable --publishable --importPath @enio.ai/<libname>` |
+| Create a UI component library with [React](https://reactjs.org). [:blue_book:](https://nx.dev/packages/react)                                                                                                             | `npm run create.lib.react`                                                                     |
+| Create a mobile component library with [React-Native](https://reactnative.dev). [:blue_book:](https://nx.dev/packages/react-native)                                                                                       | `npm run create.lib.react-native`                                                              |
+| Create server-side library with [Nest](https://nestjs.com/). [:blue_book:](https://nx.dev/packages/nest)                                                                                                                  | `npm run create.lib.nest`                                                                      |
+| Create a UI component library with [Next](https://nextjs.org). [:blue_book:](https://nx.dev/packages/next)                                                                                                                | `npm run create.lib.next`                                                                      |
 
 > You should specify the following flags `--buildable` and/or `--publishable` when building new libraries. [:blue_book:](https://nx.dev/more-concepts/buildable-and-publishable-libraries).
 
@@ -35,7 +35,7 @@ to produce technical documentation. See [documentation](https://www.npmjs.com/pa
 
 ## Setup a delovepment environment
 
-Storybook is a development environment for UI components. It allows you to browse a component library, view the different states of each component, and interactively develop and test components. Run `npm run create.book`  followed by the name of your project. See [documentation](https://nx.dev/packages/storybook).
+Storybook is a development environment for UI components. It allows you to browse a component library, view the different states of each component, and interactively develop and test components. Run `npm run create.book` followed by the name of your project. See [documentation](https://nx.dev/packages/storybook).
 
 Run `npm run serve.book` to build the environment to showcase the UI components in memory and serve it to a particular port for local development.
 
@@ -57,9 +57,9 @@ Take for example [React generators](https://nx.dev/packages/react#generators). Y
 
 See full generators directory.
 
-+ [React](https://nx.dev/packages/react#generators)
-+ [Next](https://nx.dev/packages/next#generators)
-+ [Nest](https://nx.dev/packages/nest#generators)
+- [React](https://nx.dev/packages/react#generators)
+- [Next](https://nx.dev/packages/next#generators)
+- [Nest](https://nx.dev/packages/nest#generators)
 
 ## Running unit tests
 
@@ -92,7 +92,6 @@ Here are a few commands that are available to publish applications.
 > Learn more about firebase and nx integration [:blue_book:](https://nxtend.dev/docs/firebase/getting-started)
 
 For libraries that are to be distributed externally, you can publish as npm module via `npm run publish`.
-
 
 ## Understand your workspace
 
