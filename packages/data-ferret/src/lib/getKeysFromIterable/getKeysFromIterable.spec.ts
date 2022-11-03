@@ -23,7 +23,7 @@ describe('getKeysFromIterable - extended iterable class types', () => {
 
   afterEach(() => (setConfig({ detectCircularReferences: false }), registerIterableClass()))
 
-  it('should return keys from Map becaue it has been registered', () => {
+  it('should return keys from Map because it has been registered', () => {
     const rosterWithAge = new Map<string, number>()
     rosterWithAge.set('Tom', 33)
     rosterWithAge.set('Luca', 21)
