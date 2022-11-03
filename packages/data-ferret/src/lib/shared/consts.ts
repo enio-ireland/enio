@@ -9,8 +9,13 @@ export const registeredIterableClasses: RegisteredIterableClassEntry[] = [
 
 let samePositionOfOwnProperties = false
 
+let detectCircularReferences = false
+
 export const setConfig = (config: Partial<Config>): void => {
-  samePositionOfOwnProperties = config.samePositionOfOwnProperties || false
+  samePositionOfOwnProperties =
+    typeof config.samePositionOfOwnProperties === 'boolean' ? config.samePositionOfOwnProperties : samePositionOfOwnProperties || false
+  detectCircularReferences =
+    typeof config.detectCircularReferences === 'boolean' ? config.detectCircularReferences : detectCircularReferences || false
 }
 
-export const getConfig = (): Config => ({ samePositionOfOwnProperties })
+export const getConfig = (): Config => ({ samePositionOfOwnProperties, detectCircularReferences })
