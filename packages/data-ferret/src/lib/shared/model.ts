@@ -17,4 +17,10 @@ export interface Config {
    * A flag that indicates the API that two values can match if their properties are in the same order when set to true.
    **/
   samePositionOfOwnProperties: boolean
+
+  /**
+   * A flag that indicates the API that circular references may exist and should keep a tally of reference stack.
+   * Turning this flag ON comes at a performance cost, so enable only when necessary.
+   */
+  detectCircularReferences: boolean
 }
