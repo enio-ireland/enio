@@ -23,6 +23,8 @@ describe('referenceStack', () => {
   })
 
   describe('exists', () => {
+    beforeEach(() => (stack = referenceStack()))
+
     it('should return true when reference already exists in the stack', () => {
       const value = {}
       stack.add(value)
@@ -65,6 +67,8 @@ describe('referenceStack', () => {
   })
 
   describe('clear', () => {
+    beforeEach(() => (stack = referenceStack()))
+
     it('should clear the internal stack and remove any markers added', () => {
       const value = { a: { b: {} } }
       stack.add(value)
