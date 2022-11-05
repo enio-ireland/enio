@@ -17,8 +17,12 @@ describe('hasCircularReference', () => {
   })
 
   it('returns true for values with circular reference', () => {
-    const selfContainingArray: unknown[] = [];
-    selfContainingArray[0] = selfContainingArray;
+    const selfContainingArray: unknown[] = []
+    selfContainingArray[0] = selfContainingArray
     expect(hasCircularReference(selfContainingArray)).toEqual(true)
+
+    const selfReferencingObject = { a: { b: { c: {} } } }
+    selfReferencingObject.a.b.c = selfReferencingObject
+    expect(hasCircularReference(selfReferencingObject)).toEqual(true)
   })
 })
