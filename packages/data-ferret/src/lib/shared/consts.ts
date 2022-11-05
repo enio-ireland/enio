@@ -1,6 +1,6 @@
-import { Config, RegisteredIterableClassEntry } from './model'
+import { UnknownClass, RegisteredIterableClassEntry, Config } from './model'
 
-export const registeredClasses: unknown[] = []
+export const registeredClasses: UnknownClass[] = []
 
 export const registeredIterableClasses: RegisteredIterableClassEntry[] = [
   { classRef: Array, getKeys: (target: unknown) => Object.keys(target as Iterable<string>) },

@@ -5,25 +5,23 @@ export interface ReferenceStack {
   size: number
 
   /**
-   * Returns true when the stack self-referencing.
-   */
-  circular: boolean
-
-  /**
    * Returns true if reference is already registered.
    */
   exists: (reference: unknown) => boolean
 
   /**
-   * Registers a new reference in the stack.
+   * Returns a negative number corresponding to how many iterations ago the reference
+   * was registered in the stack relative to the last entry or null when it is not in the stack.
    */
-  add: (reference: unknown) => ReferenceStack
+  lastSeen: (reference: unknown) => number | null
 
   /**
-   * Empties the reference stack, after removing a discreet Symbol marker added to identify
-   * circular references
+   * Adds a new reference into the stack.
+   */
+  add: (reference: unknown) => void
+
+  /**
+   * Empties the reference stack and removes any flags added.
    */
   clear: () => void
 }
-
-export type CircularReferenceFoundCallback = () => { stack: ReferenceStack; map: string }

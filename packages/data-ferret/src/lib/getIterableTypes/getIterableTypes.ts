@@ -7,9 +7,8 @@ import { registeredIterableClasses } from '../shared/consts'
  */
 export const getIterableTypes = <T extends string = DataType>(): T[] =>
   registeredIterableClasses.map(({ classRef }) => {
-    // @ts-expect-error TS2571 Using unusual way of referencing classes.
     const name = classRef.name
-    if (name === Object.name) return 'object'
-    if (name === Array.name) return 'array'
-    return name
+    if (name === Object.name) return 'object' as T
+    if (name === Array.name) return 'array' as T
+    return name as T
   })

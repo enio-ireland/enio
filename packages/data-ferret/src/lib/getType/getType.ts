@@ -13,8 +13,7 @@ export const getType = <T extends string = DataType>(target: unknown): T => {
     if (Array.isArray(target)) return 'array' as T
     for (let i = 0; i < registeredClasses.length; i += 1) {
       const registeredClass = registeredClasses[i]
-      // @ts-expect-error TS2339, TS2371 - Accessing classes dynamically.
-      if (target instanceof registeredClass) return registeredClass.name
+      if (target instanceof registeredClass) return registeredClass.name as T
     }
   }
   return nativeDataType as T

@@ -11,7 +11,7 @@ describe('getType', () => {
   })
 
   it('should return "undefined" for a reference that does not exist', () => {
-    // @ts-expect-error TS2339 because test is checking for this specific scenario still allowed in JavaScript.
+    // @ts-expect-error TS2339
     expect(getType({}.doesNotExist)).toEqual('undefined')
   })
 
@@ -111,9 +111,9 @@ describe('getType', () => {
 
   it('should return "function" for a reference set to function using "this." syntax similar to old school "classes" before they were supported', () => {
     function oldschool() {
-      // @ts-expect-error TS2683 because test is checking for this specific scenario still allowed in JavaScript.
+      // @ts-expect-error TS2683
       this.message = 'hello'
-      // @ts-expect-error TS2683 because test is checking for this specific scenario still allowed in JavaScript.
+      // @ts-expect-error TS2683
       return this
     }
     expect(getType(oldschool)).toEqual('function')
