@@ -1,28 +1,24 @@
-import { ReferenceStack } from './referenceStack.model'
+import { ReferenceStack, UnknownIterableKey, UnknownIterable } from './referenceStack.model'
 import { marker } from '../marker/marker'
 import { isIterable } from '../isIterable/isIterable'
 
 export const referenceStack = (): ReferenceStack => {
-  const records = new Map<symbol, [string, Iterable<string>]>()
-  const flag = marker()
+  const records = new Map<symbol, [UnknownIterableKey, UnknownIterable]>()
+  const flag = marker() as UnknownIterableKey
 
-  const add = (reference: unknown) => {
+  const add = (reference: UnknownIterable): void => {
     if (!isIterable(reference) || exists(reference)) return
-    // @ts-expect-error TS2339 because accessing property of unknown type presumed to be iterable.
-    reference[flag] = Symbol()
-    // @ts-expect-error TS2339 because accessing property of unknown type presumed to be iterable.
+    ;(reference[flag] as symbol) = Symbol()
     records.set(reference[flag], [flag, reference])
   }
 
-  // @ts-expect-error TS2339 because accessing property of unknown type presumed to be iterable.
-  const exists = (reference: unknown) => (isIterable(reference) ? flag in reference && records.has(reference[flag]) : false)
+  const exists = (reference: UnknownIterable) => (isIterable(reference) ? flag in reference && records.has(reference[flag]) : false)
 
-  // @ts-expect-error TS2339 because accessing property of unknown type presumed to be iterable.
   const clear = () => (records.forEach(([key, reference]) => delete reference[key]), records.clear())
 
   return {
-    add: reference => add(reference),
-    exists: reference => exists(reference),
+    add: reference => add(reference as UnknownIterable),
+    exists: reference => exists(reference as UnknownIterable),
     clear: () => clear(),
     get size() {
       return records.size
