@@ -42,6 +42,34 @@ describe('referenceStack', () => {
     })
   })
 
+  describe('lastSeen', () => {
+    beforeEach(() => (stack = referenceStack()))
+
+    it('should return a number corresponding to how long ago the reference was seen', () => {
+      const [a, b, c] = [{}, {}, []]
+      stack.add(a)
+      expect(stack.lastSeen(a)).toEqual(-1)
+      stack.add(b)
+      expect(stack.lastSeen(b)).toEqual(-1)
+      expect(stack.lastSeen(a)).toEqual(-2)
+      stack.add(c)
+      expect(stack.lastSeen(c)).toEqual(-1)
+      expect(stack.lastSeen(b)).toEqual(-2)
+      expect(stack.lastSeen(a)).toEqual(-3)
+    })
+
+    it('should return false when reference is not registered', () => {
+      expect(stack.lastSeen({})).toBeNull()
+      expect(stack.lastSeen([])).toBeNull()
+    })
+
+    it('should return false when reference is not iterable', () => {
+      expect(stack.lastSeen(-500)).toBeNull()
+      expect(stack.lastSeen(null)).toBeNull()
+      expect(stack.lastSeen(void 0)).toBeNull()
+    })
+  })
+
   describe('add', () => {
     beforeEach(() => (stack = referenceStack()))
 
