@@ -19,14 +19,13 @@ export const sameStructure = (targetA: unknown, targetB: unknown): DataType | fa
     const bKeyCount = bKeys.length
     if (aKeyCount !== bKeyCount) return false
     if (aKeyCount === 0) return typeMatch
-    const checkPropsOrder = getConfig().samePositionOfOwnProperties
-    for (let i = 0; i < aKeyCount; i += 1) {
-      const key = aKeys[i]
-      if (checkPropsOrder) {
-        if (key !== bKeys[i]) return false
-      } else {
-        // @ts-expect-error TS2571 because value is unknown
-        if (!(key in targetB)) return false
+    if (getConfig().samePositionOfOwnProperties) {
+      for (let i = 0; i < aKeyCount; i += 1) {
+        if (aKeys[i] !== bKeys[i]) return false
+      }
+    } else {
+      for (let i = 0; i < aKeyCount; i += 1) {
+        if (!(aKeys[i] in (targetB as Iterable<unknown>))) return false
       }
     }
   }
