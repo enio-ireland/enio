@@ -1,7 +1,3 @@
-export type UnknownIterable = Iterable<unknown>
-
-export type UnknownIterableKey = keyof UnknownIterable & string
-
 export interface ReferenceStack {
   /**
    * Total number of references in the stack.

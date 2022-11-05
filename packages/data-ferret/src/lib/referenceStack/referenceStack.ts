@@ -1,4 +1,5 @@
-import { ReferenceStack, UnknownIterableKey, UnknownIterable } from './referenceStack.model'
+import { ReferenceStack } from './referenceStack.model'
+import { UnknownIterable, UnknownIterableKey } from '../shared/model'
 import { marker } from '../marker/marker'
 import { isIterable } from '../isIterable/isIterable'
 

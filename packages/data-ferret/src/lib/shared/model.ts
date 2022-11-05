@@ -4,9 +4,17 @@ export type Predicate = (x: unknown) => boolean
 
 export type DataType = 'undefined' | 'object' | 'boolean' | 'number' | 'bigint' | 'string' | 'symbol' | 'function' | 'null' | 'array'
 
+export type UnknownIterable = Iterable<unknown>
+
+export type UnknownIterableKey = keyof UnknownIterable & string
+
+export type UnknownClass = {
+  new (...args: any[]): unknown
+}
+
 export interface RegisteredIterableClassEntry {
-  /** A reference to the class itself. */
-  classRef: unknown
+  /** A reference to a class definition. */
+  classRef: UnknownClass
 
   /** Returns list of iterable keys. */
   getKeys: (target: any) => string[]
