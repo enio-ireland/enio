@@ -9,24 +9,19 @@
       "name": "debug data-ferret",
       "request": "launch",
       "program": "${workspaceFolder}/node_modules/@nrwl/cli/bin/nx.js",
-      "args": [
-          "test",
-          "data-ferret",
-          "--runInBand",
-          "true"
-      ],
+      "args": ["test", "data-ferret", "--runInBand", "true"],
       "cwd": "${workspaceFolder}",
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen"
-  },
-  {
+    },
+    {
       "name": "Jest Tests",
       "type": "node",
       "request": "launch",
       "program": "${workspaceRoot}/node_modules/.bin/ng",
-      "args": ["test","--runInBand","-i"],
+      "args": ["test", "--runInBand", "-i"],
       "outFiles": ["${workspaceRoot}/dist/**/*"],
       "cwd": "${workspaceFolder}"
-  }
+    }
   ]
 }
