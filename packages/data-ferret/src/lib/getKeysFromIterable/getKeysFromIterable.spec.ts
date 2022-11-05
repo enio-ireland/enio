@@ -32,7 +32,7 @@ describe('getKeysFromIterable - extended iterable class types', () => {
   })
 })
 
-describe('getKeysFromIterable - config detectCircularReferences:true', () => {
+describe('getKeysFromIterable - with config detectCircularReferences:true', () => {
   beforeEach(() => setConfig({ detectCircularReferences: true }))
 
   afterEach(() => setConfig({ detectCircularReferences: false }))
