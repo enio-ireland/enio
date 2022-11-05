@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Config } from '../shared/model'
 import { setConfig } from '../shared/consts'
 import { isIdentical } from './isIdentical'
@@ -113,6 +115,34 @@ describe('isIdentical - with config detectCircularReferences:true', () => {
 
   it('should return true for non-indexed iterables whose keys match, but are in wrong order', () => {
     expect(isIdentical({ a: 1, b: '2' }, { b: '2', a: 1 })).toEqual(true)
+  })
+
+  it('should return true for functions that have the exact same declaration, arguments, and content', () => {
+    expect(
+      isIdentical(
+        function () {},
+        function () {}
+      )
+    ).toEqual(true)
+    expect(
+      isIdentical(
+        () => {},
+        () => {}
+      )
+    ).toEqual(true)
+    expect(
+      isIdentical(
+        function A(...args: unknown[]) {},
+        function A(...args: unknown[]) {}
+      )
+    ).toEqual(true)
+
+    expect(
+      isIdentical(
+        (_: unknown) => void 0,
+        (_: unknown) => void 0
+      )
+    ).toEqual(true)
   })
 
   it('should return false for lists with items in the wrong order', () => {
