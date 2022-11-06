@@ -5,5 +5,6 @@ import { addDependencies, registerOperation } from '../process'
 export default async function (tree: Tree, options: TypedocGeneratorSchema) {
   const runAddDepenendies = addDependencies(tree)
   registerOperation(tree)
+  configureProject(tree, options)
   return runAddDepenendies
 }
