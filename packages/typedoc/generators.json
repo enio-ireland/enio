@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "name": "typedoc",
+  "version": "0.0.1",
+  "generators": {
+    "typedoc": {
+      "factory": "./src/generators/typedoc/generator",
+      "schema": "./src/generators/typedoc/schema.json",
+      "description": "typedoc generator"
+    }
+  }
+}

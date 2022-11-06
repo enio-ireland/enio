@@ -2,6 +2,8 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
-    "data-ferret": "packages/data-ferret"
+    "data-ferret": "packages/data-ferret",
+    "typedoc": "packages/typedoc",
+    "typedoc-e2e": "packages/typedoc-e2e"
   }
 }
