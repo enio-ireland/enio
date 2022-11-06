@@ -13,7 +13,7 @@ describe('registerIterableClass', () => {
   it('should add to the list of registered iterable classes', () => {
     registerIterableClass(
       { classRef: Map, getKeys: map => Array.from(map.keys()) as string[] },
-      { classRef: Set, getKeys: map => Array.from(map.keys()) as string[] }
+      { classRef: Set, getKeys: set => Array.from(set.keys()) as string[] }
     )
     expect(registeredIterableClasses.length).toEqual(4)
     expect(registeredIterableClasses[0].classRef).toEqual(Map)
@@ -25,7 +25,7 @@ describe('registerIterableClass', () => {
   it('should register the corresponding class data types', () => {
     registerIterableClass(
       { classRef: Map, getKeys: map => Array.from(map.keys()) as string[] },
-      { classRef: Set, getKeys: map => Array.from(map.keys()) as string[] }
+      { classRef: Set, getKeys: set => Array.from(set.keys()) as string[] }
     )
     expect(registeredClasses).toContainEqual(Map)
     expect(registeredClasses).toContainEqual(Set)
