@@ -14,6 +14,7 @@ const identical = (targetA: UnknownIterable, targetB: UnknownIterable): boolean 
   if (targetA === targetB) return true
   const typeMatch = sameStructure(targetA, targetB)
   if (typeMatch === false) return typeMatch
+  if (typeMatch === 'function') return targetA.toString() === targetB.toString()
   if (!isIterableType(typeMatch)) return targetA === targetB
   const keys = getKeysFromIterable(targetA, typeMatch)
   const keyCount = keys.length
@@ -45,6 +46,10 @@ const identical$ = (targetA: UnknownIterable, targetB: UnknownIterable, ...stack
   if (typeMatch === false) {
     clear()
     return typeMatch
+  }
+  if (typeMatch === 'function') {
+    clear()
+    return targetA.toString() === targetB.toString()
   }
   if (!isIterableType(typeMatch)) {
     clear()

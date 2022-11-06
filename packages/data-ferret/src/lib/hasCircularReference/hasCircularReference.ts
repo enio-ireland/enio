@@ -12,13 +12,9 @@ const hasCircularReference$ = (target: unknown, stack: ReferenceStack): boolean 
   if (!isIterableType(type)) return false
   stack.add(target)
   const keys = getKeysFromIterable(target, type)
-  for (let i = 0; i < keys.length; i += 1) {
-    if (hasCircularReference$((target as UnknownIterable)[keys[i] as UnknownIterableKey], stack)) {
-      if (start) stack.clear()
-      return true
-    }
-  }
-  return false
+  const result = keys.some(k => hasCircularReference$((target as UnknownIterable)[k as UnknownIterableKey], stack))
+  if (result && start) stack.clear()
+  return result
 }
 
 /**

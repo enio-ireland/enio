@@ -5,7 +5,7 @@ import { registerIterableClass } from '../registerIterableClass/registerIterable
 describe('getKeysFromIterable', () => {
   beforeEach(() => setConfig({ detectCircularReferences: false }))
 
-  it('return keys from array', () => {
+  it('should return keys from array', () => {
     expect(getKeysFromIterable(['apple', 'banana', 'orange'], 'array')).toEqual(['0', '1', '2'])
   })
 
