@@ -1,0 +1,1 @@
+export { addDependencies } from './addDependencies'
