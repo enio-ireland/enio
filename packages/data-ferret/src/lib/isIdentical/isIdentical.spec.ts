@@ -69,6 +69,29 @@ describe('isIdentical', () => {
     ).toEqual(true)
   })
 
+  it('should return false for functions with different content', () => {
+    expect(
+      isIdentical(
+        function () {
+          console.log(void 0)
+        },
+        function () {}
+      )
+    ).toEqual(false)
+  })
+
+  it('should return false for functions with different declaration/assignment', () => {
+    expect(
+      isIdentical(
+        function () {},
+        () => {}
+      )
+    ).toEqual(false)
+
+    const funcA = () => {}
+    expect(isIdentical(funcA, function funcA() {})).toEqual(false)
+  })
+
   it('should return false for lists with items in the wrong order', () => {
     expect(isIdentical([1, 2, 3], [3, 1, 2])).toEqual(false)
     expect(isIdentical([4, 1, 2], [3, 2, 4])).toEqual(false)
@@ -171,6 +194,29 @@ describe('isIdentical - with config detectCircularReferences:true', () => {
         (_: unknown) => void 0
       )
     ).toEqual(true)
+  })
+
+  it('should return false for functions with different content', () => {
+    expect(
+      isIdentical(
+        function () {
+          console.log(void 0)
+        },
+        function () {}
+      )
+    ).toEqual(false)
+  })
+
+  it('should return false for functions with different declaration/assignment', () => {
+    expect(
+      isIdentical(
+        function () {},
+        () => {}
+      )
+    ).toEqual(false)
+
+    const funcA = () => {}
+    expect(isIdentical(funcA, function funcA() {})).toEqual(false)
   })
 
   it('should return false for lists with items in the wrong order', () => {
