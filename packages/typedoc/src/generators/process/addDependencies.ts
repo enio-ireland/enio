@@ -1,7 +1,8 @@
 import { addDependenciesToPackageJson, Tree, GeneratorCallback } from '@nrwl/devkit';
+import { peerDependencies } from '../../../package.json'
 
 export const addDependencies = (tree: Tree): GeneratorCallback => {
   const dependencies: Record<string, string> = {}
-  const devDependencies: Record<string, string> = { typedoc: '^0.23.20' } // See https://github.com/TypeStrong/typedoc/blob/master/package.json
+  const devDependencies: Record<string, string> = { typedoc: peerDependencies.typedoc }
   return addDependenciesToPackageJson(tree, dependencies, devDependencies);
 }
