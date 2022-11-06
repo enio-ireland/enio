@@ -1,5 +1,5 @@
 import { Tree, readWorkspaceConfiguration, updateWorkspaceConfiguration } from '@nrwl/devkit'
-import { name } from '../../../project.json'
+import { name } from '../../../../project.json'
 
 export const registerOperation = (tree: Tree): void => {
   const config = { ...readWorkspaceConfiguration(tree) }

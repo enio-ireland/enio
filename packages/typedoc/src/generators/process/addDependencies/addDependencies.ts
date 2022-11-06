@@ -1,5 +1,5 @@
 import { addDependenciesToPackageJson, Tree, GeneratorCallback } from '@nrwl/devkit'
-import { peerDependencies } from '../../../package.json'
+import { peerDependencies } from '../../../../package.json'
 
 export const addDependencies = (tree: Tree): GeneratorCallback => {
   const dependencies: Record<string, string> = {}
