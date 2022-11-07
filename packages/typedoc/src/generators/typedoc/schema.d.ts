@@ -1,3 +1,3 @@
 export interface TypedocGeneratorSchema {
-  project: string;
+  project: string
 }
