@@ -1,80 +1,86 @@
-import { ProjectConfiguration, joinPathFragments } from '@nrwl/devkit'
-import { TypeDocOptions, normalizePath } from 'typedoc'
+import { ProjectConfiguration, Tree } from '@nrwl/devkit'
+import { TypeDocOptions } from 'typedoc'
+import { getTsConfig } from '../configureProject/getTsConfig'
 
-export const getConfigDefaults = (/*project: ProjectConfiguration*/): Partial<TypeDocOptions> => ({})
+type CLIOptions = 'options' | 'help' | 'version' | 'showConfig'
 
-/**
- *
-    tsconfig: string;
-    compilerOptions: unknown;
-    entryPoints: string[];
-    entryPointStrategy: typeof EntryPointStrategy;
-    exclude: string[];
-    externalPattern: string[];
-    excludeExternals: boolean;
-    excludeNotDocumented: boolean;
-    excludeInternal: boolean;
-    excludePrivate: boolean;
-    excludeProtected: boolean;
-    externalSymbolLinkMappings: ManuallyValidatedOption<Record<string, Record<string, string>>>;
-    media: string;
-    includes: string;
-    out: string;
-    json: string;
-    pretty: boolean;
-    emit: typeof EmitStrategy;
-    theme: string;
-    lightHighlightTheme: ShikiTheme;
-    darkHighlightTheme: ShikiTheme;
-    customCss: string;
-    markedOptions: unknown;
-    name: string;
-    includeVersion: boolean;
-    disableSources: boolean;
-    basePath: string;
-    excludeTags: `@${string}`[];
-    readme: string;
-    cname: string;
-    sourceLinkTemplate: string;
-    gitRevision: string;
-    gitRemote: string;
-    htmlLang: string;
-    githubPages: boolean;
-    gaID: string;
-    hideGenerator: boolean;
-    searchInComments: boolean;
-    cleanOutputDir: boolean;
-    titleLink: string;
-    navigationLinks: ManuallyValidatedOption<Record<string, string>>;
-    sidebarLinks: ManuallyValidatedOption<Record<string, string>>;
-    commentStyle: typeof CommentStyle;
-    blockTags: `@${string}`[];
-    inlineTags: `@${string}`[];
-    modifierTags: `@${string}`[];
-    categorizeByGroup: boolean;
-    defaultCategory: string;
-    categoryOrder: string[];
-    sort: SortStrategy[];
-    visibilityFilters: ManuallyValidatedOption<{
-        protected?: boolean;
-        private?: boolean;
-        inherited?: boolean;
-        external?: boolean;
-        [tag: `@${string}`]: boolean;
-    }>;
-    searchCategoryBoosts: ManuallyValidatedOption<Record<string, number>>;
-    searchGroupBoosts: ManuallyValidatedOption<Record<string, number>>;
-    watch: boolean;
-    preserveWatchOutput: boolean;
-    skipErrorChecking: boolean;
-    help: boolean;
-    version: boolean;
-    showConfig: boolean;
-    plugin: string[];
-    logger: unknown;
-    logLevel: typeof LogLevel;
-    treatWarningsAsErrors: boolean;
-    intentionallyNotExported: string[];
-    validation: ValidationOptions;
-    requiredToBeDocumented: (keyof typeof ReflectionKind)[];
- */
+export const getConfigDefaults = (project: ProjectConfiguration, tree: Tree): Partial<Omit<TypeDocOptions, CLIOptions>> => ({
+  tsconfig: getTsConfig(project, tree),
+  compilerOptions: {},
+  entryPoints: ['./src'],
+  entryPointStrategy: 'Resolve',
+  exclude: ['**/*+(index|.spec|.e2e).ts'],
+  externalPattern: [],
+  excludeExternals: true,
+  excludeNotDocumented: false,
+  excludeInternal: true,
+  excludePrivate: true,
+  excludeProtected: true,
+  externalSymbolLinkMappings: {},
+  media: 'media', // TODO: Review
+  includes: 'docs', // TODO: Review
+  out: './docs', // TODO: Review !!! - Optionalize (with default) ?
+  emit: 'docs',
+  theme: 'default',
+  customCss: '',
+  name: project.name, // TODO: Review
+  includeVersion: true,
+  disableSources: false,
+  // basePath: '', // TODO: Review
+  excludeTags: [],
+  readme: 'README.md', // TODO: Review !!!
+  cname: '', // TODO: Review !!! - Optionalize (with default) ?
+  sourceLinkTemplate: '', // TODO: Review
+  gitRevision: 'develop', // TODO: Review !!! - Optionalize (with default, suggestions: develop, master, main) ?
+  gitRemote: 'origin', // TODO: Review
+  htmlLang: 'en', // TODO: Review - executor prop instead?
+  githubPages: true,
+  gaID: '',
+  hideGenerator: true,
+  searchInComments: false, // TODO: Review - ask user?
+  cleanOutputDir: true,
+  // titleLink: '', // TODO: Review - perhaps autogenerate ?
+  navigationLinks: {}, // TODO: Review - perhaps add other .md files found
+  sidebarLinks: {}, // TODO: Review - perhaps add other .md files found
+  commentStyle: 'jsdoc', // TODO: Review - ask user? but give default
+  // blockTags: [],
+  // inlineTags: [],
+  // modifierTags: [],
+  categorizeByGroup: false,
+  defaultCategory: 'Other',
+  categoryOrder: [],
+  sort: ['visibility', 'required-first', 'source-order'],
+  visibilityFilters: {
+    protected: true,
+    private: true,
+    inherited: true,
+    external: true
+  },
+  searchCategoryBoosts: {},
+  searchGroupBoosts: {},
+  watch: false, // REVIEW - make option in executor
+  preserveWatchOutput: false,
+  skipErrorChecking: true, // REVIEW - is it the same as ignoreCompilerErrors?
+  // plugin: [],
+  // logger: ...,
+  logLevel: 'Warn',
+  treatWarningsAsErrors: false,
+  intentionallyNotExported: [],
+  validation: {
+    notExported: true,
+    invalidLink: true,
+    notDocumented: true
+  },
+  requiredToBeDocumented: [] // Review (keyof typeof ReflectionKind)[]; validation.notDocumented
+  // Options seem deprecated - REVIEW !!!
+  // inputFiles: [
+  //   './src'
+  // ],
+  // mode: 'file',
+  // includeDeclarations: true,
+  // ignoreCompilerErrors: true,
+  // plugin: 'none',
+  // listInvalidSymbolLinks: true,
+  // disableOutputCheck: false
+  // excludeNotExported: true // TODO: Deprecated? Review !!! - Linked to mode.
+})

@@ -6,6 +6,6 @@ export default async function (tree: Tree, options: TypedocGeneratorSchema) {
   const installDependencies = addDependencies(tree)
   registerOperation(tree)
   configureProject(tree, options)
-  configureTypedoc(tree)
+  configureTypedoc(tree, options)
   return installDependencies
 }
