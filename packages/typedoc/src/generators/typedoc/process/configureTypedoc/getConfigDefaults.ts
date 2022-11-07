@@ -5,6 +5,15 @@ export const getConfigDefaults = (project: ProjectConfiguration): Partial<TypeDo
   options: joinPathFragments(normalizePath(project.root), 'typedoc.json')
 })
 
+// import { TypeDocOptions } from 'typedoc'
+
+// const typeDocOptions = {
+//   extends: [],
+//   entryPoints: ['./src/index.ts'],
+//   out: 'doc',
+
+//   tsconfig: ''
+
 // import { ProjectConfiguration, joinPathFragments } from '@nrwl/devkit'
 // import { TypeDocOptions, normalizePath } from 'typedoc'
 
