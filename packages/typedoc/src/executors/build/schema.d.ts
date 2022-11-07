@@ -1,1 +1,1 @@
-export type BuildExecutorSchema = Omit<import('typedoc').TypeDocOptions, 'options'>
+export type BuildExecutorSchema = import('typedoc').TypeDocOptions
