@@ -7,5 +7,6 @@ export const configureTypedoc = (tree: Tree, options: TypedocGeneratorSchema): v
   const templateSourceFolder = resolve(__dirname, '../../files')
   const project = readProjectConfiguration(tree, options.project)
   const substitutions = { options: getConfigDefaults(project, tree) }
+  // TODO: rename file __template
   generateFiles(tree, templateSourceFolder, project.root, substitutions)
 }
