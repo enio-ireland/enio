@@ -3,11 +3,6 @@
   "name": "typedoc",
   "version": "0.0.1",
   "generators": {
-    "_typedoc": {
-      "factory": "./src/generators/typedoc/generator",
-      "schema": "./src/generators/typedoc/schema.json",
-      "description": "Generator for Typedoc targets."
-    },
     "config": {
       "factory": "./src/generators/typedoc/generator",
       "schema": "./src/generators/typedoc/schema.json",
