@@ -70,3 +70,19 @@ If you wish to further customize typedoc behavior in your Nx project you can;
 
 1. Update `typedoc.json` file in your project directory.
 2. Update typedoc entry options in `nx.json` to apply consistent behavior when running the generate documentation command for your Nx projects.
+
+<br>
+
+## Contributors
+
+(This list will be automatically generated in the future.)
+
+<br>
+
+## Sponsors
+
+<p style="text-align: justify">
+  Maintenance of this project is made possible by all the contributors and sponsors. If you'd like to sponsor this project and have your avatar or company logo appear below <a href="https://github.com/sponsors/enio-ireland">click here</a>. 💖
+</p>
+
+(This list will be automatically generated in the future.)
