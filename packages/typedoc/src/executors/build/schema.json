@@ -5,5 +5,11 @@
   "title": "Build typedoc",
   "description": "Executor for documentation generation via typedoc.",
   "type": "object",
-  "properties": {}
+  "properties": {
+    "watch": {
+      "description": "Watch for source files changes to automatically rebuild documentation.",
+      "type": "boolean",
+      "default": false
+    }
+  }
 }

@@ -1,4 +1,4 @@
-import { joinPathFragments, normalizePath, Tree } from '@nrwl/devkit'
+import { Tree } from '@nrwl/devkit'
 import { TypedocGeneratorSchema } from '../../schema'
 import { readProjectConfiguration, updateProjectConfiguration } from '@nrwl/devkit'
 import { getExecutorName } from './getExecutorName'
@@ -8,7 +8,7 @@ export const configureProject = (tree: Tree, options: TypedocGeneratorSchema): v
   const config = readProjectConfiguration(tree, options.project)
   config.targets[name] = {
     executor: getExecutorName(),
-    options: { options: joinPathFragments(normalizePath(config.root), 'typedoc.json') },
+    options: { options: 'typedoc.json' },
     configurations: {}
   }
   updateProjectConfiguration(tree, options.project, config)

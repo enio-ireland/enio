@@ -1,1 +1,3 @@
-export type BuildExecutorSchema = import('typedoc').TypeDocOptions
+export interface BuildExecutorSchema {
+  watch: boolean
+}
