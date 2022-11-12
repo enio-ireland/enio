@@ -9,7 +9,7 @@ export const configureGitIgnore = (tree: Tree, options: TypedocGeneratorSchema):
   const titleAndAnnotation = `${title}\n${exclusionAnnotation}`
   if (!tree.isFile(path)) return tree.write(path, titleAndAnnotation)
   const content = tree.read('.gitignore')
-  if (content.includes(exclusionAnnotation)) return;
+  if (content.includes(exclusionAnnotation)) return
   if (!content.includes(title)) return tree.write(path, `${content.toString()}\n${titleAndAnnotation}`)
   const original = content.toString()
   const insertAt = original.indexOf(title) + title.length

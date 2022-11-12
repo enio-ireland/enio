@@ -6,10 +6,10 @@ type CLIOptions = 'options' | 'help' | 'version' | 'showConfig'
 
 export const getConfigDefaults = (project: ProjectConfiguration, tree: Tree): Partial<Omit<TypeDocOptions, CLIOptions>> => ({
   entryPointStrategy: 'expand',
-  entryPoints: ['./src'],
+  entryPoints: ['./src/lib'],
   tsconfig: getTsConfig(project, tree),
   compilerOptions: {},
-  exclude: ['**/*.(spec|test|e2e).ts', 'docs/**', 'tests/**', 'specs/**', 'spec/**', 'test/**'],
+  exclude: ['**/*.(spec|test|e2e).ts', 'docs/**', 'tests/**', 'specs/**', 'spec/**', 'test/**', '**/index.ts'],
   externalPattern: ['**/node_modules/**'],
   excludeExternals: true,
   excludeInternal: false,
@@ -41,7 +41,7 @@ export const getConfigDefaults = (project: ProjectConfiguration, tree: Tree): Pa
   navigationLinks: {},
   sidebarLinks: {},
   commentStyle: 'all',
-  categorizeByGroup: false,
+  categorizeByGroup: true,
   defaultCategory: 'Other',
   categoryOrder: [],
   sort: ['visibility', 'required-first', 'source-order'],

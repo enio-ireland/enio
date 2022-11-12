@@ -3,6 +3,6 @@ import { peerDependencies } from '../../../../../package.json'
 
 export const addDependencies = (tree: Tree): GeneratorCallback => {
   const dependencies: Record<string, string> = {}
-  const devDependencies: Record<string, string> = { typedoc: peerDependencies.typedoc }
+  const devDependencies: Record<string, string> = peerDependencies
   return addDependenciesToPackageJson(tree, dependencies, devDependencies)
 }
