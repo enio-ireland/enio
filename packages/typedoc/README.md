@@ -38,11 +38,12 @@ Run the following command, where `<project>` is the name of your project in the 
 Optionally, you can create an npm script on the `package.json` file in the root folder of your nx workspace for convenience.
 
 ```json
-{ // package.json
+{
+  // package.json
   "scripts": {
     // ...
     "create.docs": "nx @enio.ai/typedoc:typedoc",
-    "setup.docs": "nx g @enio.ai/typedoc:config",
+    "setup.docs": "nx g @enio.ai/typedoc:config"
     // ...
   }
 }
@@ -64,7 +65,7 @@ By default, the documents are generated under: `./docs` relative to root directo
 
 ## Configure Docs
 
-This plugin includes sensible default configurations for best experience. 
+This plugin includes sensible default configurations for best experience.
 If you wish to further customize typedoc behavior in your Nx project you can;
 
 1. Update `typedoc.json` file in your project directory.
