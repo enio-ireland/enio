@@ -1,4 +1,4 @@
-import { ProjectConfiguration, Tree } from '@nrwl/devkit'
+import { joinPathFragments, ProjectConfiguration, Tree } from '@nrwl/devkit'
 import { TypeDocOptions } from 'typedoc'
 import { getTsConfig } from '../configureProject/getTsConfig'
 
@@ -18,7 +18,7 @@ export const getConfigDefaults = (project: ProjectConfiguration, tree: Tree): Pa
   excludeNotDocumented: false,
   externalSymbolLinkMappings: {},
   includes: '',
-  out: '../../docs', // TODO: Make dynamic instead of hardcoded
+  out: joinPathFragments('../../docs', project.root),
   emit: 'docs',
   theme: 'default',
   customCss: '',
