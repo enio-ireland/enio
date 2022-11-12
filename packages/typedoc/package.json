@@ -9,6 +9,8 @@
     "tslib": "^2.4.1"
   },
   "peerDependencies": {
-    "typedoc": "^0.23.20"
+    "typedoc": "^0.23.20",
+    "typedoc-plugin-rename-defaults": "^0.6.4",
+    "typedoc-theme-hierarchy": "^3.0.0"
   }
 }

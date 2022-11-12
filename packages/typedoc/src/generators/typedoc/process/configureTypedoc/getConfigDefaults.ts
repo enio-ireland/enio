@@ -20,8 +20,7 @@ export const getConfigDefaults = (project: ProjectConfiguration, tree: Tree): Pa
   includes: '',
   out: joinPathFragments('../../docs', project.root),
   emit: 'docs',
-  theme: 'default',
-  customCss: '',
+  theme: 'hierarchy',
   name: project.name,
   includeVersion: true,
   readme: './README.md',
@@ -63,5 +62,6 @@ export const getConfigDefaults = (project: ProjectConfiguration, tree: Tree): Pa
   requiredToBeDocumented: [],
   treatWarningsAsErrors: false,
   intentionallyNotExported: [],
-  logLevel: 'Verbose'
+  logLevel: 'Verbose',
+  plugin: ['typedoc-plugin-rename-defaults', 'typedoc-theme-hierarchy']
 })
