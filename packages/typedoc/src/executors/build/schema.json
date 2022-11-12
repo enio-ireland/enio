@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "version": 2,
+  "cli": "nx",
+  "title": "Build typedoc",
+  "description": "Executor for documentation generation via typedoc.",
+  "type": "object",
+  "properties": {
+    "options": {
+      "description": "Specify an option file that should be loaded. [Learn More](https://typedoc.org/guides/options/#options).",
+      "type": "string"
+    },
+    "watch": {
+      "description": "Watch for source files changes to automatically rebuild documentation.",
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

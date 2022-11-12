@@ -36,6 +36,11 @@
       "rules": {
         "@typescript-eslint/no-empty-function": "off"
       }
+    },
+    {
+      "files": "*.json",
+      "parser": "jsonc-eslint-parser",
+      "rules": {}
     }
   ]
 }

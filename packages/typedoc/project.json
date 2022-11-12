@@ -1,0 +1,61 @@
+{
+  "name": "typedoc",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/typedoc/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/typedoc",
+        "main": "packages/typedoc/src/index.ts",
+        "tsConfig": "packages/typedoc/tsconfig.lib.json",
+        "assets": [
+          "packages/typedoc/*.md",
+          {
+            "input": "./packages/typedoc/src",
+            "glob": "**/!(*.ts)",
+            "output": "./src"
+          },
+          {
+            "input": "./packages/typedoc/src",
+            "glob": "**/*.d.ts",
+            "output": "./src"
+          },
+          {
+            "input": "./packages/typedoc",
+            "glob": "generators.json",
+            "output": "."
+          },
+          {
+            "input": "./packages/typedoc",
+            "glob": "executors.json",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "packages/typedoc/**/*.ts",
+          "packages/typedoc/generators.json",
+          "packages/typedoc/executors.json",
+          "packages/typedoc/package.json"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "packages/typedoc/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

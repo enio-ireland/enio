@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "$id": "Typedoc",
+  "title": "Configure Typedoc",
+  "type": "object",
+  "properties": {
+    "project": {
+      "type": "string",
+      "description": "Name of project typedoc should be added to.",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "Which project do you want to add typedoc to?"
+    }
+  },
+  "required": ["project"]
+}
