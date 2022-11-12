@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="197" src="https://github.com/enio-ireland/enio/blob/develop/images/enio.png">
+  <img width="197" src="https://github.com/enio-ireland/enio/blob/develop/images/enio.png?raw=true">
 </p>
 <p align="center">
   A hub for great inventions built by <a href="https://github.com/enio-ireland">Enio</a>.
