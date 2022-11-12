@@ -5,6 +5,6 @@ export const toArguments = (options: BuildExecutorSchema): string[] =>
     .filter(([, value]) => !!value)
     .reduce((args, [key, value]) => {
       let arg = `--${key}`
-      if (typeof value !== 'boolean')  arg += ` ${value}`
+      if (typeof value !== 'boolean') arg += ` ${value}`
       return [...args, arg]
     }, [])

@@ -5,47 +5,42 @@ import { getTsConfig } from '../configureProject/getTsConfig'
 type CLIOptions = 'options' | 'help' | 'version' | 'showConfig'
 
 export const getConfigDefaults = (project: ProjectConfiguration, tree: Tree): Partial<Omit<TypeDocOptions, CLIOptions>> => ({
+  entryPointStrategy: 'expand',
+  entryPoints: ['./src'],
   tsconfig: getTsConfig(project, tree),
   compilerOptions: {},
-  entryPoints: ['./src'],
-  entryPointStrategy: 'Resolve',
-  exclude: ['**/*+(index|.spec|.e2e).ts'],
-  externalPattern: [],
+  exclude: ['**/*.(spec|test|e2e).ts', 'docs/**', 'tests/**', 'specs/**', 'spec/**', 'test/**'],
+  externalPattern: ['**/node_modules/**'],
   excludeExternals: true,
+  excludeInternal: false,
+  excludePrivate: false,
+  excludeProtected: false,
   excludeNotDocumented: false,
-  excludeInternal: true,
-  excludePrivate: true,
-  excludeProtected: true,
   externalSymbolLinkMappings: {},
-  media: 'media', // TODO: Review
-  includes: 'docs', // TODO: Review
-  out: './docs', // TODO: Review !!! - Optionalize (with default) ?
+  includes: '',
+  out: '../../docs', // TODO: Make dynamic instead of hardcoded
   emit: 'docs',
   theme: 'default',
   customCss: '',
-  name: project.name, // TODO: Review
+  name: project.name,
   includeVersion: true,
+  readme: './README.md',
   disableSources: false,
-  // basePath: '', // TODO: Review
   excludeTags: [],
-  readme: 'README.md', // TODO: Review !!!
-  cname: '', // TODO: Review !!! - Optionalize (with default) ?
-  sourceLinkTemplate: '', // TODO: Review
-  gitRevision: 'develop', // TODO: Review !!! - Optionalize (with default, suggestions: develop, master, main) ?
-  gitRemote: 'origin', // TODO: Review
-  htmlLang: 'en', // TODO: Review - executor prop instead?
+  cname: '',
+  sourceLinkTemplate: '',
+  gitRevision: 'develop',
+  gitRemote: 'origin',
+  htmlLang: 'en',
   githubPages: true,
   gaID: '',
   hideGenerator: true,
-  searchInComments: false, // TODO: Review - ask user?
+  searchInComments: false,
   cleanOutputDir: true,
-  // titleLink: '', // TODO: Review - perhaps autogenerate ?
-  navigationLinks: {}, // TODO: Review - perhaps add other .md files found
-  sidebarLinks: {}, // TODO: Review - perhaps add other .md files found
-  commentStyle: 'jsdoc', // TODO: Review - ask user? but give default
-  // blockTags: [],
-  // inlineTags: [],
-  // modifierTags: [],
+  titleLink: '',
+  navigationLinks: {},
+  sidebarLinks: {},
+  commentStyle: 'all',
   categorizeByGroup: false,
   defaultCategory: 'Other',
   categoryOrder: [],
@@ -58,29 +53,15 @@ export const getConfigDefaults = (project: ProjectConfiguration, tree: Tree): Pa
   },
   searchCategoryBoosts: {},
   searchGroupBoosts: {},
-  watch: false, // REVIEW - make option in executor
   preserveWatchOutput: false,
-  skipErrorChecking: true, // REVIEW - is it the same as ignoreCompilerErrors?
-  // plugin: [],
-  // logger: ...,
-  logLevel: 'Warn',
-  treatWarningsAsErrors: false,
-  intentionallyNotExported: [],
+  skipErrorChecking: false,
   validation: {
     notExported: true,
     invalidLink: true,
     notDocumented: true
   },
-  requiredToBeDocumented: [] // Review (keyof typeof ReflectionKind)[]; validation.notDocumented
-  // Options seem deprecated - REVIEW !!!
-  // inputFiles: [
-  //   './src'
-  // ],
-  // mode: 'file',
-  // includeDeclarations: true,
-  // ignoreCompilerErrors: true,
-  // plugin: 'none',
-  // listInvalidSymbolLinks: true,
-  // disableOutputCheck: false
-  // excludeNotExported: true // TODO: Deprecated? Review !!! - Linked to mode.
+  requiredToBeDocumented: [],
+  treatWarningsAsErrors: false,
+  intentionallyNotExported: [],
+  logLevel: 'Verbose',
 })
