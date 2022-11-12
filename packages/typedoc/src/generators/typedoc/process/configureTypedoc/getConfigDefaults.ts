@@ -63,5 +63,5 @@ export const getConfigDefaults = (project: ProjectConfiguration, tree: Tree): Pa
   requiredToBeDocumented: [],
   treatWarningsAsErrors: false,
   intentionallyNotExported: [],
-  logLevel: 'Verbose',
+  logLevel: 'Verbose'
 })
