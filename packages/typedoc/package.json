@@ -1,9 +1,16 @@
 {
   "name": "@enio.ai/typedoc",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": "Enio Authors",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/enio-ireland/enio/tree/develop/packages/typedoc"
+  },
   "main": "src/index.js",
   "generators": "./generators.json",
   "executors": "./executors.json",
+  "private": false,
   "dependencies": {
     "@nrwl/devkit": "^15.0.10",
     "tslib": "^2.4.1"
@@ -12,5 +19,19 @@
     "typedoc": "^0.23.20",
     "typedoc-plugin-rename-defaults": "^0.6.4",
     "typedoc-theme-hierarchy": "^3.0.0"
-  }
+  },
+  "contributors": [
+    {
+      "name": "Andrew Redican",
+      "email": "andrew.redican.mejia@gmail.com",
+      "url": "https://github.com/AndrewRedican/"
+    }
+  ],
+  "funding": [
+    {
+      "type": "github",
+      "url": "https://github.com/orgs/enio-ireland/dashboard"
+    }
+  ],
+  "keywords": ["typedoc", "nx", "nrwl", "plugin", "enio", "enio.ai", "typedoc-plugin", "monorepo", "documentation", "typescript", "tsc", "typedoc-theme-hierarchy", "andrew.redican"]
 }
