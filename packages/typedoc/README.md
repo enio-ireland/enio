@@ -1,7 +1,7 @@
 <br>
 
 <p align="center">
-  <img width="197" src="https://github.com/enio-ireland/enio/blob/develop/images/enio.png?raw=true">
+  <img width="197" src="https://github.com/enio-ireland/enio/blob/develop/images/typedoc-nx-plugin.png?raw=true">
 </p>
 
 <p align="center">
