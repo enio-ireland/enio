@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/enio-ireland/enio/tree/develop/packages/typedoc">typedoc</a> is a transparent wrapper plugin for <a href="https://nx.dev">Nx workspaces</a> to quickly setup documentation automation on your projects using <a href="https://www.npmjs.com/package/typedoc">typedoc</a>. It is created, maintained, and released as open source under MIT license by a group of passionate individuals in <a href="https://github.com/enio-ireland/enio">Enio</a>.
+  <a href="https://github.com/enio-ireland/enio/tree/develop/packages/typedoc">typedoc</a> is a wrapper plugin for <a href="https://nx.dev">Nx workspaces</a> to quickly setup documentation automation on your projects using <a href="https://www.npmjs.com/package/typedoc">typedoc</a>. It is created, maintained, and released as open source under MIT license by a group of passionate individuals in <a href="https://github.com/enio-ireland/enio">Enio</a>.
 </p>
 
 <br>

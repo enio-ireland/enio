@@ -36,6 +36,13 @@
         "passWithNoTests": false,
         "codeCoverage": true
       }
+    },
+    "typedoc": {
+      "executor": "@enio.ai/typedoc:typedoc",
+      "options": {
+        "options": "typedoc.json"
+      },
+      "configurations": {}
     }
   },
   "tags": []
