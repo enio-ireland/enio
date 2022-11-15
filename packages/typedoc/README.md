@@ -5,6 +5,11 @@
 </p>
 
 <p align="center">
+  <img alt="npm" src="https://img.shields.io/npm/v/@enio.ai/typedoc?style=flat-square">
+  <img alt="NPM" src="https://img.shields.io/npm/l/@enio.ai/typedoc?style=flat-square">
+</p>
+
+<p align="center">
   <a href="https://github.com/enio-ireland/enio/tree/develop/packages/typedoc">typedoc</a> is a wrapper plugin for <a href="https://nx.dev">Nx workspaces</a> to quickly setup documentation automation on your projects using <a href="https://www.npmjs.com/package/typedoc">typedoc</a>. It is created, maintained, and released as open source under MIT license by a group of passionate individuals in <a href="https://github.com/enio-ireland/enio">Enio</a>.
 </p>
 
