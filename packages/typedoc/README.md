@@ -14,7 +14,7 @@
 ## Install, and run it!
 
 > If you aren't familiar with typedoc, saying that typedoc is convenient is an understatement. If you are using TypeScript correctly, assigning types and interfaces, and commenting on what your code does - you can generate documentation on a static site.
-> 
+>
 > Kudos to the author(s) and maintainer(s) of this [brilliant library](https://typedoc.org). We created this Nx wrapper plugin to solve our problem -maintaining several open-source projects is not easy, and certainly, any automation to make the code base maintainable is most welcomed.
 
 Check out this quick demo on how to setup typedoc via this plugin and use it:
