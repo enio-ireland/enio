@@ -5,6 +5,11 @@
 </p>
 
 <p align="center">
+  <img alt="npm" src="https://img.shields.io/npm/v/@enio.ai/typedoc?style=flat-square">
+  <img alt="NPM" src="https://img.shields.io/npm/l/@enio.ai/typedoc?style=flat-square">
+</p>
+
+<p align="center">
   <a href="https://github.com/enio-ireland/enio/tree/develop/packages/typedoc">typedoc</a> is a wrapper plugin for <a href="https://nx.dev">Nx workspaces</a> to quickly setup documentation automation on your projects using <a href="https://www.npmjs.com/package/typedoc">typedoc</a>. It is created, maintained, and released as open source under MIT license by a group of passionate individuals in <a href="https://github.com/enio-ireland/enio">Enio</a>.
 </p>
 
@@ -14,7 +19,7 @@
 ## Install, and run it!
 
 > If you aren't familiar with typedoc, saying that typedoc is convenient is an understatement. If you are using TypeScript correctly, assigning types and interfaces, and commenting on what your code does - you can generate documentation on a static site.
-> 
+>
 > Kudos to the author(s) and maintainer(s) of this [brilliant library](https://typedoc.org). We created this Nx wrapper plugin to solve our problem -maintaining several open-source projects is not easy, and certainly, any automation to make the code base maintainable is most welcomed.
 
 Check out this quick demo on how to setup typedoc via this plugin and use it:
