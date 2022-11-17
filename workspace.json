@@ -3,7 +3,6 @@
   "version": 2,
   "projects": {
     "data-ferret": "packages/data-ferret",
-    "typedoc": "packages/typedoc",
-    "typedoc-e2e": "packages/typedoc-e2e"
+    "typedoc": "packages/typedoc"
   }
 }
