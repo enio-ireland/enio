@@ -61,7 +61,7 @@ Optionally, you can create an npm script on the `package.json` file in the root 
   // package.json
   "scripts": {
     // ...
-    "create.docs": "nx @enio.ai/typedoc:typedoc",
+    "create.docs": "nx typedoc",
     "setup.docs": "nx g @enio.ai/typedoc:config"
     // ...
   }
