@@ -60,12 +60,9 @@ Optionally, you can create an npm script on the `package.json` file in the root 
 
 ```json
 {
-  // package.json
   "scripts": {
-    // ...
     "create.docs": "nx typedoc",
     "setup.docs": "nx g @enio.ai/typedoc:config"
-    // ...
   }
 }
 ```
@@ -96,7 +93,14 @@ If you wish to further customize typedoc behavior in your Nx project you can;
 
 ## Contributors
 
-(This list will be automatically generated in the future.)
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
 
 <br>
 
