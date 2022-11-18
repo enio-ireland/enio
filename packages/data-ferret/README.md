@@ -21,11 +21,11 @@
 
 ## Key Features
 
-- [x] Ideal for managing, indexing, searching, and transforming complex data whose interface or shape cannot be guaranteed, in other words, _messy data_.
-- [x] Designed to be extensible to support custom class instances or iterables, beyond the native JavaScript data types.
-- [x] Provides first-class support for handling objects with circular references.
-- [x] Zero dependencies.
-- [x] Bug-free. Features have been thoroughly tested, and published versions have a 100% code coverage guarantee.
+1. **Ideal for managing**, indexing, searching, and transforming **complex data** whose interface or shape cannot be guaranteed, in other words, _messy data_.
+2. **Designed to be extensible** to support custom class instances or iterables, beyond the native JavaScript data types.
+3. Provides **first-class support for** handling objects with **circular references**.
+4. **Zero dependencies.**
+5. **Bug-free.** Features have been thoroughly tested, and published versions have a 100% code coverage guarantee.
 
 <br>
 
