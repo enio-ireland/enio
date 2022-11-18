@@ -1,9 +1,12 @@
 {
   "projectName": "enio",
-  "projectOwner": "AndrewRedican",
+  "projectOwner": "enio-ireland",
   "repoType": "github",
   "repoHost": "https://github.com/enio-ireland/enio",
-  "files": ["README.md", "CONTRIBUTORS.md"],
+  "files": [
+    "README.md",
+    "CONTRIBUTORS.md"
+  ],
   "imageSize": 100,
   "commit": true,
   "commitConvention": true,
@@ -11,5 +14,16 @@
   "contributorsSortAlphabetically": false,
   "linkToUsage": false,
   "skipCi": true,
-  "contributors": []
+  "contributors": [
+    {
+      "login": "AndrewRedican",
+      "name": "Andrew Redican",
+      "avatar_url": "https://avatars.githubusercontent.com/u/24832471?v=4",
+      "profile": "https://resume.github.io/?AndrewRedican",
+      "contributions": [
+        "doc",
+        "code"
+      ]
+    }
+  ]
 }
