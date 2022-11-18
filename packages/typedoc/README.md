@@ -7,6 +7,8 @@
 <p align="center">
   <img alt="npm" src="https://img.shields.io/npm/v/@enio.ai/typedoc?style=flat-square">
   <img alt="NPM" src="https://img.shields.io/npm/l/@enio.ai/typedoc?style=flat-square">
+  <img alt="npm" src="https://img.shields.io/npm/dm/@enio.ai/typedoc?style=flat-square">
+  <img alt="GitHub Sponsors" src="https://img.shields.io/github/sponsors/enio-ireland?style=flat-square">
 </p>
 
 <p align="center">
@@ -58,12 +60,9 @@ Optionally, you can create an npm script on the `package.json` file in the root 
 
 ```json
 {
-  // package.json
   "scripts": {
-    // ...
     "create.docs": "nx typedoc",
     "setup.docs": "nx g @enio.ai/typedoc:config"
-    // ...
   }
 }
 ```
@@ -94,7 +93,14 @@ If you wish to further customize typedoc behavior in your Nx project you can;
 
 ## Contributors
 
-(This list will be automatically generated in the future.)
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
 
 <br>
 
