@@ -1,0 +1,15 @@
+{
+  "projectName": "enio",
+  "projectOwner": "AndrewRedican",
+  "repoType": "github",
+  "repoHost": "https://github.com/enio-ireland/enio",
+  "files": ["README.md", "CONTRIBUTORS.md"],
+  "imageSize": 100,
+  "commit": true,
+  "commitConvention": true,
+  "contributorsPerLine": 7,
+  "contributorsSortAlphabetically": false,
+  "linkToUsage": false,
+  "skipCi": true,
+  "contributors": []
+}
