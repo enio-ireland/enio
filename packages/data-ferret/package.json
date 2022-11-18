@@ -1,6 +1,6 @@
 {
   "name": "@enio.ai/data-ferret",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "license": "MIT",
   "author": "Enio Authors",
   "type": "module",
@@ -22,5 +22,19 @@
       "url": "https://github.com/orgs/enio-ireland/dashboard"
     }
   ],
-  "sideEffects": false
+  "sideEffects": false,
+  "keywords": [
+    "data-ferret",
+    "data-comparison",
+    "data-transformation",
+    "primitives",
+    "structures",
+    "nested",
+    "objects",
+    "circular-references",
+    "typescript",
+    "enio.ai",
+    "enio",
+    "andrew.redican"
+  ]
 }

@@ -92,16 +92,7 @@ If you wish to further customize typedoc behavior in your Nx project you can;
 
 <br>
 
-## Contributors
-
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
-
-<!-- ALL-CONTRIBUTORS-LIST:END -->
+## [Contributors](https://github.com/enio-ireland/enio/blob/develop/CONTRIBUTORS.md)
 
 <br>
 
