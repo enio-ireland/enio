@@ -8,6 +8,7 @@
   <img alt="npm" src="https://img.shields.io/npm/v/@enio.ai/typedoc?style=flat-square">
   <img alt="NPM" src="https://img.shields.io/npm/l/@enio.ai/typedoc?style=flat-square">
   <img alt="npm" src="https://img.shields.io/npm/dm/@enio.ai/typedoc?style=flat-square">
+  <img alt="GitHub contributors (via allcontributors.org)" src="https://img.shields.io/github/all-contributors/enio-ireland/enio/develop?color=%23&style=flat-square">
   <img alt="GitHub Sponsors" src="https://img.shields.io/github/sponsors/enio-ireland?style=flat-square">
 </p>
 

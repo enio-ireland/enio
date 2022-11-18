@@ -5,7 +5,11 @@
   "repoHost": "https://github.com/enio-ireland/enio",
   "files": [
     "README.md",
-    "CONTRIBUTORS.md"
+    "CONTRIBUTORS.md",
+    "packages/typedoc/README.md",
+    "packages/typedoc/CONTRIBUTORS.md",
+    "packages/data-ferret/README.md",
+    "packages/data-ferret/CONTRIBUTORS.md"
   ],
   "imageSize": 100,
   "commit": true,
