@@ -16,6 +16,22 @@
 <br>
 <br>
 
+## Key Features
+
+- [x] Ideal for managing, indexing, searching, and transforming complex data whose interface or shape cannot be guaranteed, in other words, _messy data_.
+- [x] Designed to be extensible to support custom class instances or iterables, beyond the native JavaScript data types.
+- [x] Provides first-class support for handling objects with circular references.
+- [x] Zero dependencies.
+- [x] Bug-free. Features have been thoroughly tested, and published versions have a 100% code coverage guarantee.
+
+<br>
+
+## Status
+
+This project is a rewrite of [mitsuketa](https://www.npmjs.com/package/mitsuketa) from the ground up, and it is still in the process of being migrated. So expect more features soon! ETA: 1 week.
+
+<br>
+
 ## Installation
 
 Using npm:
@@ -29,15 +45,66 @@ $ npm i --save @enio.ai/data-ferret
 
 ## How to Use
 
-```
+You can import utils from [data-ferret]() just as you would with other npm packages.
 
+```javascript
+import { isIdential, hasCircularReference } from '@enio.ai/data-ferret' // access API via import
 ```
 
 <br>
 
 ## API
 
-(Documentation will generated automatically).
+### Data Comparison
+
+[data-ferret](https://github.com/enio-ireland/enio/tree/develop/packages/data-ferret) provides a suite of utils for data comparison and evaluation.
+
+| Util                | Description                                                                                                                                                                                                                                                                                                                    |
+| :------------------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [getType()]()       | Returns the data type of the target. Uses native typeof, however, makes a separate distinction for 'null' and 'array' values. Additionally, when classes are registered as types, it checks if objects are instances of a known class.                                                                                         |
+| [sameType()]()      | Returns the matching data type for both values, otherwise, returns false.                                                                                                                                                                                                                                                      |
+| [sameStructure()]() | Returns the matching type when both values have the same type or structure (non-primitive type), which compares each value's enumerable property names by default for arrays and objects, otherwise returns false. It supports other iterable data types, provided these have been made known using `registerIterableClass()`. |
+| [isIterable()]()    | Returns true when a value is iterable. By default, arrays and objects are considered iterable. Additional iterable types can be assigned by using `registerIterableClass()`.                                                                                                                                                   |
+| [isIdentical()]()   | Returns true when both values are identical. For primitive values, use strict equality comparison. For non-primitive values, it checks equality by reviewing values' properties and values.                                                                                                                                    |
+| [containsKeys()]()  | A predicate that returns true when the value contains the keys that are expected. It supports other iterable data types, provided these have been made known using `registerIterableClass()`.                                                                                                                                  |
+
+### Circular Reference Data Support
+
+[data-ferret](https://github.com/enio-ireland/enio/tree/develop/packages/data-ferret) comes equipped with a configurable API that allows it to work with circular referenced data with ease.
+
+_Note!: Circular reference detection is not supported for immutable data. E.g. `Object.freeze(data)`_.
+
+| Util                       | Description                                                                                                                                                                                           |
+| :------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [hasCircularReference()]() | Returns true for values that have circular references.                                                                                                                                                |
+| [isIdentical()]()          | Same util as described in the previous section. One important thing to note is that it can compare values with circular references. Just need to set the `detectCircularReferences` configuration ON. |
+
+### Beyond Native Constructs Support
+
+[data-ferret](https://github.com/enio-ireland/enio/tree/develop/packages/data-ferret) is designed to be extensible. It provides some utils that let it understand constructs that are not native JavaScript data types.
+
+For example, passing the class definition and key selector function `registerIterableClass()` allows [data-ferret](https://github.com/enio-ireland/enio/tree/develop/packages/data-ferret) to iterate for members of that class and also treats it like a separate data type instead of a plain object.
+
+| Util                        | Description                                                                                                                                                                                              |
+| :-------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [registerClassTypes()]()    | Registers one or more classes which will set up the rest of the data-ferret'd API to treat instances of said class or classes as having their own unique data type that corresponds to their class.      |
+| [registerIterableClass()]() | Registers one or more classes which will set up the rest of the data-ferret'd API to treat instances of said class or classes as having their separate unique data type that corresponds to their class. |
+
+### Configurable Behavior
+
+Some read/write utils to set global util behavior.
+
+| Util            | Description                                        |
+| :-------------- | :------------------------------------------------- |
+| [setConfig()]() | Sets the global settings for data-ferret utils.    |
+| [getConfig()]() | Returns the global settings for data-ferret utils. |
+
+#### Options
+
+| Key                             | Description                                                                                                                                                                                   |
+| :------------------------------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [samePositionOfOwnProperties]() | A flag that indicates the API that two values can match if their properties are in the same order when set to true.                                                                           |
+| [detectCircularReferences]()    | A flag that indicates the API that circular references may exist and should keep a tally of reference stack. Turning this flag ON comes at a performance cost, so enable only when necessary. |
 
 <br>
 

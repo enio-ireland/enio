@@ -22,5 +22,19 @@
       "url": "https://github.com/orgs/enio-ireland/dashboard"
     }
   ],
-  "sideEffects": false
+  "sideEffects": false,
+  "keywords": [
+    "data-ferret",
+    "data-comparison",
+    "data-transformation",
+    "primitives",
+    "structures",
+    "nested",
+    "objects",
+    "circular-references",
+    "typescript",
+    "enio.ai",
+    "enio",
+    "andrew.redican"
+  ]
 }

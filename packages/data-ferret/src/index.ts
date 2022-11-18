@@ -1,4 +1,5 @@
 export type { Predicate, DataType } from './lib/shared/model'
+export { setConfig } from './lib/shared/consts'
 export { getConfig } from './lib/shared/consts'
 export { registerClassTypes } from './lib/registerClassTypes/registerClassTypes'
 export { registerIterableClass } from './lib/registerIterableClass/registerIterableClass'

@@ -11,6 +11,9 @@ let samePositionOfOwnProperties = false
 
 let detectCircularReferences = false
 
+/**
+ * Sets the global settings for data-ferret utils.
+ */
 export const setConfig = (config: Partial<Config>): void => {
   samePositionOfOwnProperties =
     typeof config.samePositionOfOwnProperties === 'boolean' ? config.samePositionOfOwnProperties : samePositionOfOwnProperties || false
@@ -18,4 +21,7 @@ export const setConfig = (config: Partial<Config>): void => {
     typeof config.detectCircularReferences === 'boolean' ? config.detectCircularReferences : detectCircularReferences || false
 }
 
+/**
+ * Returns the global settings for data-ferret utils.
+ **/
 export const getConfig = (): Config => ({ samePositionOfOwnProperties, detectCircularReferences })
