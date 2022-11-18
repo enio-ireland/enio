@@ -6,10 +6,10 @@
   "files": [
     "README.md",
     "CONTRIBUTORS.md",
-    "packages/typedoc/README.md",
-    "packages/typedoc/CONTRIBUTORS.md",
-    "packages/data-ferret/README.md",
-    "packages/data-ferret/CONTRIBUTORS.md"
+    "./packages/typedoc/README.md",
+    "./packages/typedoc/CONTRIBUTORS.md",
+    "./packages/data-ferret/README.md",
+    "./packages/data-ferret/CONTRIBUTORS.md"
   ],
   "imageSize": 100,
   "commit": true,
