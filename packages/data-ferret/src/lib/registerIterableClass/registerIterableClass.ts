@@ -1,4 +1,4 @@
-import { UnknownClass } from '../shared/model'
+import { RegisteredIterableClassEntry, UnknownClass } from '../shared/model'
 import { registeredIterableClasses } from '../shared/consts'
 import { registerClassTypes } from '../registerClassTypes/registerClassTypes'
 
@@ -18,7 +18,7 @@ export const registerIterableClass = <T = unknown>(
   instantiate = () => new classRef()
 ): void => {
   const existingEntryLocation = registeredIterableClasses.findIndex(entry => entry.classRef === classRef)
-  const entry = { classRef, getKeys, write, instantiate }
+  const entry = { classRef, getKeys, write, instantiate } as RegisteredIterableClassEntry
   if (existingEntryLocation >= 0) {
     registeredIterableClasses[existingEntryLocation] = entry
     return

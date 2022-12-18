@@ -16,11 +16,14 @@ export interface RegisteredIterableClassEntry<T = unknown> {
   /** A reference to a class definition. */
   classRef: UnknownClass<T>
 
+  /** Returns a new (empty) instance. */
+  instantiate: () => T
+
   /** Returns list of iterable keys. */
   getKeys: (target: any) => string[]
 
-  /** Returns a new (empty) instance. */
-  instantiate: () => T
+  /** Sets a new value with specific key optionally on class instance. */
+  write: (instance: T, value: unknown, key?: unknown) => void
 }
 
 export interface Config {
