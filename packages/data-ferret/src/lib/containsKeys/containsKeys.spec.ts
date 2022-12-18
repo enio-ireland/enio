@@ -1,5 +1,6 @@
 import { containsKeys } from './containsKeys'
 import { registerIterableClass } from '../registerIterableClass/registerIterableClass'
+import { deregisterIterableClass } from '../deregisterIterableClass/deregisterIterableClass'
 
 describe('containsKeys', () => {
   it('should return true when key is key is found in value', () => {
@@ -23,14 +24,20 @@ describe('containsKeys', () => {
 })
 
 describe('containsKeys - extended iterable class types', () => {
-  beforeEach(() =>
-    registerIterableClass(
-      { classRef: Map, getKeys: map => Array.from(map.keys()) as string[] },
-      { classRef: Set, getKeys: set => Array.from(set.keys()) as string[] }
+  beforeEach(() => {
+    registerIterableClass<Map<unknown, unknown>>(
+      Map,
+      map => Array.from(map.keys()) as string[],
+      (map, value, key) => map.set(key, value)
     )
-  )
+    registerIterableClass<Set<unknown>>(
+      Set,
+      set => Array.from(set.keys()) as string[],
+      (set, value) => set.add(value)
+    )
+  })
 
-  afterEach(() => registerIterableClass())
+  afterEach(() => deregisterIterableClass())
 
   it('should return list of known iterable classes which should include those that have been registered', () => {
     const map = new Map<string, number>()

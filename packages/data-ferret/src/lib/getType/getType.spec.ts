@@ -1,4 +1,5 @@
 import { registerClassTypes } from '../registerClassTypes/registerClassTypes'
+import { deregisterClassTypes } from '../deregisterClassTypes/deregisterClassTypes'
 import { getType } from './getType'
 
 describe('getType', () => {
@@ -133,7 +134,7 @@ describe('getType - extended class types', () => {
 
   beforeEach(() => registerClassTypes(A))
 
-  afterEach(() => registerClassTypes())
+  afterEach(() => deregisterClassTypes(A))
 
   it('should return the class name as data type the for a reference set to an instance of the corresponding class', () => {
     expect(getType(new A())).toEqual('A')

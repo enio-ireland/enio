@@ -1,4 +1,5 @@
 import { registerClassTypes } from '../registerClassTypes/registerClassTypes'
+import { deregisterClassTypes } from '../deregisterClassTypes/deregisterClassTypes'
 import { sameType } from './sameType'
 
 describe('sameType', () => {
@@ -23,7 +24,7 @@ describe('sameType - extended class types', () => {
 
   beforeEach(() => registerClassTypes(A, B))
 
-  afterEach(() => registerClassTypes())
+  afterEach(() => deregisterClassTypes(A, B))
 
   it('should return the matching data type for both values which happens to be the name of the class both values are instance of', () => {
     expect(sameType(new A(), new A())).toEqual('A')

@@ -1,17 +1,28 @@
-import { RegisteredIterableClassEntry } from '../shared/model'
-import { registeredIterableClasses, registeredClasses } from '../shared/consts'
+import { UnknownClass } from '../shared/model'
+import { registeredIterableClasses } from '../shared/consts'
 import { registerClassTypes } from '../registerClassTypes/registerClassTypes'
 
 /**
- * Registers one or more classes which will set up the rest of the data-ferret'd API to treat instances
- * said class or classes as having their own unique data type that corresponds to their class.
+ * Registers an iterable class which will be used on the rest of the API to treat instances
+ * of said class as having their own unique data type that corresponds to their class.
+ * It will overwrite an existing registered iterable class with new details if the class reference matches.
+ * @param classRef A reference to a class definition.
+ * @param getKeys Returns list of iterable keys.
+ * @param write Operation that assigns a value in iterable instance.
+ * @param instantiate Returns a new (empty) instance.
  */
-export const registerIterableClass = (...classes: RegisteredIterableClassEntry[]): void => {
-  const list = ([] as RegisteredIterableClassEntry[]).concat(classes)
-  while (registeredIterableClasses.length > 2) {
-    // while > 2 to leave default object and array entries unchanged
-    registeredIterableClasses.shift()
+export const registerIterableClass = <T = unknown>(
+  classRef: UnknownClass<T>,
+  getKeys: (target: T) => string[],
+  write: (instance: T, value: unknown, key?: unknown) => void,
+  instantiate = () => new classRef()
+): void => {
+  const existingEntryLocation = registeredIterableClasses.findIndex(entry => entry.classRef === classRef)
+  const entry = { classRef, getKeys, write, instantiate }
+  if (existingEntryLocation >= 0) {
+    registeredIterableClasses[existingEntryLocation] = entry
+    return
   }
-  list.reverse().forEach(entry => registeredIterableClasses.unshift(entry))
-  registerClassTypes(...registeredClasses, ...list.map(({ classRef }) => classRef))
+  registeredIterableClasses.unshift(entry)
+  registerClassTypes(classRef)
 }

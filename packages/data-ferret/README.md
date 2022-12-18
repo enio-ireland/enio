@@ -88,10 +88,12 @@ _Note!: Circular reference detection is not supported for immutable data. E.g. `
 
 For example, passing the class definition and key selector function `registerIterableClass()` allows [data-ferret](https://github.com/enio-ireland/enio/tree/develop/packages/data-ferret) to iterate for members of that class and also treats it like a separate data type instead of a plain object.
 
-| Util                        | Description                                                                                                                                                                                              |
-| :-------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [registerClassTypes()]()    | Registers one or more classes which will set up the rest of the data-ferret'd API to treat instances of said class or classes as having their own unique data type that corresponds to their class.      |
-| [registerIterableClass()]() | Registers one or more classes which will set up the rest of the data-ferret'd API to treat instances of said class or classes as having their separate unique data type that corresponds to their class. |
+| Util                          | Description                                                                                                                                                                                                  |
+| :---------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [registerClassTypes()]()      | Registers one or more classes which will be used on the rest of the API to treat instances to treat instances of said class or classes as having their own unique data type that corresponds to their class. |
+| [registerIterableClass()]()   | Registers an iterable class which will be used on the rest of the API to treat instances of said class as having their own unique data type that corresponds to their class.                                 |
+| [deregisterClassTypes()]()    | Removes one or more registered classes. Removes all registered classes when no references are provided.                                                                                                      |
+| [deregisterIterableClass()]() | Removes one or more registered iterable classes. Removes all registered iterable classes when no references are provided.                                                                                    |
 
 ### Configurable Behavior
 
