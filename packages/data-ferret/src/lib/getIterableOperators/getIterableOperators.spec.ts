@@ -10,11 +10,12 @@ describe('getIterableOperators', () => {
 
   it('returns operators of a registered class', () => {
     // arrange
-    class A { }
+    class A {}
     const instantiate: RegisteredIterableClassEntry['instantiate'] = () => new A()
-    const getKeys: RegisteredIterableClassEntry['getKeys'] = (target) => Object.keys(target)
+    const getKeys: RegisteredIterableClassEntry['getKeys'] = target => Object.keys(target)
     const read: RegisteredIterableClassEntry['read'] = (target, key) => (target as Record<string, unknown>)[key as string]
-    const write: RegisteredIterableClassEntry['write'] = (target, value, key) => (target as Record<string, unknown>)[key as string] = value
+    const write: RegisteredIterableClassEntry['write'] = (target, value, key) =>
+      ((target as Record<string, unknown>)[key as string] = value)
     registerIterableClass(A, getKeys, read, write, instantiate)
 
     // act
