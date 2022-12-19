@@ -11,11 +11,13 @@ describe('registerIterableClass', () => {
     registerIterableClass<Map<unknown, unknown>>(
       Map,
       map => Array.from(map.keys()) as string[],
+      (map, key) => map.get(key),
       (map, value, key) => map.set(key, value)
     )
     registerIterableClass<Set<unknown>>(
       Set,
       set => Array.from(set.keys()) as string[],
+      (_, key) => key,
       (set, value) => set.add(value)
     )
     expect(registeredIterableClasses.length).toEqual(4)
@@ -30,12 +32,14 @@ describe('registerIterableClass', () => {
     registerIterableClass<Map<unknown, unknown>>(
       Map,
       map => Array.from(map.keys()) as string[],
+      (map, key) => map.get(key),
       (map, value, key) => map.set(key, value),
       () => new Map()
     )
     registerIterableClass<Map<unknown, unknown>>(
       Map,
       map => Array.from(map.keys()) as string[],
+      (map, key) => map.get(key),
       (map, value, key) => map.set(key, value)
     )
     expect(registeredIterableClasses.length).toEqual(3)
@@ -49,6 +53,7 @@ describe('registerIterableClass', () => {
     registerIterableClass<Set<unknown>>(
       Set,
       set => Array.from(set.keys()) as string[],
+      (_, key) => key,
       (set, value) => set.add(value)
     )
     expect(registeredClasses).toContain(Set)

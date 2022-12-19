@@ -31,6 +31,7 @@ describe('getKeysFromIterable - extended iterable class types', () => {
     registerIterableClass<Map<unknown, unknown>>(
       Map,
       map => Array.from(map.keys()) as string[],
+      (map, key) => map.get(key),
       (map, value, key) => map.set(key, value)
     )
     expect(getKeysFromIterable(rosterWithAge, 'Map')).toEqual(['Tom', 'Luca'])

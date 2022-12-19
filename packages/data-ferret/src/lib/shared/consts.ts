@@ -3,8 +3,18 @@ import { UnknownClass, RegisteredIterableClassEntry, Config } from './model'
 export const registeredClasses: UnknownClass[] = []
 
 export const registeredIterableClasses: RegisteredIterableClassEntry[] = [
-  { classRef: Array, instantiate: () => [], getKeys: (target: unknown) => Object.keys(target as Iterable<string>), write: (target, value, key) => (target as Array<unknown>)[key as number] = value },
-  { classRef: Object, instantiate: () => ({}), getKeys: (target: unknown) => Object.keys(target as Iterable<string>), write: (target, value, key) => (target as Record<string, unknown>)[key as string] = value   }
+  {
+    classRef: Array, instantiate: () => [],
+    getKeys: (target: unknown) => Object.keys(target as Iterable<string>),
+    read: (target, key) => (target as Array<unknown>)[key as number],
+    write: (target, value, key) => (target as Array<unknown>)[key as number] = value
+  },
+  {
+    classRef: Object, instantiate: () => ({}),
+    getKeys: (target: unknown) => Object.keys(target as Iterable<string>),
+    read: (target, key) => (target as Record<string, unknown>)[key as string],
+    write: (target, value, key) => (target as Record<string, unknown>)[key as string] = value
+  }
 ]
 
 let samePositionOfOwnProperties = false

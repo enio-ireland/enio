@@ -14,11 +14,12 @@ import { registerClassTypes } from '../registerClassTypes/registerClassTypes'
 export const registerIterableClass = <T = unknown>(
   classRef: UnknownClass<T>,
   getKeys: (target: T) => string[],
+  read: (target: T, key: unknown) => unknown,
   write: (instance: T, value: unknown, key?: unknown) => void,
   instantiate = () => new classRef()
 ): void => {
   const existingEntryLocation = registeredIterableClasses.findIndex(entry => entry.classRef === classRef)
-  const entry = { classRef, getKeys, write, instantiate } as RegisteredIterableClassEntry
+  const entry = { classRef, getKeys, write, read, instantiate } as RegisteredIterableClassEntry
   if (existingEntryLocation >= 0) {
     registeredIterableClasses[existingEntryLocation] = entry
     return

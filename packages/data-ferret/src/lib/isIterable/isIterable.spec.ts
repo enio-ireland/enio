@@ -24,11 +24,13 @@ describe('isIterable - extended iterable class types', () => {
     registerIterableClass<Map<unknown, unknown>>(
       Map,
       map => Array.from(map.keys()) as string[],
+      (map, key) => map.get(key),
       (map, value, key) => map.set(key, value)
     )
     registerIterableClass<Set<unknown>>(
       Set,
       set => Array.from(set.keys()) as string[],
+      (_, key) => key,
       (set, value) => set.add(value)
     )
   })

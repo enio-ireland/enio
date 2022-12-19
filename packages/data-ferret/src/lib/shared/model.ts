@@ -22,6 +22,9 @@ export interface RegisteredIterableClassEntry<T = unknown> {
   /** Returns list of iterable keys. */
   getKeys: (target: any) => string[]
 
+  /** Returns a value corresponding to a key of class instance. */
+  read: (target: any, key: unknown) => unknown
+
   /** Sets a new value with specific key optionally on class instance. */
   write: (instance: T, value: unknown, key?: unknown) => void
 }
