@@ -1,33 +1,61 @@
+import { deregisterIterableClass } from '../deregisterIterableClass/deregisterIterableClass'
 import { registerIterableClass } from './registerIterableClass'
 import { registeredIterableClasses, registeredClasses } from '../shared/consts'
 
 describe('registerIterableClass', () => {
-  beforeEach(() => registerIterableClass())
+  beforeEach(() => deregisterIterableClass())
 
-  it("should unset list of registered iterable classes expect 'array' and 'object' entries", () => {
-    expect(registeredIterableClasses.length).toEqual(2)
-    expect(registeredIterableClasses[0].classRef).toEqual(Array)
-    expect(registeredIterableClasses[1].classRef).toEqual(Object)
-  })
+  afterAll(() => deregisterIterableClass())
 
   it('should add to the list of registered iterable classes', () => {
-    registerIterableClass(
-      { classRef: Map, getKeys: map => Array.from(map.keys()) as string[] },
-      { classRef: Set, getKeys: set => Array.from(set.keys()) as string[] }
+    registerIterableClass<Map<unknown, unknown>>(
+      Map,
+      map => Array.from(map.keys()) as string[],
+      (map, key) => map.get(key),
+      (map, value, key) => map.set(key, value)
+    )
+    registerIterableClass<Set<unknown>>(
+      Set,
+      set => Array.from(set.keys()) as string[],
+      (_, key) => key,
+      (set, value) => set.add(value)
     )
     expect(registeredIterableClasses.length).toEqual(4)
-    expect(registeredIterableClasses[0].classRef).toEqual(Map)
-    expect(registeredIterableClasses[1].classRef).toEqual(Set)
-    expect(registeredIterableClasses[2].classRef).toEqual(Array)
-    expect(registeredIterableClasses[3].classRef).toEqual(Object)
+    const registeredIterableClassRefs = registeredIterableClasses.map(e => e.classRef)
+    expect(registeredIterableClassRefs).toContain(Map)
+    expect(registeredIterableClassRefs).toContain(Set)
+    expect(registeredIterableClassRefs).toContain(Array)
+    expect(registeredIterableClassRefs).toContain(Object)
+  })
+
+  it('will overwrite a registered iterable classes', () => {
+    registerIterableClass<Map<unknown, unknown>>(
+      Map,
+      map => Array.from(map.keys()) as string[],
+      (map, key) => map.get(key),
+      (map, value, key) => map.set(key, value),
+      () => new Map()
+    )
+    registerIterableClass<Map<unknown, unknown>>(
+      Map,
+      map => Array.from(map.keys()) as string[],
+      (map, key) => map.get(key),
+      (map, value, key) => map.set(key, value)
+    )
+    expect(registeredIterableClasses.length).toEqual(3)
+    const registeredIterableClassRefs = registeredIterableClasses.map(e => e.classRef)
+    expect(registeredIterableClassRefs).toContain(Map)
+    expect(registeredIterableClassRefs).toContain(Array)
+    expect(registeredIterableClassRefs).toContain(Object)
   })
 
   it('should register the corresponding class data types', () => {
-    registerIterableClass(
-      { classRef: Map, getKeys: map => Array.from(map.keys()) as string[] },
-      { classRef: Set, getKeys: set => Array.from(set.keys()) as string[] }
+    registerIterableClass<Set<unknown>>(
+      Set,
+      set => Array.from(set.keys()) as string[],
+      (_, key) => key,
+      (set, value) => set.add(value)
     )
-    expect(registeredClasses).toContainEqual(Map)
-    expect(registeredClasses).toContainEqual(Set)
+    expect(registeredClasses).toContain(Set)
   })
 })

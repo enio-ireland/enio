@@ -15,13 +15,16 @@
       "internalConsoleOptions": "neverOpen"
     },
     {
-      "name": "Jest Tests",
       "type": "node",
+      "name": "Jest current file",
       "request": "launch",
-      "program": "${workspaceRoot}/node_modules/.bin/ng",
-      "args": ["test", "--runInBand", "-i"],
-      "outFiles": ["${workspaceRoot}/dist/**/*"],
-      "cwd": "${workspaceFolder}"
+      "program": "${workspaceFolder}/node_modules/.bin/jest",
+      "args": ["${fileBasenameNoExtension}", "--config", "jest.config.ts"],
+      "console": "integratedTerminal",
+      "disanleOptimisticBPs": true,
+      "windows": {
+        "program": "${workspaceFolder}/node_modules/jest/bin/jest"
+      }
     }
   ]
 }

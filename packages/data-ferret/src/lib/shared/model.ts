@@ -8,16 +8,25 @@ export type UnknownIterable = Iterable<unknown>
 
 export type UnknownIterableKey = keyof UnknownIterable & string
 
-export type UnknownClass = {
-  new (...args: any[]): unknown
+export type UnknownClass<T = unknown> = {
+  new (...args: any[]): T
 }
 
-export interface RegisteredIterableClassEntry {
+export interface RegisteredIterableClassEntry<T = unknown> {
   /** A reference to a class definition. */
-  classRef: UnknownClass
+  classRef: UnknownClass<T>
+
+  /** Returns a new (empty) instance. */
+  instantiate: () => T
 
   /** Returns list of iterable keys. */
   getKeys: (target: any) => string[]
+
+  /** Returns a value corresponding to a key of class instance. */
+  read: (target: any, key: unknown) => unknown
+
+  /** Sets a new value with specific key optionally on class instance. */
+  write: (instance: T, value: unknown, key?: unknown) => void
 }
 
 export interface Config {

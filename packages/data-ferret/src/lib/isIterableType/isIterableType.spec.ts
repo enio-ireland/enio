@@ -1,5 +1,6 @@
 import { isIterableType } from './isIterableType'
 import { registerIterableClass } from '../registerIterableClass/registerIterableClass'
+import { deregisterIterableClass } from '../deregisterIterableClass/deregisterIterableClass'
 
 describe('isIterableType', () => {
   it("should return true for 'array' data type", () => {
@@ -12,14 +13,22 @@ describe('isIterableType', () => {
 })
 
 describe('isIterableType - extended iterable class types', () => {
-  beforeEach(() =>
-    registerIterableClass(
-      { classRef: Map, getKeys: map => Array.from(map.keys()) as string[] },
-      { classRef: Set, getKeys: set => Array.from(set.keys()) as string[] }
+  beforeEach(() => {
+    registerIterableClass<Map<unknown, unknown>>(
+      Map,
+      map => Array.from(map.keys()) as string[],
+      (map, key) => map.get(key),
+      (map, value, key) => map.set(key, value)
     )
-  )
+    registerIterableClass<Set<unknown>>(
+      Set,
+      set => Array.from(set.keys()) as string[],
+      (_, key) => key,
+      (set, value) => set.add(value)
+    )
+  })
 
-  afterEach(() => registerIterableClass())
+  afterEach(() => deregisterIterableClass())
 
   it('should return true for any data type corresponding to registered iterable class', () => {
     expect(isIterableType('Map')).toEqual(true)

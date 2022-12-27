@@ -1,20 +1,26 @@
+import { deregisterClassTypes } from '../deregisterClassTypes/deregisterClassTypes'
 import { registerClassTypes } from './registerClassTypes'
 import { registeredClasses } from '../shared/consts'
 
 describe('registerClassTypes', () => {
-  it('registers one or more class as a unique data type', () => {
+  beforeEach(() => deregisterClassTypes())
+
+  afterAll(() => deregisterClassTypes())
+
+  it('registers one or more classes as a unique data type', () => {
     class A {}
     class B {}
     registerClassTypes(A, B)
-    expect(new registeredClasses[0]()).toBeInstanceOf(A)
-    expect(new registeredClasses[1]()).toBeInstanceOf(B)
+    expect(registeredClasses.length).toEqual(2)
+    expect(registeredClasses).toContain(A)
+    expect(registeredClasses).toContain(B)
   })
 
-  it('clears previous registered classes and registers the next collection of classes as data type', () => {
-    class C {}
-    class D {}
-    registerClassTypes(C, D)
-    expect(new registeredClasses[0]()).toBeInstanceOf(C)
-    expect(new registeredClasses[1]()).toBeInstanceOf(D)
+  it('ignores subsquent registration attempts for the same class', () => {
+    class A {}
+    registerClassTypes(A, A)
+    registerClassTypes(A)
+    expect(registeredClasses.length).toEqual(1)
+    expect(registeredClasses).toContain(A)
   })
 })

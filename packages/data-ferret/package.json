@@ -31,10 +31,15 @@
     "structures",
     "nested",
     "objects",
+    "object",
     "circular-references",
     "typescript",
     "enio.ai",
     "enio",
-    "andrew.redican"
+    "andrew.redican",
+    "clone",
+    "copy",
+    "json",
+    "circular"
   ]
 }

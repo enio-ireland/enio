@@ -1,5 +1,6 @@
 import { setConfig } from '../shared/consts'
 import { getKeysFromIterable } from '../getKeysFromIterable/getKeysFromIterable'
+import { deregisterIterableClass } from '../deregisterIterableClass/deregisterIterableClass'
 import { registerIterableClass } from '../registerIterableClass/registerIterableClass'
 
 describe('getKeysFromIterable', () => {
@@ -19,15 +20,20 @@ describe('getKeysFromIterable', () => {
 })
 
 describe('getKeysFromIterable - extended iterable class types', () => {
-  beforeEach(() => (setConfig({ detectCircularReferences: false }), registerIterableClass()))
+  beforeEach(() => (setConfig({ detectCircularReferences: false }), deregisterIterableClass(Map)))
 
-  afterEach(() => (setConfig({ detectCircularReferences: false }), registerIterableClass()))
+  afterEach(() => (setConfig({ detectCircularReferences: false }), deregisterIterableClass(Map)))
 
   it('should return keys from Map because it has been registered', () => {
     const rosterWithAge = new Map<string, number>()
     rosterWithAge.set('Tom', 33)
     rosterWithAge.set('Luca', 21)
-    registerIterableClass({ classRef: Map, getKeys: map => Array.from(map.keys()) as string[] })
+    registerIterableClass<Map<unknown, unknown>>(
+      Map,
+      map => Array.from(map.keys()) as string[],
+      (map, key) => map.get(key),
+      (map, value, key) => map.set(key, value)
+    )
     expect(getKeysFromIterable(rosterWithAge, 'Map')).toEqual(['Tom', 'Luca'])
   })
 })
