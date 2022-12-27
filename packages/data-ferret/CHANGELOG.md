@@ -2,6 +2,17 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [1.0.0](https://github.com/enio-ireland/enio/compare/data-ferret-0.1.1...data-ferret-1.0.0) (2022-12-27)
+
+
+### ⚠ BREAKING CHANGES
+
+* to support custom classes for cloning, iterable class registration was reworked
+
+### Features
+
+* add selectiveCopy() to API for data cloning ([ad570fa](https://github.com/enio-ireland/enio/commit/ad570faefc38cd7c6c78f237a91e1543e4c9d3a4))
+
 ## [0.1.1](https://github.com/enio-ireland/enio/compare/data-ferret-0.1.0...data-ferret-0.1.1) (2022-11-18)
 
 ## 0.1.0 (2022-11-18)
