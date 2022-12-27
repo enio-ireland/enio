@@ -20,7 +20,7 @@ jobs:
     - name: Install dependencies
       uses: bahmutov/npm-install@v1
       with:
-        install-command: npm i --force
+        install-command: npm i --legacy-peer-deps
     - name: Run Unit Tests and Coverage Reports
       uses: MansaGroup/nrwl-nx-action@v3.2.1
       with:
