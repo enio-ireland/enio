@@ -30,7 +30,7 @@ jobs:
 
     - name: Get directory names
       id: get-directory-names
-      uses: actions/collect-directory-names-by-file-glob@v1.1
+      uses: featherweight-design/collect-directory-names-by-file-glob@v1.1
       with:
         file-glob: '**/*.json'
         search-directory: '/coverage'
