@@ -5,6 +5,9 @@
 name: 'Unit Tests & Code Coverage Review'
 on: [pull_request]
 
+permissions:
+  contents: read
+
 jobs:
   unit-tests-review:
     runs-on: ubuntu-latest
