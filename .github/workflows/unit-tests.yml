@@ -32,7 +32,7 @@ jobs:
       id: get-directory-names
       uses: featherweight-design/collect-directory-names-by-file-glob@v1.1
       with:
-        file-glob: coverage-final.json
+        file-glob: '**/*.json'
 
     - name: Use Directory Names
       run: echo "Directory Names are ${{ steps.get-directory-names.outputs.directory-names}}"
