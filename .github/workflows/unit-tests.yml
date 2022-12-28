@@ -6,7 +6,7 @@ name: 'Unit Tests & Code Coverage Review'
 on: [pull_request]
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   unit-tests-review:
@@ -34,7 +34,7 @@ jobs:
       uses: FiorelaCiroku/XDTesting-Print-Directory-Structure@v1.0.2
     - name: Change file in directory
       run: |
-        echo "Changed" > new.txt
+        echo "Changed" > coverage/new.txt
 
     - name: Print Directory Structure After Created File
       uses: FiorelaCiroku/XDTesting-Print-Directory-Structure@v1.0.2
