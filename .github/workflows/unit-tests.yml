@@ -7,7 +7,7 @@ on: [pull_request]
 
 jobs:
   unit-tests-review:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
     - name: Checkout
       uses: actions/checkout@v3
@@ -27,6 +27,17 @@ jobs:
         affected: true
         nxCloud: true
         targets: test
+
+    - name: Get directory names
+      id: get-directory-names
+      uses: actions/collect-directory-names-by-file-glob@v1.1
+      with:
+        file-glob: '**/*.json'
+        search-directory: '/coverage'
+        unique: "true"
+
+    - name: Use Directory Names
+      run: echo "Directory Names are ${{ steps.get-directory-names.outputs.directory-names}}
 
     - name: Verify Changed files
       uses: tj-actions/verify-changed-files@v13
