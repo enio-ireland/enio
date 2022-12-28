@@ -20,7 +20,7 @@ jobs:
     - name: Install dependencies
       uses: bahmutov/npm-install@v1
       with:
-        install-command: npm i --legacy-peer-deps
+        install-command: npm i
     - name: Run Unit Tests and Coverage Reports
       uses: MansaGroup/nrwl-nx-action@v3.2.1
       with:
@@ -31,7 +31,6 @@ jobs:
       uses: dkhunt27/nx-code-coverage@v0.3.0
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
-        coverage-folder: ./coverage
         gist-token: ${{ secrets.COVERAGE_BADGES_GIST_TOKEN }}
         gist-id: 0b98501627ca03cf8058155b5c337a3d
         color: green
