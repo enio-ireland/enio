@@ -25,7 +25,7 @@ jobs:
       uses: MansaGroup/nrwl-nx-action@v3.2.1
       with:
         affected: true
-        nxCloud: false
+        nxCloud: true
         targets: test
     - name: Code Coverage Report
       uses: dkhunt27/nx-code-coverage@v0.3.0
