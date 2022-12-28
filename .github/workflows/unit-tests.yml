@@ -24,6 +24,8 @@ jobs:
       uses: bahmutov/npm-install@v1
       with:
         install-command: npm i
+    - name: Print Directory Structure Before Unit Tests and Code Coverage
+      uses: FiorelaCiroku/XDTesting-Print-Directory-Structure@v1.0.2
     - name: Run Unit Tests and Coverage Reports
       uses: MansaGroup/nrwl-nx-action@v3.2.1
       with:
@@ -31,9 +33,15 @@ jobs:
         nxCloud: true
         targets: test
 
+    - name: Print Directory Structure After Unit Tests and Code Coverage
+      uses: FiorelaCiroku/XDTesting-Print-Directory-Structure@v1.0.2
+
     - name: Change file in directory
       run: |
         echo "Changed" > coverage/new.txt
+
+    - name: Print Directory Structure After Created File
+      uses: FiorelaCiroku/XDTesting-Print-Directory-Structure@v1.0.2
 
     - name: Verify Changed files
       uses: tj-actions/verify-changed-files@v13
