@@ -27,6 +27,12 @@ jobs:
         affected: true
         nxCloud: true
         targets: test
+
+    - name: Change file in directory
+      run: |
+        echo "Changed" > coverage/new.txt
+
+    - name: Verify Changed files
       uses: tj-actions/verify-changed-files@v13
       id: verify-changed-files
       with:
