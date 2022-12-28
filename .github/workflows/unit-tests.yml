@@ -28,25 +28,36 @@ jobs:
         nxCloud: true
         targets: test
 
-    - name: Get directory names
-      id: get-directory-names
-      uses: featherweight-design/collect-directory-names-by-file-glob@v1.1
-      with:
-        file-glob: '**/*.json'
+    # Testing if can see any changes after running tests
 
-    - name: Use Directory Names
-      run: echo "Directory Names are ${{ steps.get-directory-names.outputs.directory-names}}"
+    - name: Make uncommitted changes by creating empty file
+      run: touch uncommitted.tmp
+    - name: Check for uncommitted changes
+      id: check-changes
+      uses: mskri/check-uncommitted-changes-action@v1.0.1
+    - name: Print uncommitted changes
+      if: steps.check-changes.outputs.changes != ''
+      run: echo "There are uncommitted changes"
 
-    - name: Verify Changed files
-      uses: tj-actions/verify-changed-files@v13
-      id: verify-changed-files
-      with:
-        files: coverage
+    # - name: Get directory names
+    #   id: get-directory-names
+    #   uses: featherweight-design/collect-directory-names-by-file-glob@v1.1
+    #   with:
+    #     file-glob: '**/*.json'
 
-    - name: Run step only when any of the above files change.
-      if: steps.verify-changed-files.outputs.files_changed == 'true'
-      run: |
-        echo "Changed files: ${{ steps.verify-changed-files.outputs.changed_files }}"
+    # - name: Use Directory Names
+    #   run: echo "Directory Names are ${{ steps.get-directory-names.outputs.directory-names}}"
+
+    # - name: Verify Changed files
+    #   uses: tj-actions/verify-changed-files@v13
+    #   id: verify-changed-files
+    #   with:
+    #     files: coverage
+
+    # - name: Run step only when any of the above files change.
+    #   if: steps.verify-changed-files.outputs.files_changed == 'true'
+    #   run: |
+    #     echo "Changed files: ${{ steps.verify-changed-files.outputs.changed_files }}"
 
     - name: Code Coverage Report
       uses: dkhunt27/nx-code-coverage@v0.3.0
