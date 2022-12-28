@@ -32,10 +32,10 @@ jobs:
       id: get-directory-names
       uses: featherweight-design/collect-directory-names-by-file-glob@v1.1
       with:
-        file-glob: 'coverage-final.json'
+        file-glob: coverage-final.json
 
     - name: Use Directory Names
-      run: echo "Directory Names are ${{ steps.get-directory-names.outputs.directory-names}}
+      run: echo "Directory Names are ${{ steps.get-directory-names.outputs.directory-names}}"
 
     - name: Verify Changed files
       uses: tj-actions/verify-changed-files@v13
