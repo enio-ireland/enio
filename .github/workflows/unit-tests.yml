@@ -34,7 +34,7 @@ jobs:
       uses: FiorelaCiroku/XDTesting-Print-Directory-Structure@v1.0.2
     - name: Change file in directory
       run: |
-        echo "Changed" > coverage/new.txt
+        echo "Changed" > new.txt
 
     - name: Print Directory Structure After Created File
       uses: FiorelaCiroku/XDTesting-Print-Directory-Structure@v1.0.2
