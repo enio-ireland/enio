@@ -38,6 +38,7 @@ jobs:
         echo "pwd = $(pwd)"
         echo "files:"
         echo "$(ls)"
+        echo "$(find . -type f -name '*coverage*' | sed -r 's|/[^/]+$||' |sort |uniq)"
 
     ##############################
     # - name: Check in code coverage
