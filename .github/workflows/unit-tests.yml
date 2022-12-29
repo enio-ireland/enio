@@ -8,6 +8,8 @@ on: [pull_request]
 jobs:
   unit-tests-review:
     runs-on: ubuntu-latest
+    outputs:
+      directories: ${{ steps.find_reports.outputs.directories }}
     steps:
     - name: Checkout
       uses: actions/checkout@v3
@@ -36,11 +38,6 @@ jobs:
         directories="${directories//$'\n'/','}"
         directories="${directories//$'\r'/','}"
         echo "directories=${directories}" >> $GITHUB_OUTPUT
-    - name: Loop Example
-      run: |
-        directories="${{steps.find_reports.outputs.directories}}"
-        directoryList=$(echo $directories | tr "," "\n")
-        for directory in $directoryList; do echo "$directory"; done
   update-code-coverage-badges:
     needs: unit-tests-review
     runs-on: ubuntu-latest
@@ -52,8 +49,14 @@ jobs:
       run: echo "2nd job ran successfully"
     - name: Access variable Test
       run: |
-        directories="${{steps.find_reports.outputs.directories}}"
+        directories=${{needs.unit-tests-review.outputs.directories}}
         echo "$directories"
+
+    # - name: Loop Example
+    #   run: |
+    #     directories="${{steps.find_reports.outputs.directories}}"
+    #     directoryList=$(echo $directories | tr "," "\n")
+    #     for directory in $directoryList; do echo "$directory"; done
 
     # - name: Code Coverage Report
     #   uses: dkhunt27/nx-code-coverage@v0.3.0
