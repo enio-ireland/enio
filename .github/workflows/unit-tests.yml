@@ -27,53 +27,38 @@ jobs:
         affected: true
         nxCloud: true
         targets: test
-
-    ###########################
-    # - name: Print Environment
-    #   run: |
-    #     echo "GITHUB_WORKSPACE = $GITHUB_WORKSPACE"
-    #     echo "github.workspace = ${{ github.workspace }}"
-    #     echo "pr.ref = ${{github.event.pull_request.head.ref}}"
-    #     echo "github.ref = ${{ github.ref }}"
-    #     echo "$GITHUB_CONTEXT"
-    #     echo "pwd = $(pwd)"
-    #     echo "files:"
-    #     echo "$(ls)"
-    #     echo "$(find coverage -type f -name '*coverage*' | sed -r 's|/[^/]+$||' |sort |uniq)"
-    ###########################
-
     - name: Identify Code Coverage Report Locations
       id: find_reports
       shell: bash
       run: |
-        files="$(find coverage -type f -name '*coverage*' | sed -r 's|/[^/]+$||' |sort |uniq)"
-        files="${files//'%'/','}"
-        files="${files//$'\n'/','}"
-        files="${files//$'\r'/','}"
-        echo "files=${files}" >> $GITHUB_OUTPUT
-
-    - name: Test Output Access
-      run: echo "report locations = ${{steps.find_reports.outputs.files}}"
-
-    - name: Loop Test
+        directories="$(find coverage -type f -name '*coverage*' | sed -r 's|/[^/]+$||' |sort |uniq)"
+        directories="${directories//'%'/','}"
+        directories="${directories//$'\n'/','}"
+        directories="${directories//$'\r'/','}"
+        echo "directories=${directories}" >> $GITHUB_OUTPUT
+    - name: Loop Example
       run: |
-        files="${{steps.find_reports.outputs.files}}"
-        fileList=$(echo $files | tr "," "\n")
-        for file in $fileList; do echo "$file"; done
+        directories="${{steps.find_reports.outputs.directories}}"
+        directoryList=$(echo $directories | tr "," "\n")
+        for directory in $directoryList; do echo "$directory"; done
+  update-code-coverage-badges:
+    needs: unit-tests-review
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        directories: [1]
+    steps:
+    - name: 2nd Job Step Test
+      run: echo "2nd job ran successfully"
+    - name: Access variable Test
+      run: |
+        directories="${{steps.find_reports.outputs.directories}}"
+        echo "$directories"
 
-    ##############################
-    # - name: Check in code coverage
-    #   run: |
-    #     git config user.name github-actions
-    #     git config user.email github-actions@github.com
-    #     git add coverage
-    #     git commit -m "docs: add code coverage report"
-    ##############################
-
-    - name: Code Coverage Report
-      uses: dkhunt27/nx-code-coverage@v0.3.0
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        gist-token: ${{ secrets.COVERAGE_BADGES_GIST_TOKEN }}
-        gist-id: 0b98501627ca03cf8058155b5c337a3d
-        color: green
+    # - name: Code Coverage Report
+    #   uses: dkhunt27/nx-code-coverage@v0.3.0
+    #   with:
+    #     github-token: ${{ secrets.GITHUB_TOKEN }}
+    #     gist-token: ${{ secrets.COVERAGE_BADGES_GIST_TOKEN }}
+    #     gist-id: 0b98501627ca03cf8058155b5c337a3d
+    #     color: green
