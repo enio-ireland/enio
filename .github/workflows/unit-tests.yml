@@ -43,7 +43,9 @@ jobs:
 
     ##############################
     - name: check changes
-      run: git status
+      run: |
+        git add coverage
+        git commit -m "docs: add code coverage report"
 
     ##############################
 
