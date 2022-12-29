@@ -29,7 +29,9 @@ jobs:
         echo "pr.ref = ${{github.event.pull_request.head.ref}}"
         echo "github.ref = ${{ github.ref }}"
         echo "$GITHUB_CONTEXT"
-        echo "$(pwd)"
+        echo "pwd = $(pwd)"
+        echo "files:"
+        echo "$(ls)"
       ##############################
     - name: Run Unit Tests and Coverage Reports
       uses: MansaGroup/nrwl-nx-action@v3.2.1
@@ -46,7 +48,9 @@ jobs:
         echo "pr.ref = ${{github.event.pull_request.head.ref}}"
         echo "github.ref = ${{ github.ref }}"
         echo "$GITHUB_CONTEXT"
-        echo "$(pwd)"
+        echo "pwd = $(pwd)"
+        echo "files:"
+        echo "$(ls)"
     ###########################
 
     # Testing if can see any changes after running tests
