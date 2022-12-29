@@ -47,7 +47,7 @@ jobs:
       run: echo "files=$(find coverage -type f -name '*coverage*' | sed -r 's|/[^/]+$||' |sort |uniq)" >> $GITHUB_OUTPUT
 
     - name: Test Output Access
-      run: echo "report locations = ${{join(steps.find_reports.outputs.files, '\n')}}"
+      run: echo "report locations = ${{steps.find_reports.outputs.files}}"
 
     ##############################
     # - name: Check in code coverage
