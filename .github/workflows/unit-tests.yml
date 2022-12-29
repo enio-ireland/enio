@@ -21,6 +21,16 @@ jobs:
       uses: bahmutov/npm-install@v1
       with:
         install-command: npm i
+      ##############################
+    - name: Print github workspace 1
+      run: |
+        echo "GITHUB_WORKSPACE = $GITHUB_WORKSPACE"
+        echo "github.workspace = ${{ github.workspace }}"
+        echo "pr.ref = ${{github.event.pull_request.head.ref}}"
+        echo "github.ref = ${{ github.ref }}"
+        echo "$GITHUB_CONTEXT"
+        echo "$(pwd)"
+      ##############################
     - name: Run Unit Tests and Coverage Reports
       uses: MansaGroup/nrwl-nx-action@v3.2.1
       with:
@@ -29,15 +39,14 @@ jobs:
         targets: test
 
     ###########################
-
-    - name: Print github workspace
+    - name: Print github workspace 2
       run: |
         echo "GITHUB_WORKSPACE = $GITHUB_WORKSPACE"
         echo "github.workspace = ${{ github.workspace }}"
         echo "pr.ref = ${{github.event.pull_request.head.ref}}"
         echo "github.ref = ${{ github.ref }}"
         echo "$GITHUB_CONTEXT"
-
+        echo "$(pwd)"
     ###########################
 
     # Testing if can see any changes after running tests
