@@ -43,14 +43,10 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        directories: [1]
+        directory: ${{ needs.unit-tests-review.outputs.directories }}
     steps:
-    - name: 2nd Job Step Test
-      run: echo "2nd job ran successfully"
     - name: Access variable Test
-      run: |
-        directories=${{needs.unit-tests-review.outputs.directories}}
-        echo "$directories"
+      run: echo ${{ matrix.directory }}
 
     # - name: Loop Example
     #   run: |
