@@ -49,6 +49,11 @@ jobs:
     - name: Test Output Access
       run: echo "report locations = ${{steps.find_reports.outputs.files}}"
 
+    # - name: run loop
+    #   env:
+    #     FILES: a.scss b.scss
+    #   run: for f in $FILES; do [YOUR COMMAND HERE]; done
+
     ##############################
     # - name: Check in code coverage
     #   run: |
