@@ -44,16 +44,20 @@ jobs:
 
     - name: Identify Code Coverage Report Locations
       id: find_reports
+      shell: bash
       run: |
         files="$(find coverage -type f -name '*coverage*' | sed -r 's|/[^/]+$||' |sort |uniq)"
         files="${files//'%'/','}"
         files="${files//$'\n'/','}"
         files="${files//$'\r'/','}"
-        echo $files
         echo "files=${files}" >> $GITHUB_OUTPUT
 
     - name: Test Output Access
-      run: echo "report locations = ${{join(steps.find_reports.outputs.files, '\n')}}"
+      run: echo "report locations = ${{steps.find_reports.outputs.files}}"
+
+    - name: Loop Test
+      run: |
+        fileList=(${${{steps.find_reports.outputs.files}}//;/ })
 
     ##############################
     # - name: Check in code coverage
