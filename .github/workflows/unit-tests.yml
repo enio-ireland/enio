@@ -28,8 +28,7 @@ jobs:
         nxCloud: true
         targets: test
 
-    ###########################
-    # - name: Print Environment
+    - name: Print Environment
       run: |
         echo "GITHUB_WORKSPACE = $GITHUB_WORKSPACE"
         echo "github.workspace = ${{ github.workspace }}"
@@ -39,20 +38,6 @@ jobs:
         echo "pwd = $(pwd)"
         echo "files:"
         echo "$(ls)"
-    ###########################
-
-    # Testing if can see any changes after running tests
-
-    # - name: Make uncommitted changes by creating empty file
-    #   run: touch uncommitted.tmp
-    # - name: Flag github/workspace as safe
-    #   run: git config --global --add safe.directory /github/workspace
-    # - name: Check for uncommitted changes
-    #   id: check-changes
-    #   uses: mskri/check-uncommitted-changes-action@v1.0.1
-    # - name: Print uncommitted changes
-    #   if: steps.check-changes.outputs.changes != ''
-    #   run: echo "There are uncommitted changes"
 
     ##############################
     # - name: Check in code coverage
