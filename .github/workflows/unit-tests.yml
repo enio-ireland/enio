@@ -41,6 +41,12 @@ jobs:
     #   if: steps.check-changes.outputs.changes != ''
     #   run: echo "There are uncommitted changes"
 
+    ##############################
+    - name: check changes
+      run: git status
+
+    ##############################
+
     - name: Get directory names
       id: get-directory-names
       uses: featherweight-design/collect-directory-names-by-file-glob@v1.1
