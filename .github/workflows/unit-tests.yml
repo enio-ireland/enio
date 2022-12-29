@@ -30,8 +30,10 @@ jobs:
 
     # Testing if can see any changes after running tests
 
-    - name: Make uncommitted changes by creating empty file
-      run: touch uncommitted.tmp
+    # - name: Make uncommitted changes by creating empty file
+    #   run: touch uncommitted.tmp
+    - name: Flag github/workspace as safe
+      run: git config --global --add safe.directory /github/workspace
     - name: Check for uncommitted changes
       id: check-changes
       uses: mskri/check-uncommitted-changes-action@v1.0.1
