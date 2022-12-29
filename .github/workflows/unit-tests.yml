@@ -48,8 +48,8 @@ jobs:
         search-directory: '/coverage'
         file-glob: '**/coverage-final.json'
 
-    # - name: Use Directory Names
-    #   run: echo "Directory Names are ${{ steps.get-directory-names.outputs.directory-names}}"
+    - name: Use Directory Names
+      run: echo "Directory Names are ${{ steps.get-directory-names.outputs.directory-names}}"
 
     # - name: Verify Changed files
     #   uses: tj-actions/verify-changed-files@v13
