@@ -46,9 +46,9 @@ jobs:
       id: find_reports
       run: |
         files="$(find coverage -type f -name '*coverage*' | sed -r 's|/[^/]+$||' |sort |uniq)"
-        files="${files//'%'/'%25'}"
-        files="${files//$'\n'/'%0A'}"
-        files="${files//$'\r'/'%0D'}"
+        files="${files//'%'/','}"
+        files="${files//$'\n'/','}"
+        files="${files//$'\r'/','}"
         echo $files
         echo "files=${files}" >> $GITHUB_OUTPUT
 
