@@ -57,7 +57,7 @@ jobs:
 
     - name: Loop Test
       run: |
-        fileList=(${${{steps.find_reports.outputs.files}}//;/ })
+        fileList=(${${{steps.find_reports.outputs.files}}//,/ })
 
     ##############################
     # - name: Check in code coverage
