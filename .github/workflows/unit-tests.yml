@@ -28,17 +28,26 @@ jobs:
         nxCloud: true
         targets: test
 
-    - name: Print Environment
-      run: |
-        echo "GITHUB_WORKSPACE = $GITHUB_WORKSPACE"
-        echo "github.workspace = ${{ github.workspace }}"
-        echo "pr.ref = ${{github.event.pull_request.head.ref}}"
-        echo "github.ref = ${{ github.ref }}"
-        echo "$GITHUB_CONTEXT"
-        echo "pwd = $(pwd)"
-        echo "files:"
-        echo "$(ls)"
-        echo "$(find coverage -type f -name '*coverage*' | sed -r 's|/[^/]+$||' |sort |uniq)"
+    ###########################
+    # - name: Print Environment
+    #   run: |
+    #     echo "GITHUB_WORKSPACE = $GITHUB_WORKSPACE"
+    #     echo "github.workspace = ${{ github.workspace }}"
+    #     echo "pr.ref = ${{github.event.pull_request.head.ref}}"
+    #     echo "github.ref = ${{ github.ref }}"
+    #     echo "$GITHUB_CONTEXT"
+    #     echo "pwd = $(pwd)"
+    #     echo "files:"
+    #     echo "$(ls)"
+    #     echo "$(find coverage -type f -name '*coverage*' | sed -r 's|/[^/]+$||' |sort |uniq)"
+    ###########################
+
+    - name: Identify Code Coverage Report Locations
+      id: find_reports
+      run: echo "$(find coverage -type f -name '*coverage*' | sed -r 's|/[^/]+$||' |sort |uniq)" >> $GITHUB_OUTPUT
+
+    - name: Test Output Access
+      run: echo "report locations = ${{join(steps.run_tests.outputs.*, '\n')}}"
 
     ##############################
     # - name: Check in code coverage
