@@ -21,18 +21,6 @@ jobs:
       uses: bahmutov/npm-install@v1
       with:
         install-command: npm i
-      ##############################
-    - name: Print github workspace 1
-      run: |
-        echo "GITHUB_WORKSPACE = $GITHUB_WORKSPACE"
-        echo "github.workspace = ${{ github.workspace }}"
-        echo "pr.ref = ${{github.event.pull_request.head.ref}}"
-        echo "github.ref = ${{ github.ref }}"
-        echo "$GITHUB_CONTEXT"
-        echo "pwd = $(pwd)"
-        echo "files:"
-        echo "$(ls)"
-      ##############################
     - name: Run Unit Tests and Coverage Reports
       uses: MansaGroup/nrwl-nx-action@v3.2.1
       with:
@@ -41,7 +29,7 @@ jobs:
         targets: test
 
     ###########################
-    - name: Print github workspace 2
+    # - name: Print Environment
       run: |
         echo "GITHUB_WORKSPACE = $GITHUB_WORKSPACE"
         echo "github.workspace = ${{ github.workspace }}"
@@ -67,24 +55,13 @@ jobs:
     #   run: echo "There are uncommitted changes"
 
     ##############################
-    - name: Check in code coverage
-      run: |
-        git config user.name github-actions
-        git config user.email github-actions@github.com
-        git add coverage
-        git commit -m "docs: add code coverage report"
+    # - name: Check in code coverage
+    #   run: |
+    #     git config user.name github-actions
+    #     git config user.email github-actions@github.com
+    #     git add coverage
+    #     git commit -m "docs: add code coverage report"
     ##############################
-
-    - name: Verify Changed files
-      uses: tj-actions/verify-changed-files@v13
-      id: verify-changed-files
-      with:
-        files: coverage
-
-    - name: Run step only when any of the above files change.
-      if: steps.verify-changed-files.outputs.files_changed == 'true'
-      run: |
-        echo "Changed files: ${{ steps.verify-changed-files.outputs.changed_files }}"
 
     - name: Code Coverage Report
       uses: dkhunt27/nx-code-coverage@v0.3.0
