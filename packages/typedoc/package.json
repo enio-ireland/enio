@@ -40,7 +40,6 @@
     "plugin",
     "enio",
     "enio.ai",
-    "typedoc-plugin",
     "monorepo",
     "documentation",
     "typescript",
