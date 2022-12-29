@@ -42,12 +42,17 @@ jobs:
     #   run: echo "There are uncommitted changes"
 
     ##############################
-    - name: check changes
-      run: |
-        git add coverage
-        git commit -m "docs: add code coverage report"
-
+    # - name: check changes
+    #   run: |
+    #     git add coverage
+    #     git commit -m "docs: add code coverage report"
     ##############################
+
+    - name: Check in code coverage
+      uses: EndBug/add-and-commit@v9
+      with:
+        default_author: github_actions
+        message: 'docs: add code coverage report'
 
     - name: Get directory names
       id: get-directory-names
