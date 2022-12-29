@@ -43,7 +43,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        directory: $(echo "${{ needs.unit-tests-review.outputs.directories }}" | tr "," "\n")
+        directory: ${{ $(echo needs.unit-tests-review.outputs.directories | tr "," "\n") }}
     steps:
     - name: Access variable Test
       run: echo ${{ matrix.directory }}
