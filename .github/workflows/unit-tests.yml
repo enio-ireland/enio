@@ -57,8 +57,9 @@ jobs:
 
     - name: Loop Test
       run: |
-        fileList=(${${{steps.find_reports.outputs.files}}//,/ })
-        for file in $fileList; do echo $file; done
+        files="${{steps.find_reports.outputs.files}}"
+        fileList=$(echo $files | tr "," "\n")
+        for file in $fileList; do echo "$file"; done
 
     ##############################
     # - name: Check in code coverage
