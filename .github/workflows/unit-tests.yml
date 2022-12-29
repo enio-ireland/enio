@@ -32,20 +32,21 @@ jobs:
 
     # - name: Make uncommitted changes by creating empty file
     #   run: touch uncommitted.tmp
-    - name: Flag github/workspace as safe
-      run: git config --global --add safe.directory /github/workspace
-    - name: Check for uncommitted changes
-      id: check-changes
-      uses: mskri/check-uncommitted-changes-action@v1.0.1
-    - name: Print uncommitted changes
-      if: steps.check-changes.outputs.changes != ''
-      run: echo "There are uncommitted changes"
+    # - name: Flag github/workspace as safe
+    #   run: git config --global --add safe.directory /github/workspace
+    # - name: Check for uncommitted changes
+    #   id: check-changes
+    #   uses: mskri/check-uncommitted-changes-action@v1.0.1
+    # - name: Print uncommitted changes
+    #   if: steps.check-changes.outputs.changes != ''
+    #   run: echo "There are uncommitted changes"
 
-    # - name: Get directory names
-    #   id: get-directory-names
-    #   uses: featherweight-design/collect-directory-names-by-file-glob@v1.1
-    #   with:
-    #     file-glob: '**/*.json'
+    - name: Get directory names
+      id: get-directory-names
+      uses: featherweight-design/collect-directory-names-by-file-glob@v1.1
+      with:
+        search-directory: '/coverage'
+        file-glob: '**/coverage-final.json'
 
     # - name: Use Directory Names
     #   run: echo "Directory Names are ${{ steps.get-directory-names.outputs.directory-names}}"
