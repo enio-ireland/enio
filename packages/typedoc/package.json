@@ -1,6 +1,6 @@
 {
   "name": "@enio.ai/typedoc",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "license": "MIT",
   "author": "Enio Authors",
   "repository": {
@@ -40,7 +40,6 @@
     "plugin",
     "enio",
     "enio.ai",
-    "typedoc-plugin",
     "monorepo",
     "documentation",
     "typescript",
