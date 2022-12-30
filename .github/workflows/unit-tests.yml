@@ -86,7 +86,7 @@ jobs:
         content=`grep "\"total\": " ${filePath}`
         content=${content:10}
         content=${content::-1}
-        content=${{fromJson(content)}}
+        content={fromJson(${content})
         echo "directory=${directory}"
         echo "project=${project}"
         echo "filePath=${filePath}"
