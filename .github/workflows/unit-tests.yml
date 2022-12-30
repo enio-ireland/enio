@@ -40,14 +40,13 @@ jobs:
         directories="${directories//$'\r'/','}"
         directories=`echo ${directories} | sed 's/,/"&"/g' | sed 's/\S\+/"&"/g'`
         directories="[${directories}]"
-        echo $directories
         echo "directories=${directories}" >> $GITHUB_OUTPUT
   code-coverage-badge:
     needs: unit-tests
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        directory: ${{fromJson(needs.unit-tests-review.outputs.directories)}}
+        directory: ${{fromJson(needs.unit-tests.outputs.directories)}}
     steps:
     - name: Access variable Test
       run: echo ${{ matrix.directory }}
