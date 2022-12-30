@@ -37,15 +37,13 @@ jobs:
         directories="${directories//'%'/', \"'}"
         directories="${directories//$'\n'/', \"'}"
         directories="${directories//$'\r'/', \"'}"
-        directories="[\"${directories}\"]"
-        directories="${directories/'[\"\"]'/'[]'}"
-        echo "directories=[${directories}]" >> $GITHUB_OUTPUT
+        echo "directories=${directories}" >> $GITHUB_OUTPUT
   update-code-coverage-badges:
     needs: unit-tests-review
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        directory: ${{ fromJSON(needs.unit-tests-review.outputs.directories) }}
+        directory: ${{ ($(echo needs.unit-tests-review.outputs.directories | tr ',' '\n'))  }}
     steps:
     - name: Access variable Test
       run: echo ${{ matrix.directory }}
