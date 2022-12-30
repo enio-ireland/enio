@@ -6,7 +6,7 @@ name: 'Unit Tests & Code Coverage Review'
 on: [pull_request]
 
 jobs:
-  unit-tests-review:
+  unit-tests:
     runs-on: ubuntu-latest
     outputs:
       directories: ${{ steps.find_reports.outputs.directories }}
@@ -41,7 +41,7 @@ jobs:
         directories=`echo ${directories} | sed 's/,/"&"/g' | sed 's/\S\+/"&"/g'`
         directories="[${directories}]"
         echo "directories=${directories}" >> $GITHUB_OUTPUT
-  update-code-coverage-badges:
+  code-coverage-badge:
     needs: unit-tests-review
     runs-on: ubuntu-latest
     strategy:
@@ -50,17 +50,11 @@ jobs:
     steps:
     - name: Access variable Test
       run: echo ${{ matrix.directory }}
-
-    # - name: Loop Example
-    #   run: |
-    #     directories="${{steps.find_reports.outputs.directories}}"
-    #     directoryList=$(echo $directories | tr "," "\n")
-    #     for directory in $directoryList; do echo "$directory"; done
-
-    # - name: Code Coverage Report
-    #   uses: dkhunt27/nx-code-coverage@v0.3.0
-    #   with:
-    #     github-token: ${{ secrets.GITHUB_TOKEN }}
-    #     gist-token: ${{ secrets.COVERAGE_BADGES_GIST_TOKEN }}
-    #     gist-id: 0b98501627ca03cf8058155b5c337a3d
-    #     color: green
+    - name: Create Badge
+      uses: dkhunt27/nx-code-coverage@v0.3.0
+      with:
+        coverage-folder: ${{ matrix.directory }}
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        gist-token: ${{ secrets.COVERAGE_BADGES_GIST_TOKEN }}
+        gist-id: 0b98501627ca03cf8058155b5c337a3d
+        style: flat
