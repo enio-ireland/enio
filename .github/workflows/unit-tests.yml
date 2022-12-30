@@ -44,7 +44,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        directory: ${{ $(needs.unit-tests-review.outputs.directories) }}
+        directory: (${{needs.unit-tests-review.outputs.directories}})
     steps:
     - name: Access variable Test
       run: echo ${{ matrix.directory }}
