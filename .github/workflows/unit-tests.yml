@@ -86,15 +86,16 @@ jobs:
         echo "project=${project}"
         echo "directory=${directory}" >> $GITHUB_OUTPUT
         echo "project=${project}" >> $GITHUB_OUTPUT
-    # - name: Create the Badge
-    #   uses: schneegans/dynamic-badges-action@v1.0.0
-    #   with:
-    #     auth: ${{ secrets.COVERAGE_BADGES_GIST_TOKEN }}
-    #     gistID: 0b98501627ca03cf8058155b5c337a3d
-    #     filename: ${{steps.params.outputs.project}}.json
-    #     label: Code Coverage
-    #     message: ${{ env.COVERAGE }}
-    #     style: flat
-    #     valColorRange: 100
-    #     maxColorRange: 100
-    #     minColorRange: 50
+    - name: Create the Badge
+      uses: schneegans/dynamic-badges-action@v1.0.0
+      with:
+        auth: ${{ secrets.COVERAGE_BADGES_GIST_TOKEN }}
+        gistID: 0b98501627ca03cf8058155b5c337a3d
+        filename: ${{project}}.json
+        label: Code Coverage
+        message: 100%
+        # message: ${{ env.COVERAGE }}
+        style: flat
+        valColorRange: 100
+        maxColorRange: 100
+        minColorRange: 50
