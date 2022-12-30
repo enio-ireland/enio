@@ -84,6 +84,9 @@ jobs:
         project=${directory##*/}
         filePath="${directory}/coverage-summary.json"
         content=`grep "\"total\": " ${filePath}`
+        content=${content:10}
+        content=${content::-1}
+        content=$${fromJson(content)}
         echo "directory=${directory}"
         echo "project=${project}"
         echo "filePath=${filePath}"
