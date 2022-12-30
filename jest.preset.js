@@ -11,6 +11,6 @@ module.exports = {
     }
   },
   collectCoverageFrom: ['**/*.{js,jsx,ts,tsx}', '!**/node_modules/**', '!**/*.spec.*', '!**/*.config.*', '!**/index.*'],
-  coverageReporters: ['lcov', 'text', 'json'],
+  coverageReporters: ['lcov', 'text', 'json-summary'],
   reporters: ['default', 'github-actions']
 }

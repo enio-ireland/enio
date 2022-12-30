@@ -39,7 +39,7 @@ jobs:
       id: find_reports
       shell: bash
       run: |
-        directories="$(find coverage -type f -name '*coverage*' | sed -r 's|/[^/]+$||' |sort |uniq)"
+        directories="$(find coverage -type f -name '*coverage-summary*' | sed -r 's|/[^/]+$||' |sort |uniq)"
         directories="${directories//'%'/','}"
         directories="${directories//$'\n'/','}"
         directories="${directories//$'\r'/','}"
@@ -75,13 +75,25 @@ jobs:
         affected: true
         nxCloud: true
         targets: test
-    - name: Access variable Test
-      run: echo ${{ matrix.directory }}
-    - name: Create Badge
-      uses: dkhunt27/nx-code-coverage@v0.3.0
-      with:
-        coverage-folder: ${{ matrix.directory }}
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        gist-token: ${{ secrets.COVERAGE_BADGES_GIST_TOKEN }}
-        gist-id: 0b98501627ca03cf8058155b5c337a3d
-        style: flat
+    - name: Set parameters
+      continue-on-error: false
+      id: params
+      run: |
+        directory=${{ matrix.directory }}
+        project=${directory##*/}
+        echo "directory=${directory}"
+        echo "project=${project}"
+        echo "directory=${directory}" >> $GITHUB_OUTPUT
+        echo "project=${project}" >> $GITHUB_OUTPUT
+    # - name: Create the Badge
+    #   uses: schneegans/dynamic-badges-action@v1.0.0
+    #   with:
+    #     auth: ${{ secrets.COVERAGE_BADGES_GIST_TOKEN }}
+    #     gistID: 0b98501627ca03cf8058155b5c337a3d
+    #     filename: ${{steps.params.outputs.project}}.json
+    #     label: Code Coverage
+    #     message: ${{ env.COVERAGE }}
+    #     style: flat
+    #     valColorRange: 100
+    #     maxColorRange: 100
+    #     minColorRange: 50
