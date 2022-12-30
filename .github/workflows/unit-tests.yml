@@ -39,7 +39,7 @@ jobs:
       id: find_reports
       shell: bash
       run: |
-        directories="$(find coverage -type f -name '*coverage-summary*' | sed -r 's|/[^/]+$||' |sort |uniq)"
+        directories="$(find coverage -type f -name 'coverage-summary.json' | sed -r 's|/[^/]+$||' |sort |uniq)"
         directories="${directories//'%'/','}"
         directories="${directories//$'\n'/','}"
         directories="${directories//$'\r'/','}"
@@ -82,10 +82,15 @@ jobs:
       run: |
         directory=${{ matrix.directory }}
         project=${directory##*/}
+        filePath="${directory}\/coverage-summary.json"
+        content=`grep "\"total\": " ${filePath}`
         echo "directory=${directory}"
         echo "project=${project}"
+        echo "filePath=${filePath}"
+        echo "content=${content}"
         echo "directory=${directory}" >> $GITHUB_OUTPUT
         echo "project=${project}" >> $GITHUB_OUTPUT
+        echo "filePath=${filePath}" >> $GITHUB_OUTPUT
     - name: Create the Badge
       uses: schneegans/dynamic-badges-action@v1.0.0
       with:
