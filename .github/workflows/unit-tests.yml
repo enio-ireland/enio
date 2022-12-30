@@ -76,7 +76,7 @@ jobs:
         affected: true
         nxCloud: true
         targets: test
-    - name: Set parameters
+    - name: Collect Coverage Results
       continue-on-error: false
       id: params
       run: |
@@ -93,22 +93,16 @@ jobs:
         sum=$((sumString))
         average=`expr $sum / $count`
         percentage="$average%"
-        echo "directory=${directory}"
-        echo "project=${project}"
-        echo "filePath=${filePath}"
-        echo "content=${content}"
-        echo "code coverage:${percentage}"
-        echo "directory=${directory}" >> $GITHUB_OUTPUT
+        echo "${project} code coverage: ${percentage}"
         echo "project=${project}" >> $GITHUB_OUTPUT
-        echo "filePath=${filePath}" >> $GITHUB_OUTPUT
         echo "coverage=${percentage}" >> $GITHUB_OUTPUT
-    - name: Create the Badge
+    - name: Update Badge
       uses: schneegans/dynamic-badges-action@v1.0.0
       with:
         auth: ${{ secrets.COVERAGE_BADGES_GIST_TOKEN }}
         gistID: 0b98501627ca03cf8058155b5c337a3d
         filename: ${{steps.params.outputs.project}}.json
-        label: Code Coverage
+        label: coverage
         message: ${{steps.params.outputs.coverage}}
         style: flat
         valColorRange: 100
