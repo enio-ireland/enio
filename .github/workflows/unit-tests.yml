@@ -40,7 +40,7 @@ jobs:
         directories="${directories//$'\r'/','}"
         directories=`echo ${directories} | sed 's/,/"&"/g' | sed 's/\S\+/"&"/g'`
         directories="[${directories}]"
-        echo "directories={directories}" >> $GITHUB_OUTPUT
+        echo "directories=${directories}" >> $GITHUB_OUTPUT
   update-code-coverage-badges:
     needs: unit-tests-review
     runs-on: ubuntu-latest
