@@ -82,7 +82,7 @@ jobs:
       run: |
         directory=${{ matrix.directory }}
         project=${directory##*/}
-        filePath="${directory}\coverage-summary.json"
+        filePath="${directory}/coverage-summary.json"
         content=`grep "\"total\": " ${filePath}`
         echo "directory=${directory}"
         echo "project=${project}"
