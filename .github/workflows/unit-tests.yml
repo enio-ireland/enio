@@ -91,7 +91,7 @@ jobs:
       with:
         auth: ${{ secrets.COVERAGE_BADGES_GIST_TOKEN }}
         gistID: 0b98501627ca03cf8058155b5c337a3d
-        filename: ${{project}}.json
+        filename: ${{steps.params.outputs.project}}.json
         label: Code Coverage
         message: 100%
         # message: ${{ env.COVERAGE }}
