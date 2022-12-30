@@ -35,10 +35,12 @@ jobs:
       shell: bash
       run: |
         directories="$(find coverage -type f -name '*coverage*' | sed -r 's|/[^/]+$||' |sort |uniq)"
-        directories="${directories//'%'/',\"'}"
-        directories="${directories//$'\n'/',\"'}"
-        directories="${directories//$'\r'/',\"'}"
-        echo "directories=[\"${directories}\"]" >> $GITHUB_OUTPUT
+        directories="${directories//'%'/','}"
+        directories="${directories//$'\n'/','}"
+        directories="${directories//$'\r'/','}"
+        directories=`echo ${directories} | sed 's/,/"&"/g' | sed 's/\S\+/"&"/g'`
+        directories="[${directories}]"
+        echo "directories={directories}" >> $GITHUB_OUTPUT
   update-code-coverage-badges:
     needs: unit-tests-review
     runs-on: ubuntu-latest
