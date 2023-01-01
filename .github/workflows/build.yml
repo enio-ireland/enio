@@ -7,7 +7,7 @@ name: 'Build Check'
 on: [pull_request]
 
 jobs:
-  unit-tests:
+  build-projects:
     runs-on: ubuntu-latest
     outputs:
       directories: ${{ steps.find_reports.outputs.directories }}
