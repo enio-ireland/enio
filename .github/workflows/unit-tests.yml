@@ -1,6 +1,7 @@
 # Unit Tests & Code Coverage Review
 #
-# This Action will scan changes made as part of a Pull Request to determine which projects should run unit tests. Once unit tests run, code coverage is reported, and step will fail if it does not meet code coverage thresholds.
+# This action will scan changes made as part of a pull request,
+# determines which projects should be tested and runs unit tests.
 #
 name: 'Unit Tests & Code Coverage Review'
 on: [pull_request]
@@ -33,78 +34,3 @@ jobs:
         affected: true
         nxCloud: true
         targets: test
-
-    - name: Identify Code Coverage Report Locations
-      continue-on-error: false
-      id: find_reports
-      shell: bash
-      run: |
-        directories="$(find coverage -type f -name 'coverage-summary.json' | sed -r 's|/[^/]+$||' |sort |uniq)"
-        directories="${directories//'%'/','}"
-        directories="${directories//$'\n'/','}"
-        directories="${directories//$'\r'/','}"
-        directories=`echo ${directories} | sed 's/,/"&"/g' | sed 's/\S\+/"&"/g'`
-        directories="[${directories}]"
-        echo "directories=${directories}"
-        echo "directories=${directories}" >> $GITHUB_OUTPUT
-  code-coverage-badge:
-    needs: unit-tests
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        directory: ${{fromJson(needs.unit-tests.outputs.directories)}}
-    steps:
-    - name: Checkout
-      continue-on-error: false
-      uses: actions/checkout@v3
-      with:
-        fetch-depth: 0
-    - name: Use Node v16
-      continue-on-error: false
-      uses: actions/setup-node@v3
-      with:
-        node-version: 16
-    - name: Install dependencies
-      continue-on-error: false
-      uses: bahmutov/npm-install@v1
-      with:
-        install-command: npm i
-    - name: Run Unit Tests and Coverage Reports
-      continue-on-error: false
-      uses: MansaGroup/nrwl-nx-action@v3.2.1
-      with:
-        affected: true
-        nxCloud: true
-        targets: test
-    - name: Collect Coverage Results
-      continue-on-error: false
-      id: params
-      run: |
-        directory=${{ matrix.directory }}
-        project=${directory##*/}
-        filePath="${directory}/coverage-summary.json"
-        content=`grep "\"total\": " ${filePath}`
-        content=${content:10}
-        content=${content::-1}
-        values=(`echo $content | grep -o '"pct":[0-9]*' | grep -o '[^":]*$'`)
-        count=${#values[@]}
-        valuesString="${values[@]}"
-        sumString=${valuesString// /+}
-        sum=$((sumString))
-        average=`expr $sum / $count`
-        percentage="$average%"
-        echo "${project} code coverage: ${percentage}"
-        echo "project=${project}" >> $GITHUB_OUTPUT
-        echo "coverage=${percentage}" >> $GITHUB_OUTPUT
-    - name: Update Badge
-      uses: schneegans/dynamic-badges-action@v1.6.0
-      with:
-        auth: ${{ secrets.COVERAGE_BADGES_GIST_TOKEN }}
-        gistID: 0b98501627ca03cf8058155b5c337a3d
-        filename: ${{steps.params.outputs.project}}.json
-        label: coverage
-        message: ${{steps.params.outputs.coverage}}
-        style: flat
-        valColorRange: 100
-        maxColorRange: 100
-        minColorRange: 50
