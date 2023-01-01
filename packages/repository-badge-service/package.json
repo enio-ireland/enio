@@ -1,6 +1,6 @@
 {
   "name": "@enio.ai/repository-badge-service",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A service to generate repository badges",
   "license": "MIT",
   "author": "Enio Authors",
@@ -26,5 +26,7 @@
   "dependencies": {
     "badge-maker": "^3.3.1"
   },
-  "keywords": ["badge"]
+  "keywords": [
+    "badge"
+  ]
 }
