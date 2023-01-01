@@ -25,9 +25,9 @@ node_modules
 !.vscode/extensions.json
 
 # misc
+/coverage
 /.sass-cache
 /connect.lock
-/coverage
 /libpeerconnection.log
 npm-debug.log
 yarn-error.log
