@@ -27,7 +27,7 @@ jobs:
       uses: bahmutov/npm-install@v1
       with:
         install-command: npm i
-    - name: Run Unit Tests and Coverage Reports
+    - name: Build Projects
       continue-on-error: false
       uses: MansaGroup/nrwl-nx-action@v3.2.1
       with:
