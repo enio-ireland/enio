@@ -2,6 +2,8 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [1.0.1](https://github.com/enio-ireland/enio/compare/data-ferret-1.0.0...data-ferret-1.0.1) (2023-01-01)
+
 ## [1.0.0](https://github.com/enio-ireland/enio/compare/data-ferret-0.1.1...data-ferret-1.0.0) (2022-12-27)
 
 
