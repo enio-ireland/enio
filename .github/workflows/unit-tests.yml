@@ -12,25 +12,25 @@ jobs:
     outputs:
       directories: ${{ steps.find_reports.outputs.directories }}
     steps:
-    - name: Checkout
-      continue-on-error: false
-      uses: actions/checkout@v3
-      with:
-        fetch-depth: 0
-    - name: Use Node v16
-      continue-on-error: false
-      uses: actions/setup-node@v3
-      with:
-        node-version: 16
-    - name: Install dependencies
-      continue-on-error: false
-      uses: bahmutov/npm-install@v1
-      with:
-        install-command: npm i
-    - name: Run Unit Tests and Coverage Reports
-      continue-on-error: false
-      uses: MansaGroup/nrwl-nx-action@v3.2.1
-      with:
-        affected: true
-        nxCloud: true
-        targets: test
+      - name: Checkout
+        continue-on-error: false
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Use Node v16
+        continue-on-error: false
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Install dependencies
+        continue-on-error: false
+        uses: bahmutov/npm-install@v1
+        with:
+          install-command: npm i
+      - name: Run Unit Tests and Coverage Reports
+        continue-on-error: false
+        uses: MansaGroup/nrwl-nx-action@v3.2.1
+        with:
+          affected: true
+          nxCloud: true
+          targets: test
