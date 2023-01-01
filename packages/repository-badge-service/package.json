@@ -2,5 +2,8 @@
   "name": "@enio.ai/repository-badge-service",
   "description": "A service to generate repository badges",
   "version": "0.0.1",
-  "type": "commonjs"
+  "type": "commonjs",
+  "dependencies": {
+    "badge-maker": "^3.3.1"
+  }
 }
