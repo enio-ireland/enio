@@ -1,9 +1,30 @@
 {
   "name": "@enio.ai/repository-badge-service",
+  "version": "0.0.0",
   "description": "A service to generate repository badges",
-  "version": "0.0.1",
-  "type": "commonjs",
+  "license": "MIT",
+  "author": "Enio Authors",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/enio-ireland/enio/tree/develop/packages/repository-badge-service"
+  },
+  "private": false,
+  "contributors": [
+    {
+      "name": "Andrew Redican",
+      "email": "andrew.redican.mejia@gmail.com",
+      "url": "https://github.com/AndrewRedican/"
+    }
+  ],
+  "funding": [
+    {
+      "type": "github",
+      "url": "https://github.com/orgs/enio-ireland/dashboard"
+    }
+  ],
   "dependencies": {
     "badge-maker": "^3.3.1"
-  }
+  },
+  "keywords": ["badge"]
 }

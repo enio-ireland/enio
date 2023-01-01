@@ -29,12 +29,12 @@
         "passWithNoTests": false,
         "codeCoverage": true
       }
-    }
-  },
-  "version": {
-    "executor": "@jscutlery/semver:version",
-    "options": {
-      "preset": "conventional"
+    },
+    "version": {
+      "executor": "@jscutlery/semver:version",
+      "options": {
+        "preset": "conventional"
+      }
     }
   },
   "tags": []
