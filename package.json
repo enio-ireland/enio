@@ -20,6 +20,7 @@
     "create.lib.next": "nx g @nrwl/next:lib",
     "create.docs": "nx typedoc",
     "create.book": "nx g @nrwl/storybook:configuration",
+    "create.plugin": "nx g @nrwl/nx-plugin:plugin",
     "setup.docs": "nx g @enio.ai/typedoc:config",
     "serve.book": "nx storybook",
     "build.book": "nx build-storybook",
