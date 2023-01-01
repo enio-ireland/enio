@@ -3,6 +3,7 @@
   "version": 2,
   "projects": {
     "data-ferret": "packages/data-ferret",
+    "repository-badge-service": "packages/repository-badge-service",
     "typedoc": "packages/typedoc"
   }
 }

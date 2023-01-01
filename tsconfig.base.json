@@ -17,6 +17,7 @@
     "baseUrl": ".",
     "paths": {
       "@enio.ai/data-ferret": ["packages/data-ferret/src/index.ts"],
+      "@enio.ai/repository-badge-service": ["packages/repository-badge-service/src/index.ts"],
       "@enio.ai/typedoc": ["packages/typedoc/src/index.ts"]
     }
   },
