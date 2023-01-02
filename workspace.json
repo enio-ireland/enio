@@ -3,6 +3,7 @@
   "version": 2,
   "projects": {
     "data-ferret": "packages/data-ferret",
+    "nx-install": "packages/nx-install",
     "repository-badge-service": "packages/repository-badge-service",
     "typedoc": "packages/typedoc"
   }
