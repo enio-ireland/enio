@@ -61,6 +61,19 @@
       "options": {
         "preset": "conventional"
       }
+    },
+    "nx-install": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "npm install",
+            "forwardAllArgs": true
+          }
+        ],
+        "cwd": "packages/data-ferret",
+        "parallel": false
+      }
     }
   },
   "tags": []
