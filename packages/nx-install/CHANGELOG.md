@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.2.0](https://github.com/enio-ireland/enio/compare/nx-install-0.1.0...nx-install-0.2.0) (2023-01-02)
+
+
+### Features
+
+* **nx-install:** insert two npm scripts one for target project another for affected projects ([c3f13f1](https://github.com/enio-ireland/enio/commit/c3f13f1f57e1bc288ba735ee4f6beaf1a0061046))
+
 ## 0.1.0 (2023-01-02)
 
 
