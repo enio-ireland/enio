@@ -30,7 +30,7 @@ npm install --save-dev @enio.ai/nx-install
 2. Run the following command at the root directory of your workspace, where `<project>` is the name of the project in the nx workspace you want to set up. If `nx` is not setup globaly, you may want to add it as npm script first (see details below) or prefix with `npx` when using [npm](https://npmjs.com). You can also run this command from the [Nx Console](https://marketplace.visualstudio.com/items?itemName=nrwl.angular-console) extension for [VSCode](https://code.visualstudio.com).
 
 ```shell script
-  nx g @enio.ai/nx-install:config <project>
+  nx g @enio.ai/nx-install
 ```
 
 <!-- <p align="center">
@@ -44,7 +44,7 @@ npm install --save-dev @enio.ai/nx-install
 Run the following command, where `<project>` is the name of your project in the nx workspace.
 
 ```shell script
-  npx nx run <project>:nx-install
+  npx nx run nx-install
 ```
 
 Optionally, you can create an npm script on the `package.json` file in the root folder of your nx workspace for convenience.
@@ -53,7 +53,7 @@ Optionally, you can create an npm script on the `package.json` file in the root 
 {
   "scripts": {
     "nx-install": "nx nx-install",
-    "setup.nx-install": "nx g @enio.ai/nx-install:config"
+    "setup.nx-install": "nx g @enio.ai/nx-install"
   }
 }
 ```
