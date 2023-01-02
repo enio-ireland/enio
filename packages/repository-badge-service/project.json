@@ -26,7 +26,27 @@
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
         "jestConfig": "packages/repository-badge-service/jest.config.ts",
-        "passWithNoTests": true
+        "passWithNoTests": false,
+        "codeCoverage": true
+      }
+    },
+    "version": {
+      "executor": "@jscutlery/semver:version",
+      "options": {
+        "preset": "conventional"
+      }
+    },
+    "nx-install": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "npm install",
+            "forwardAllArgs": true
+          }
+        ],
+        "cwd": "packages/repository-badge-service",
+        "parallel": false
       }
     }
   },

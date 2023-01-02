@@ -27,7 +27,14 @@ jobs:
         uses: bahmutov/npm-install@v1
         with:
           install-command: npm i
-      - name: Run Unit Tests and Coverage Reports
+      - name: Install project dependencies
+        continue-on-error: false
+        uses: MansaGroup/nrwl-nx-action@v3.2.1
+        with:
+          affected: true
+          nxCloud: true
+          targets: nx-install
+      - name: Run unit tests
         continue-on-error: false
         uses: MansaGroup/nrwl-nx-action@v3.2.1
         with:

@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "name": "nx-install",
+  "version": "0.0.1",
+  "generators": {
+    "nx-install": {
+      "factory": "./src/generators/nx-install/generator",
+      "schema": "./src/generators/nx-install/schema.json",
+      "description": "Generator to setup nx-install custom command"
+    }
+  }
+}

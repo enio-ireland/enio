@@ -27,7 +27,14 @@ jobs:
         uses: bahmutov/npm-install@v1
         with:
           install-command: npm i
-      - name: Build Projects
+      - name: Install project dependencies
+        continue-on-error: false
+        uses: MansaGroup/nrwl-nx-action@v3.2.1
+        with:
+          affected: true
+          nxCloud: true
+          targets: nx-install
+      - name: Build projects
         continue-on-error: false
         uses: MansaGroup/nrwl-nx-action@v3.2.1
         with:
