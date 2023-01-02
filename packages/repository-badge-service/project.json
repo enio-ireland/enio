@@ -45,7 +45,7 @@
             "forwardAllArgs": true
           }
         ],
-        "cwd": "packages/data-ferret",
+        "cwd": "packages/repository-badge-service",
         "parallel": false
       }
     }

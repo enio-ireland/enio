@@ -71,7 +71,7 @@
             "forwardAllArgs": true
           }
         ],
-        "cwd": "packages/data-ferret",
+        "cwd": "packages/typedoc",
         "parallel": false
       }
     }
