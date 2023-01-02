@@ -1,8 +1,8 @@
-import { Tree, readRootPackageJson, writeJsonFile, getProjects, formatFiles } from '@nrwl/devkit'
-import { registerOperation, configureProject } from './process'
+import { Tree, getProjects, formatFiles } from '@nrwl/devkit'
+import { registerNpmScript, registerOperation, configureProject } from './process'
 
 export default async function (tree: Tree) {
-  console.log('@json:', readRootPackageJson())
+  registerNpmScript()
   registerOperation(tree)
   getProjects(tree).forEach(({ name }) => configureProject(tree, name))
   await formatFiles(tree)

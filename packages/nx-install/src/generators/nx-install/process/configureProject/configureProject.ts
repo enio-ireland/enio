@@ -2,7 +2,6 @@ import { Tree } from '@nrwl/devkit'
 import { readProjectConfiguration, updateProjectConfiguration } from '@nrwl/devkit'
 import { name } from '../../../../../project.json'
 
-
 export const configureProject = (tree: Tree, project: string): void => {
   const config = readProjectConfiguration(tree, project)
   config.targets[name] = {
@@ -20,5 +19,3 @@ export const configureProject = (tree: Tree, project: string): void => {
   }
   updateProjectConfiguration(tree, project, config)
 }
-
-
