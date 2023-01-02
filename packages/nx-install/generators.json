@@ -6,7 +6,7 @@
     "nx-install": {
       "factory": "./src/generators/nx-install/generator",
       "schema": "./src/generators/nx-install/schema.json",
-      "description": "nx-install generator"
+      "description": "Generator to setup nx-install custom command"
     }
   }
 }
