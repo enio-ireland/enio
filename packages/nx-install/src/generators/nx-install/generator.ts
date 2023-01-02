@@ -4,6 +4,6 @@ import { registerNpmScript, registerOperation, configureProject } from './proces
 export default async function (tree: Tree) {
   registerNpmScript()
   registerOperation(tree)
-  getProjects(tree).forEach(({ name }) => configureProject(tree, name))
+  getProjects(tree).forEach((config) => configureProject(tree, config))
   await formatFiles(tree)
 }

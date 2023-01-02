@@ -1,10 +1,8 @@
-import { Tree } from '@nrwl/devkit'
-import { readProjectConfiguration, updateProjectConfiguration } from '@nrwl/devkit'
-import { name } from '../../../../../project.json'
+import { Tree, ProjectConfiguration } from '@nrwl/devkit'
+import { updateProjectConfiguration } from '@nrwl/devkit'
 
-export const configureProject = (tree: Tree, project: string): void => {
-  const config = readProjectConfiguration(tree, project)
-  config.targets[name] = {
+export const configureProject = (tree: Tree, config: ProjectConfiguration): void => {
+  config.targets['nx-install'] = {
     executor: 'nx:run-commands',
     options: {
       commands: [
@@ -13,9 +11,9 @@ export const configureProject = (tree: Tree, project: string): void => {
           forwardAllArgs: true
         }
       ],
-      cwd: 'packages/data-ferret',
+      cwd: config.root,
       parallel: false
     }
   }
-  updateProjectConfiguration(tree, project, config)
+  updateProjectConfiguration(tree, config.name, config)
 }
