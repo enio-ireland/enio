@@ -1,3 +1,1 @@
-export function repositoryBadgeService(): string {
-  return 'repository-badge-service'
-}
+export { createBuildBadge, createCodeCoverageBadge } from './createBadge/createBadge'

@@ -7,9 +7,22 @@
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "https://github.com/enio-ireland/enio/tree/develop/packages/repository-badge-service"
+    "url": "https://github.com/enio-ireland/enio/tree/develop/apps/@badge-service"
   },
-  "private": false,
+  "main": "lib/index.js",
+  "engines": {
+    "node": "16"
+  },
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "serve": "npm run build && firebase emulators:start --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "private": true,
   "contributors": [
     {
       "name": "Andrew Redican",
@@ -24,7 +37,12 @@
     }
   ],
   "dependencies": {
-    "badge-maker": "^3.3.1"
+    "badge-maker": "^3.3.1",
+    "firebase-admin": "^10.2.0",
+    "firebase-functions": "^3.21.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.6.4"
   },
   "keywords": [
     "badge"
