@@ -1,31 +1,31 @@
 {
-  "name": "repository-badge-service",
+  "name": "@badge-service",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "packages/repository-badge-service/src",
+  "sourceRoot": "apps/@badge-service/src",
   "projectType": "library",
   "targets": {
     "build": {
       "executor": "@nrwl/js:tsc",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/packages/repository-badge-service",
-        "main": "packages/repository-badge-service/src/index.ts",
-        "tsConfig": "packages/repository-badge-service/tsconfig.lib.json",
-        "assets": ["packages/repository-badge-service/*.md"]
+        "outputPath": "dist/apps/@badge-service",
+        "main": "apps/@badge-service/src/index.ts",
+        "tsConfig": "apps/@badge-service/tsconfig.lib.json",
+        "assets": ["apps/@badge-service/*.md"]
       }
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["packages/repository-badge-service/**/*.ts"]
+        "lintFilePatterns": ["apps/@badge-service/**/*.ts"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "packages/repository-badge-service/jest.config.ts",
+        "jestConfig": "apps/@badge-service/jest.config.ts",
         "passWithNoTests": false,
         "codeCoverage": true
       }
@@ -45,7 +45,7 @@
             "forwardAllArgs": true
           }
         ],
-        "cwd": "packages/repository-badge-service",
+        "cwd": "apps/@badge-service",
         "parallel": false
       }
     }

@@ -1,5 +1,5 @@
 {
-  "name": "@enio.ai/repository-badge-service",
+  "name": "@enio.ai/@badge-service",
   "version": "0.1.0",
   "description": "A service to generate repository badges",
   "license": "MIT",
