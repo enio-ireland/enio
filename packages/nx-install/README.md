@@ -35,7 +35,7 @@ Run the following command at the root directory of your workspace. If `nx` is no
 
 ## Installing Dependencies with nx-install
 
-The previous command will have installed two new scripts in your root workspace package.json. 
+The previous command will have installed two new scripts in your root workspace package.json.
 
 ```json
 {
@@ -52,7 +52,7 @@ Then you could run the following commands, where `<project>` is the name of the 
   // Installing dependencies for target project
   npm run nx-install <project>
 
-  
+
   // Installing dependencies for all affected projects
   npm run nx-install:affected
 ```
