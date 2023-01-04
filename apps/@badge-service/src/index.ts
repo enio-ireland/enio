@@ -1,10 +1,16 @@
-import * as functions from 'firebase-functions';
-import { createBuildBadge, createCodeCoverageBadge } from './lib'
+import * as functions from 'firebase-functions'
+import * as process from './lib'
 
-// // Start writing functions
-// // https://firebase.google.com/docs/functions/typescript
-//
-// export const helloWorld = functions.https.onRequest((request, response) => {
-//   functions.logger.info("Hello logs!", {structuredData: true});
-//   response.send("Hello from Firebase!");
-// });
+export const createBuildBadge = functions.https.onRequest((request, response) => {
+  process.createBuildBadge(true)
+  response.send('Create build badge not fully implemented')
+})
+
+export const createCodeCoverageBadge = functions.https.onRequest((request, response) => {
+  process.createCodeCoverageBadge('100', '50', '80')
+  response.send('Create coverage badge not fully implemented')
+})
+
+export const getBadge = functions.https.onRequest((request, response) => {
+  response.send('Get badge not fully implemented')
+})
