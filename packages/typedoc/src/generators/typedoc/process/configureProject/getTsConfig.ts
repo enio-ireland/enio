@@ -1,7 +1,7 @@
 import { ProjectConfiguration, Tree } from '@nrwl/devkit'
 import { join } from 'path'
 
-export const getTsConfig = ({ projectType, root }: ProjectConfiguration, tree: Tree): string => {
+export const getTsConfig = (projectType: ProjectConfiguration['projectType'], root: ProjectConfiguration['root'], tree: Tree): string => {
   const names = (tokens: string[]) => tokens.map(token => `tsconfig.${token}.json`)
   const application = ['editor', 'app']
   const library = ['lib']
