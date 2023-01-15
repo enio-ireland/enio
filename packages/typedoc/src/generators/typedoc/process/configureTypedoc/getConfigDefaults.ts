@@ -5,7 +5,12 @@ import { outputFolder } from '../../utils'
 
 type CLIOptions = 'options' | 'help' | 'version' | 'showConfig'
 
-export const getConfigDefaults = (tree: Tree, projectType: ProjectConfiguration['projectType'], root: ProjectConfiguration['root'], name: ProjectConfiguration['name']): Partial<Omit<TypeDocOptions, CLIOptions>> => ({
+export const getConfigDefaults = (
+  tree: Tree,
+  projectType: ProjectConfiguration['projectType'],
+  root: ProjectConfiguration['root'],
+  name: ProjectConfiguration['name']
+): Partial<Omit<TypeDocOptions, CLIOptions>> => ({
   entryPointStrategy: 'expand',
   entryPoints: ['./src/lib'],
   tsconfig: getTsConfig(projectType, root, tree),
