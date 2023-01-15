@@ -1,8 +1,8 @@
 import { Tree, joinPathFragments, ProjectConfiguration } from '@nrwl/devkit'
 
-export const configureGitIgnore = (tree: Tree, config: ProjectConfiguration): void => {
+export const configureGitIgnore = (tree: Tree, root: ProjectConfiguration['root']): void => {
   const path = '.gitignore'
-  const exclusionAnnotation = joinPathFragments('docs', config.root)
+  const exclusionAnnotation = joinPathFragments('docs', root)
   const title = '#Project Docs'
   const titleAndAnnotation = `${title}\n${exclusionAnnotation}`
   if (!tree.isFile(path)) return tree.write(path, titleAndAnnotation)

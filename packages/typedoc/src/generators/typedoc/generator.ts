@@ -9,7 +9,7 @@ export default async function (tree: Tree, { project }: TypedocGeneratorSchema) 
   const config = getProjectConfig(tree, project)
   configureProject(tree, config, config.name)
   configureTypedoc(tree, config.root, config.projectType, config.name)
-  configureGitIgnore(tree, config)
+  configureGitIgnore(tree, config.root)
   await formatFiles(tree)
   return installDependencies
 }
