@@ -1,15 +1,15 @@
 import { Tree, formatFiles } from '@nrwl/devkit'
 import { TypedocGeneratorSchema } from './schema'
 import { addDependencies, registerOperation, configureProject, configureTypedoc, configureGitIgnore } from './process'
-import { getProjectConfig } from './utils'
+import { getGeneratorExecutionParams } from './utils'
 
 export default async function (tree: Tree, { project }: TypedocGeneratorSchema) {
+  const { projectConfig, projectName, projectRoot, projectType } = getGeneratorExecutionParams(tree, project)
   const installDependencies = addDependencies(tree)
   registerOperation(tree)
-  const config = getProjectConfig(tree, project)
-  configureProject(tree, config, config.name)
-  configureTypedoc(tree, config.root, config.projectType, config.name)
-  configureGitIgnore(tree, config.root)
+  configureProject(tree, projectConfig, projectName)
+  configureTypedoc(tree, projectRoot, projectType, projectName)
+  configureGitIgnore(tree, projectRoot)
   await formatFiles(tree)
   return installDependencies
 }
