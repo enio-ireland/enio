@@ -1,11 +1,9 @@
-import { Tree, generateFiles, readProjectConfiguration } from '@nrwl/devkit'
+import { Tree, generateFiles, ProjectConfiguration } from '@nrwl/devkit'
 import { resolve } from 'path'
-import { TypedocGeneratorSchema } from '../../schema'
 import { getConfigDefaults } from './getConfigDefaults'
 
-export const configureTypedoc = (tree: Tree, options: TypedocGeneratorSchema): void => {
+export const configureTypedoc = (tree: Tree, config: ProjectConfiguration): void => {
   const templateSourceFolder = resolve(__dirname, '../../files')
-  const project = readProjectConfiguration(tree, options.project)
-  const substitutions = { options: getConfigDefaults(project, tree), tmpl: '' }
-  generateFiles(tree, templateSourceFolder, project.root, substitutions)
+  const substitutions = { options: getConfigDefaults(config, tree), tmpl: '' }
+  generateFiles(tree, templateSourceFolder, config.root, substitutions)
 }

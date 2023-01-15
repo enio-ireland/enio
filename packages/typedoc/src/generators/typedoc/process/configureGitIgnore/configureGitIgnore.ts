@@ -1,10 +1,8 @@
-import { Tree, readProjectConfiguration, joinPathFragments } from '@nrwl/devkit'
-import { TypedocGeneratorSchema } from '../../schema'
+import { Tree, joinPathFragments, ProjectConfiguration } from '@nrwl/devkit'
 
-export const configureGitIgnore = (tree: Tree, options: TypedocGeneratorSchema): void => {
-  const { root } = readProjectConfiguration(tree, options.project)
+export const configureGitIgnore = (tree: Tree, config: ProjectConfiguration): void => {
   const path = '.gitignore'
-  const exclusionAnnotation = joinPathFragments('docs', root)
+  const exclusionAnnotation = joinPathFragments('docs', config.root)
   const title = '#Project Docs'
   const titleAndAnnotation = `${title}\n${exclusionAnnotation}`
   if (!tree.isFile(path)) return tree.write(path, titleAndAnnotation)
