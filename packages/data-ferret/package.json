@@ -9,6 +9,7 @@
     "type": "git",
     "url": "https://github.com/enio-ireland/enio/tree/develop/packages/data-ferret"
   },
+  "main": "src/index.js",
   "private": false,
   "contributors": [
     {
