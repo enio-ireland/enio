@@ -1,4 +1,5 @@
-import { Tree } from '@nrwl/devkit'
+import { Tree, joinPathFragments } from '@nrwl/devkit'
+import { outputFolder } from '../'
 import { TypedocGeneratorSchema } from '../../schema'
 import { getProjectConfig } from '../getProjectConfig/getProjectConfig'
 import { GeneratorExecutionParams } from './getGeneratorExecutionParams.model'
@@ -19,7 +20,8 @@ export const getGeneratorExecutionParams = (tree: Tree, project: TypedocGenerato
     projectConfig: config,
     projectName: config.name || project,
     projectRoot: config.root,
-    projectType: config.projectType
+    projectType: config.projectType,
+    outputDir: joinPathFragments(outputFolder, config.root)
   }
 }
 

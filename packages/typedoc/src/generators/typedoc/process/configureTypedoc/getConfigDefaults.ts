@@ -1,6 +1,7 @@
 import { joinPathFragments, ProjectConfiguration, Tree } from '@nrwl/devkit'
 import { TypeDocOptions } from 'typedoc'
 import { getTsConfig } from '../configureProject/getTsConfig'
+import { outputFolder } from '../../utils'
 
 type CLIOptions = 'options' | 'help' | 'version' | 'showConfig'
 
@@ -9,7 +10,7 @@ export const getConfigDefaults = (tree: Tree, projectType: ProjectConfiguration[
   entryPoints: ['./src/lib'],
   tsconfig: getTsConfig(projectType, root, tree),
   compilerOptions: {},
-  exclude: ['**/*.(spec|test|e2e).ts', 'docs/**', 'tests/**', 'specs/**', 'spec/**', 'test/**', '**/index.ts'],
+  exclude: ['**/*.(spec|test|e2e).ts', `${outputFolder}/**`, 'tests/**', 'specs/**', 'spec/**', 'test/**', '**/index.ts'],
   externalPattern: ['**/node_modules/**'],
   excludeExternals: true,
   excludeInternal: false,
@@ -18,7 +19,7 @@ export const getConfigDefaults = (tree: Tree, projectType: ProjectConfiguration[
   excludeNotDocumented: false,
   externalSymbolLinkMappings: {},
   includes: '',
-  out: joinPathFragments('../../docs', root),
+  out: joinPathFragments(`../../${outputFolder}`, root),
   emit: 'docs',
   theme: 'hierarchy',
   name,

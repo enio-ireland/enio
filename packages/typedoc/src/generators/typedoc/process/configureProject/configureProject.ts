@@ -1,13 +1,13 @@
-import { Tree, joinPathFragments } from '@nrwl/devkit'
+import { Tree } from '@nrwl/devkit'
 import { updateProjectConfiguration } from '@nrwl/devkit'
 import { getExecutorName } from './getExecutorName'
 import { name } from '../../../../../project.json'
 import { GeneratorExecutionParams } from '../../utils'
 
-export const configureProject = (tree: Tree, config: GeneratorExecutionParams['projectConfig'], projectRoot: GeneratorExecutionParams['projectRoot'], projectName: GeneratorExecutionParams['projectName']): void => {
+export const configureProject = (tree: Tree, config: GeneratorExecutionParams['projectConfig'], projectName: GeneratorExecutionParams['projectName'], outputDir: GeneratorExecutionParams['outputDir']): void => {
   config.targets[name] = {
     executor: getExecutorName(),
-    outputs: [joinPathFragments('docs', projectRoot)],
+    outputs: [outputDir],
     options: {options: 'typedoc.json' },
     configurations: {}
   }

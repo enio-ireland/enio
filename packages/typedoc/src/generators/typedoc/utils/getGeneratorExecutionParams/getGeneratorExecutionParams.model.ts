@@ -15,4 +15,7 @@ export interface GeneratorExecutionParams {
 
   /** Project type */
   projectType: ProjectConfiguration['projectType']
+
+  /** Documentation's location for project relative to Nx's workspace root directory */
+  outputDir: string
 }
