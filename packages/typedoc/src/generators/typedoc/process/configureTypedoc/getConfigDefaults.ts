@@ -4,10 +4,10 @@ import { getTsConfig } from '../configureProject/getTsConfig'
 
 type CLIOptions = 'options' | 'help' | 'version' | 'showConfig'
 
-export const getConfigDefaults = (project: ProjectConfiguration, tree: Tree): Partial<Omit<TypeDocOptions, CLIOptions>> => ({
+export const getConfigDefaults = (tree: Tree, projectType: ProjectConfiguration['projectType'], root: ProjectConfiguration['root'], name: ProjectConfiguration['name']): Partial<Omit<TypeDocOptions, CLIOptions>> => ({
   entryPointStrategy: 'expand',
   entryPoints: ['./src/lib'],
-  tsconfig: getTsConfig(project, tree),
+  tsconfig: getTsConfig(projectType, root, tree),
   compilerOptions: {},
   exclude: ['**/*.(spec|test|e2e).ts', 'docs/**', 'tests/**', 'specs/**', 'spec/**', 'test/**', '**/index.ts'],
   externalPattern: ['**/node_modules/**'],
@@ -18,10 +18,10 @@ export const getConfigDefaults = (project: ProjectConfiguration, tree: Tree): Pa
   excludeNotDocumented: false,
   externalSymbolLinkMappings: {},
   includes: '',
-  out: joinPathFragments('../../docs', project.root),
+  out: joinPathFragments('../../docs', root),
   emit: 'docs',
   theme: 'hierarchy',
-  name: project.name,
+  name,
   includeVersion: true,
   readme: './README.md',
   disableSources: false,
