@@ -5,13 +5,36 @@
   "projectType": "library",
   "targets": {
     "build": {
-      "executor": "@nrwl/js:tsc",
+      "executor": "@nrwl/web:rollup",
       "outputs": ["{options.outputPath}"],
       "options": {
+        "project": "packages/data-ferret/package.json",
+        "entryFile": "packages/data-ferret/src/index.ts",
         "outputPath": "dist/packages/data-ferret",
-        "main": "packages/data-ferret/src/index.ts",
+        "deleteOutputPath": true,
         "tsConfig": "packages/data-ferret/tsconfig.lib.json",
-        "assets": ["packages/data-ferret/*.md"]
+        "format": ["cjs", "esm", "umd"],
+        "external": [],
+        "assets": [
+          {
+            "input": "./packages/data-ferret",
+            "glob": "*.md",
+            "output": "./"
+          },
+          {
+            "input": "./",
+            "glob": "LICENSE.md",
+            "output": "./"
+          },
+          {
+            "input": "./",
+            "glob": "CONTRIBUTORS.md",
+            "output": "./"
+          }
+        ],
+        "compiler": "babel",
+        "generateExportsField": true,
+        "umdName": "dataFerret"
       }
     },
     "publish": {
