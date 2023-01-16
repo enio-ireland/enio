@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [1.0.3](https://github.com/enio-ireland/enio/compare/data-ferret-1.0.2...data-ferret-1.0.3) (2023-01-16)
+
+
+### Bug Fixes
+
+* **data-ferret:** update build so that package is usable my most projects ([6796d81](https://github.com/enio-ireland/enio/commit/6796d81ab57b419de3028fbe07b3d32c3a2802e7))
+
 ## [1.0.2](https://github.com/enio-ireland/enio/compare/data-ferret-1.0.1...data-ferret-1.0.2) (2023-01-16)
 
 ## [1.0.1](https://github.com/enio-ireland/enio/compare/data-ferret-1.0.0...data-ferret-1.0.1) (2023-01-01)
