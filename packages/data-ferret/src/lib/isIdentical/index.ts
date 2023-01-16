@@ -1,0 +1,1 @@
+export { isIdentical } from './isIdentical'

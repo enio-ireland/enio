@@ -1,0 +1,1 @@
+export { hasCircularReference } from './hasCircularReference'

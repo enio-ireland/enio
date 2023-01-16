@@ -1,0 +1,1 @@
+export { sameStructure } from './sameStructure'

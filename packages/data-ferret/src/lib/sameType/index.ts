@@ -1,0 +1,1 @@
+export { sameType } from './sameType'

@@ -1,0 +1,1 @@
+export { getType } from './getType'

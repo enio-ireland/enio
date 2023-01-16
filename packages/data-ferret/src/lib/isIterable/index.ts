@@ -1,0 +1,1 @@
+export { isIterable } from './isIterable'

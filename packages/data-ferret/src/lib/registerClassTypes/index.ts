@@ -1,0 +1,1 @@
+export { registerClassTypes } from './registerClassTypes'
