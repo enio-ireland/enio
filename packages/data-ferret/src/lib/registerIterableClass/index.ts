@@ -1,0 +1,1 @@
+export { registerIterableClass } from './registerIterableClass'

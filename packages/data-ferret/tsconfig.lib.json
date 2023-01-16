@@ -2,10 +2,16 @@
   "extends": "./tsconfig.json",
   "module": "esnext",
   "compilerOptions": {
-    "outDir": "../../dist/out-tsc",
+    "outDir": ".",
+    "sourceMap": true,
     "declaration": true,
-    "declarationMap": true
+    "declarationMap": true,
+    "baseUrl": "./src",
+    "target": "ESNext",
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
   },
-  "include": ["**/*.ts"],
-  "exclude": ["jest.config.ts", "**/*.spec.ts", "**/*.test.ts"]
+  "include": ["src/"],
+  "exclude": ["!src/", "jest.config.ts", "**/*.spec.ts", "**/*.test.ts"]
 }
