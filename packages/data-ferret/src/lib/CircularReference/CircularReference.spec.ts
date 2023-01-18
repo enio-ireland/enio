@@ -3,7 +3,7 @@ import { CircularReference } from '../CircularReference'
 describe('CircularReference', () => {
   let circularRef: CircularReference
 
-  beforeEach(() => circularRef =  new CircularReference(['a', 'b', 'c', 'd'],['a', 'b']))
+  beforeEach(() => (circularRef = new CircularReference(['a', 'b', 'c', 'd'], ['a', 'b'])))
 
   it('creates an instance', () => {
     expect(circularRef instanceof CircularReference).toEqual(true)

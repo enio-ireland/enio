@@ -1,12 +1,12 @@
 import { ICircularReference, Location } from './CircularReference.model'
 
-const isNotValidArray = (target: unknown) => (!Array.isArray(target) || !target.length)
+const isNotValidArray = (target: unknown) => !Array.isArray(target) || !target.length
 
 const expectedValidArrayErrorMessage = (targetName: string) => `Expected ${targetName} to be a list with at least on string value.`
 
 export class CircularReference implements ICircularReference {
-  public readonly location: Location;
-  public readonly target: Location;
+  public readonly location: Location
+  public readonly target: Location
   private readonly keyDelimiter = '\u00B7'
   private readonly delimiter = ' → '
 
