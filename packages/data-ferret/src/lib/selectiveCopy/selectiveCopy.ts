@@ -45,10 +45,10 @@ export const selectiveCopy$$ = <T extends Record<string, unknown>>(
   skipFunctions: boolean,
   recordSkip: DataPointOperation,
   stack: ReferenceStack,
-  circularRefs: CircularReference[]
+  circularRefs: CircularReference[],
+  root = false
 ): Partial<T> => {
-  const initial = stack.size === 0
-  initial && stack.add(target)
+  root && stack.add(target)
   const type = getType(target)
   if (!isIterableType(type)) return target
   const { instantiate, getKeys, read, write } = getIterableOperators(type)
@@ -76,7 +76,7 @@ export const selectiveCopy$$ = <T extends Record<string, unknown>>(
       nextKey
     )
   }
-  if (initial) {
+  if (root) {
     circularRefs.forEach(({ startPath, destinationPath }) => {
       let [start, destination] = [iterableInstance, iterableInstance] as [Record<string, unknown>, Record<string, unknown>]
       for (let i = 0; i < startPath.length; i += 1) {
@@ -137,7 +137,7 @@ export const selectiveCopy = <T = unknown>(target: T, options?: Options): { clon
   const recordSkip: DataPointOperation = (target, path, key, dataType) => skipped.push({ target, path, key, dataType })
   let clone: T
   if (getConfig().detectCircularReferences) {
-    clone = selectiveCopy$$(target as Record<string, unknown>, [], includeKey, skipFunctions, recordSkip, referenceStack(), []) as T
+    clone = selectiveCopy$$(target as Record<string, unknown>, [], includeKey, skipFunctions, recordSkip, referenceStack(), [], true) as T
   } else {
     clone = selectiveCopy$(target as Record<string, unknown>, [], includeKey, skipFunctions, recordSkip) as T
   }
