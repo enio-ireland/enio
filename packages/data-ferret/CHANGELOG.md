@@ -2,6 +2,18 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [1.1.0](https://github.com/enio-ireland/enio/compare/data-ferret-1.0.3...data-ferret-1.1.0) (2023-01-20)
+
+
+### Features
+
+* **data-ferret:** add locateCircularReference to API :sparkles: ([ec90707](https://github.com/enio-ireland/enio/commit/ec907074005849780dbf06606139dbc355c40bf2))
+
+
+### Bug Fixes
+
+* **data-ferret:** hasCircularReference now correctly removes markers ([4961515](https://github.com/enio-ireland/enio/commit/4961515a591ed64bb3ba0e17a2867cb096645c58))
+
 ## [1.0.3](https://github.com/enio-ireland/enio/compare/data-ferret-1.0.2...data-ferret-1.0.3) (2023-01-16)
 
 
