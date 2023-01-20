@@ -1,8 +1,7 @@
-import { CircularReference } from '../CircularReference'
 import { locateCircularReference } from './locateCircularReference'
 
 describe('locateCircularReference', () => {
-  let input: unknown;
+  let input: unknown
 
   beforeEach(() => {
     const ar: unknown[] = []
