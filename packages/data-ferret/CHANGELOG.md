@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [1.2.0](https://github.com/enio-ireland/enio/compare/data-ferret-1.1.0...data-ferret-1.2.0) (2023-01-21)
+
+
+### Features
+
+* **data-ferret:** add traverse to API :sparkles: ([c0f0598](https://github.com/enio-ireland/enio/commit/c0f059840eeddb104d7d53c734ad18165220c8e3))
+
 ## [1.1.0](https://github.com/enio-ireland/enio/compare/data-ferret-1.0.3...data-ferret-1.1.0) (2023-01-20)
 
 
