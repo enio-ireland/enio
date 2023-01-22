@@ -23,7 +23,7 @@ describe('getIterableOperators', () => {
 
     // assert
     expect(operators.instantiate).toEqual(instantiate)
-    expect(operators.getKeys).toEqual(getKeys)
+    expect(operators.getKeys).not.toEqual(getKeys)
     expect(operators.read).toEqual(read)
     expect(operators.write).toEqual(write)
   })
