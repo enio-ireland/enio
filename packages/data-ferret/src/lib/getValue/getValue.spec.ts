@@ -15,13 +15,17 @@ describe('getValue', () => {
   it('returns same value when path is empty array or undefined', () => {
     // @ts-expect-error TS2345 - deliberately passing incorrect data types
     expect(getValue(target, [])).toEqual(target)
-
-    // @ts-expect-error TS2345 - deliberately passing incorrect data types
-    expect(getValue(target)).toEqual(target)
   })
 
-  it('throws an error when the value of the path does not exist', () => {
-    expect(() => getValue(target, ['a', 'b', 'c', 'does-not-exist', 'unreachable'])).toThrowError()
+  it('throws an error when path is not an array', () => {
+    // @ts-expect-error TS2345 - deliberately passing incorrect data types
+    expect(() => getValue(target)).toThrow('Expected path to be an array.')
+
+    // @ts-expect-error TS2345 - deliberately passing incorrect data types
+    expect(() => getValue(target, null)).toThrow('Expected path to be an array.')
+
+    // @ts-expect-error TS2345 - deliberately passing incorrect data types
+    expect(() => getValue(target, {})).toThrow('Expected path to be an array.')
   })
 
   it('throws an error when keys in path are not type string', () => {
@@ -30,6 +34,10 @@ describe('getValue', () => {
 
     // @ts-expect-error TS2345 - deliberately passing incorrect data types
     expect(() => getValue(target, ['a', 'b', null])).toThrowError('Expected path.2 to be a non-empty string.')
+  })
+
+  it('throws an error when the value of the path does not exist', () => {
+    expect(() => getValue(target, ['a', 'b', 'c', 'does-not-exist', 'unreachable'])).toThrowError()
   })
 
   it('returns default value when path in value not found', () => {
