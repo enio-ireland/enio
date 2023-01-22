@@ -19,6 +19,7 @@ const hasCircularReferenceRecursive = (target: unknown, stack: ReferenceStack, r
 
 /**
  * Returns true for values that have circular references.
+ * It supports other iterable data types, provided these have been made known using [registerIterableClass](https://github.com/enio-ireland/enio/tree/develop/packages/data-ferret/src/lib/registerIterableClass).
  */
 export const hasCircularReference = (target: unknown): boolean => {
   const originalSupportStatus = getConfig().detectCircularReferences
