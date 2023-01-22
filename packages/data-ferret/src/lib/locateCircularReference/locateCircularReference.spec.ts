@@ -1,4 +1,6 @@
 import { locateCircularReference } from './locateCircularReference'
+import { registerIterableClass } from '../registerIterableClass/registerIterableClass'
+import { deregisterIterableClass } from '../deregisterIterableClass/deregisterIterableClass'
 
 describe('locateCircularReference', () => {
   let input: unknown
@@ -41,5 +43,27 @@ describe('locateCircularReference', () => {
 
   it('returns a designated maximum circular references', () => {
     expect(locateCircularReference(input, 1).length).toEqual(1)
+  })
+})
+
+describe('locateCircularReference - extended iterable class types', () => {
+  beforeEach(() => {
+    registerIterableClass<Map<unknown, unknown>>(
+      Map,
+      map => Array.from(map.keys()) as string[],
+      (map, key) => map.get(key),
+      (map, value, key) => map.set(key, value)
+    )
+  })
+
+  afterEach(() => deregisterIterableClass())
+
+  it('should return a list of circular references are encountered', () => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const map = new Map<string, Map<string, any>>()
+    map.set('emerald', map)
+    map.set('ruby', map)
+    map.set('sapphire', map)
+    expect(locateCircularReference(map, '*').length).toEqual(3)
   })
 })
