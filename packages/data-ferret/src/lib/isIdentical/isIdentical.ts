@@ -3,6 +3,7 @@ import { ReferenceStack } from '../referenceStack/referenceStack.model'
 import { referenceStack } from '../referenceStack/referenceStack'
 import { sameStructure } from '../sameStructure/sameStructure'
 import { isIterableType } from '../isIterableType/isIterableType'
+import { getIterableOperators } from '../getIterableOperators/getIterableOperators'
 import { getKeysFromIterable } from '../getKeysFromIterable/getKeysFromIterable'
 import { getConfig } from '../shared/consts'
 
@@ -16,11 +17,12 @@ const isIdenticalRecursive = (targetA: UnknownIterable, targetB: UnknownIterable
   if (typeMatch === false) return typeMatch
   if (typeMatch === 'function') return targetA.toString() === targetB.toString()
   if (!isIterableType(typeMatch)) return targetA === targetB
-  const keys = getKeysFromIterable(targetA, typeMatch)
+  const { getKeys, read } = getIterableOperators(typeMatch)
+  const keys = getKeys(targetA)
   const keyCount = keys.length
   for (let i = 0; i < keyCount; i += 1) {
-    const key = keys[i] as UnknownIterableKey
-    if (!isIdenticalRecursive(targetA[key], targetB[key])) return false
+    const key = keys[i]
+    if (!isIdenticalRecursive(read(targetA, key), read(targetB, key))) return false
   }
   return true
 }

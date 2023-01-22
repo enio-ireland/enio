@@ -3,6 +3,8 @@
 import { Config } from '../shared/model'
 import { setConfig } from '../shared/consts'
 import { isIdentical } from './isIdentical'
+import { registerIterableClass } from '../registerIterableClass/registerIterableClass'
+import { deregisterIterableClass } from '../deregisterIterableClass/deregisterIterableClass'
 
 const configReset: Config = Object.freeze({
   samePositionOfOwnProperties: false,
@@ -283,5 +285,48 @@ describe('isIdentical - with config detectCircularReferences:true, samePositionO
 
   it('should return false for non-indexed iterables whose keys match, but are in wrong order', () => {
     expect(isIdentical({ a: 1, b: '2' }, { b: '2', a: 1 })).toEqual(false)
+  })
+})
+
+describe('isIdentical - extended iterable class types', () => {
+  beforeEach(() => {
+    registerIterableClass<Map<unknown, unknown>>(
+      Map,
+      map => Array.from(map.keys()) as string[],
+      (map, key) => map.get(key),
+      (map, value, key) => map.set(key, value)
+    )
+    registerIterableClass<Set<unknown>>(
+      Set,
+      set => Array.from(set.keys()) as string[],
+      (_, key) => key,
+      (set, value) => set.add(value)
+    )
+  })
+
+  afterEach(() => deregisterIterableClass())
+
+  it('should return true for custom iterables of the same type and content', () => {
+    const map = new Map<string, number>()
+    const map2 = new Map<string, number>()
+    map.set('emerald', 65)
+    map2.set('emerald', 65)
+    expect(isIdentical(map, map2)).toEqual(true)
+  })
+
+  it('should return false for custom iterables of the same type but different value', () => {
+    const map = new Map<string, number>()
+    const map2 = new Map<string, number>()
+    map.set('emerald', 65)
+    map2.set('ruby', 54)
+    expect(isIdentical(map, map2)).toEqual(false)
+  })
+
+  it('should return false for custom iterables of a different type', () => {
+    const map = new Map<string, number>()
+    const set = new Set<string>()
+    map.set('emerald', 65)
+    set.add('ruby')
+    expect(isIdentical(map, set)).toEqual(false)
   })
 })
