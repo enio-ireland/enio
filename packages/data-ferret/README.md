@@ -66,6 +66,26 @@ import { isIdential, hasCircularReference } from '@enio.ai/data-ferret'
 
 <br>
 
+### Overview
+
+- [:pushpin: News](#news)
+- [:trophy: Key Features](#key-features)
+- [:heavy_check_mark: Status](#status-complete-heavy_check_mark)
+- [:open_book: Installation](#installation)
+- [:open_book: How to Use](#how-to-use)
+- **[:compass: Overview](#overview)**
+- [:sparkles: API](#api)
+  - [:microscope: Data Comparison](#data-comparison)
+  - [:mag: Data Search](#data-search)
+  - [:pencil2: Data Manipulation](#data-manipulation)
+  - [:repeat: Circular Reference Data Support](#circular-reference-data-support)
+  - [:rocket: Beyond Native Constructs Support](#beyond-native-constructs-support)
+  - [:gear: Configurable Behavior](#configurable-behavior) / [Options](#options)
+- [:technologist: Contributors](#contributors-link)
+- [:people_hugging: Sponsors](#sponsors)
+
+<br>
+
 ## API
 
 ### Data Comparison
@@ -80,6 +100,14 @@ import { isIdential, hasCircularReference } from '@enio.ai/data-ferret'
 | [isIterable()](./src/lib/isIterable/)       | Returns true when a value is iterable. By default, arrays and objects are considered iterable. Additional iterable types can be assigned by using `registerIterableClass()`. [specs :book:](https://github.com/enio-ireland/enio/tree/develop/packages/data-ferret/src/lib/isIterable/isIterable.spec.ts)                                                                                                                                                         |
 | [isIdentical()](./src/lib/isIdentical/)     | Returns true when both values are identical. For primitive values, use strict equality comparison. For non-primitive values, it checks equality by reviewing values' properties and values. [specs :book:](https://github.com/enio-ireland/enio/tree/develop/packages/data-ferret/src/lib/isIdentical/isIdentical.spec.ts)                                                                                                                                        |
 | [containsKeys()](./src/lib/containsKeys/)   | A predicate that returns true when the value contains the keys that are expected. It supports other iterable data types, provided these have been made known using `registerIterableClass()`. [specs :book:](https://github.com/enio-ireland/enio/tree/develop/packages/data-ferret/src/lib/containsKeys/containsKeys.spec.ts)                                                                                                                                    |
+
+### Data Search
+
+[data-ferret](https://github.com/enio-ireland/enio/tree/develop/packages/data-ferret) provides a suite of convenient util functions that allows it to perform read and search operators.
+
+| Util                              | Description                                                                                                                                                                                           |
+| :-------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [getValue()](./src/lib/getValue/) | Drills down the data structure of the target value for each key in the path. [specs :book:](https://github.com/enio-ireland/enio/tree/develop/packages/data-ferret/src/lib/getValue/getValue.spec.ts) |
 
 ### Data Manipulation
 
