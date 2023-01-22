@@ -35,9 +35,13 @@
 
 <br>
 
-## Status
+## Status: Complete :heavy_check_mark:
 
-This project is a rewrite of [mitsuketa](https://www.npmjs.com/package/mitsuketa) from the ground up, and it is still in the process of being migrated. So expect more features soon! ETA: 1 week.
+The author :technologist: has finished implementing all the features intended. :confetti_ball:
+
+The project is now under active maintenance. This project is a spiritual successor of [mitsuketa](https://www.npmjs.com/package/mitsuketa), a former project that has been sunset.
+
+If you find this project useful and would like to see more projects like this, consider signing up for support. Details are at the very end of this ReadMe.md. :point_down: :seedling: :hearts:
 
 <br>
 
