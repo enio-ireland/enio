@@ -7,7 +7,7 @@ import { DefaultValueOptions } from './getValue.model'
 
 /**
  * Drills down the data structure of the target value for each key in the path.
- * It supports other iterable data types, provided these have been made known using registerIterableClass().
+ * It supports other iterable data types, provided these have been made known using [registerIterableClass](https://github.com/enio-ireland/enio/tree/develop/packages/data-ferret/src/lib/registerIterableClass).
  */
 export const getValue = <T = unknown>(target: unknown, path: [string, ...string[]], defaultValue?: DefaultValueOptions<T>): T => {
   const hasOnMissingKeyDefault = !!(defaultValue && 'onMissingKey' in defaultValue)
