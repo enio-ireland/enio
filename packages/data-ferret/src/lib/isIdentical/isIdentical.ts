@@ -37,7 +37,7 @@ const noop = () => void 0
  * Returns true when both values are identical.
  * This algorithm is able to compare values with circular references.
  */
-const isIdenticalForCircularDependenciesRecursive = (
+const isIdenticalForCircularReferencesRecursive = (
   targetA: UnknownIterable,
   targetB: UnknownIterable,
   ...stacks: ReferenceStack[]
@@ -82,7 +82,7 @@ const isIdenticalForCircularDependenciesRecursive = (
       continue
     }
     registerRefs()
-    if (!isIdenticalForCircularDependenciesRecursive(nextA, nextB, ...stacks)) {
+    if (!isIdenticalForCircularReferencesRecursive(nextA, nextB, ...stacks)) {
       clear()
       return false
     }
@@ -100,7 +100,7 @@ const isIdenticalForCircularDependenciesRecursive = (
 export const isIdentical = (targetA: unknown, targetB: unknown): boolean => {
   const targets = [targetA, targetB] as [UnknownIterable, UnknownIterable]
   if (getConfig().detectCircularReferences) {
-    return isIdenticalForCircularDependenciesRecursive(...targets, referenceStack(), referenceStack())
+    return isIdenticalForCircularReferencesRecursive(...targets, referenceStack(), referenceStack())
   }
   return isIdenticalRecursive(...targets)
 }

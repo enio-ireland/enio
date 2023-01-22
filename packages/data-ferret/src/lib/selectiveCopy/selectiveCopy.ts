@@ -7,7 +7,7 @@ import { ReferenceStack } from '../referenceStack/referenceStack.model'
 import { referenceStack } from '../referenceStack/referenceStack'
 import { getConfig } from '../shared/consts'
 
-export const selectiveCopy$ = <T extends Record<string, unknown>>(
+export const selectiveCopyRecursive = <T extends Record<string, unknown>>(
   target: T,
   path: string[],
   includeKey: Predicate,
@@ -28,7 +28,11 @@ export const selectiveCopy$ = <T extends Record<string, unknown>>(
       recordSkip(nextTarget, nextPath, nextKey, nextType)
       continue
     }
-    write(iterableInstance, selectiveCopy$(nextTarget as Record<string, unknown>, nextPath, includeKey, skipFunctions, recordSkip), nextKey)
+    write(
+      iterableInstance,
+      selectiveCopyRecursive(nextTarget as Record<string, unknown>, nextPath, includeKey, skipFunctions, recordSkip),
+      nextKey
+    )
   }
   return iterableInstance as Partial<T>
 }
@@ -37,7 +41,7 @@ export const selectiveCopy$ = <T extends Record<string, unknown>>(
  * Creates a clone of the target. Options can be provided to selectively copy values.
  * This algorithm is able detect circular references, and optionally clone them.
  */
-export const selectiveCopy$$ = <T extends Record<string, unknown>>(
+export const selectiveCopyForCircularReferencesRecursive = <T extends Record<string, unknown>>(
   target: T,
   path: string[],
   includeKey: Predicate,
@@ -70,7 +74,15 @@ export const selectiveCopy$$ = <T extends Record<string, unknown>>(
     stack.add(nextTarget)
     write(
       iterableInstance,
-      selectiveCopy$$(nextTarget as Record<string, unknown>, nextPath, includeKey, skipFunctions, recordSkip, stack, circularRefs),
+      selectiveCopyForCircularReferencesRecursive(
+        nextTarget as Record<string, unknown>,
+        nextPath,
+        includeKey,
+        skipFunctions,
+        recordSkip,
+        stack,
+        circularRefs
+      ),
       nextKey
     )
   }
@@ -135,9 +147,18 @@ export const selectiveCopy = <T = unknown>(target: T, options?: Options): { clon
   const recordSkip: DataPointOperation = (target, path, key, dataType) => skipped.push({ target, path, key, dataType })
   let clone: T
   if (getConfig().detectCircularReferences) {
-    clone = selectiveCopy$$(target as Record<string, unknown>, [], includeKey, skipFunctions, recordSkip, referenceStack(), [], true) as T
+    clone = selectiveCopyForCircularReferencesRecursive(
+      target as Record<string, unknown>,
+      [],
+      includeKey,
+      skipFunctions,
+      recordSkip,
+      referenceStack(),
+      [],
+      true
+    ) as T
   } else {
-    clone = selectiveCopy$(target as Record<string, unknown>, [], includeKey, skipFunctions, recordSkip) as T
+    clone = selectiveCopyRecursive(target as Record<string, unknown>, [], includeKey, skipFunctions, recordSkip) as T
   }
   return { clone, skipped }
 }
