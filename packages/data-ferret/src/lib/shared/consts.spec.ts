@@ -1,4 +1,5 @@
-import { getConfig, setConfig } from './consts'
+import { marker } from '../marker/marker'
+import { getConfig, setConfig, registeredIterableClasses } from './consts'
 
 describe('getConfig / setConfig', () => {
   it('can toggle whether or not order of properties matter for equality checks', () => {
@@ -21,5 +22,27 @@ describe('getConfig / setConfig', () => {
     const originalConfig = { ...getConfig() }
     setConfig({})
     expect(getConfig()).toEqual(originalConfig)
+  })
+})
+
+describe('built-in iterable classes', () => {
+  describe('Object', () => {
+    beforeEach(() => setConfig({ detectCircularReferences: true }))
+
+    afterEach(() => setConfig({ detectCircularReferences: false }))
+
+    it('getKey operator should be able to discern between a real key and a marker when circular dependency detection is ON', () => {
+      expect(registeredIterableClasses[0].getKeys({ a: true, [marker()]: Symbol() })).toEqual(['a'])
+    })
+  })
+
+  describe('Array', () => {
+    beforeEach(() => setConfig({ detectCircularReferences: true }))
+
+    afterEach(() => setConfig({ detectCircularReferences: false }))
+
+    it('getKey operator should be able to discern between a real key and a marker when circular dependency detection is ON', () => {
+      expect(registeredIterableClasses[0].getKeys({ a: true, [marker()]: Symbol() })).toEqual(['a'])
+    })
   })
 })
