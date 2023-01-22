@@ -7,13 +7,13 @@ describe('referenceStack', () => {
 
   beforeEach(() => (stack = referenceStack()))
 
-  it('should return size of stack', () => {
+  it('returns size of stack', () => {
     expect(stack.size).toEqual(0)
     stack.add({})
     expect(stack.size).toEqual(1)
   })
 
-  it('should not interfere with other reference stacks', () => {
+  it('does not interfere with other reference stacks', () => {
     const value = {}
     const stack2 = referenceStack()
     stack.add(value)
@@ -25,17 +25,17 @@ describe('referenceStack', () => {
   describe('exists', () => {
     beforeEach(() => (stack = referenceStack()))
 
-    it('should return true when reference already exists in the stack', () => {
+    it('returns true when reference already exists in the stack', () => {
       const value = {}
       stack.add(value)
       expect(stack.exists(value)).toEqual(true)
     })
 
-    it('should return false when reference has not been registered in the stack', () => {
+    it('returns false when reference has not been registered in the stack', () => {
       expect(stack.exists({})).toEqual(false)
     })
 
-    it('should return false when reference is not iterable', () => {
+    it('returns false when reference is not iterable', () => {
       expect(stack.exists(-500)).toEqual(false)
       expect(stack.exists(null)).toEqual(false)
       expect(stack.exists(void 0)).toEqual(false)
@@ -45,7 +45,7 @@ describe('referenceStack', () => {
   describe('lastSeen', () => {
     beforeEach(() => (stack = referenceStack()))
 
-    it('should return a number corresponding to how long ago the reference was seen', () => {
+    it('returns a number corresponding to how long ago the reference was seen', () => {
       const [a, b, c] = [{}, {}, []]
       stack.add(a)
       expect(stack.lastSeen(a)).toEqual(-1)
@@ -58,12 +58,12 @@ describe('referenceStack', () => {
       expect(stack.lastSeen(a)).toEqual(-3)
     })
 
-    it('should return false when reference is not registered', () => {
+    it('returns false when reference is not registered', () => {
       expect(stack.lastSeen({})).toBeNull()
       expect(stack.lastSeen([])).toBeNull()
     })
 
-    it('should return false when reference is not iterable', () => {
+    it('returns false when reference is not iterable', () => {
       expect(stack.lastSeen(-500)).toBeNull()
       expect(stack.lastSeen(null)).toBeNull()
       expect(stack.lastSeen(void 0)).toBeNull()
@@ -73,13 +73,13 @@ describe('referenceStack', () => {
   describe('add', () => {
     beforeEach(() => (stack = referenceStack()))
 
-    it('should register a new reference in the stack', () => {
+    it('registers a new reference in the stack', () => {
       expect(stack.size).toEqual(0)
       stack.add({})
       expect(stack.size).toEqual(1)
     })
 
-    it('should not register a reference that already exists in the stack', () => {
+    it('does not register a reference that already exists in the stack', () => {
       const value: unknown[] = []
       expect(stack.size).toEqual(0)
       stack.add(value)
@@ -87,7 +87,7 @@ describe('referenceStack', () => {
       expect(stack.size).toEqual(1)
     })
 
-    it('should not register a reference that is not iterable', () => {
+    it('does not register a reference that is not iterable', () => {
       stack.add(Symbol())
       stack.add(false)
       expect(stack.size).toEqual(0)
@@ -97,7 +97,7 @@ describe('referenceStack', () => {
   describe('clear', () => {
     beforeEach(() => (stack = referenceStack()))
 
-    it('should clear the internal stack and remove any markers added', () => {
+    it('clears the internal stack and remove any markers added', () => {
       const value = { a: { b: {} } }
       stack.add(value)
       stack.add(value.a)

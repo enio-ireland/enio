@@ -12,7 +12,7 @@ describe('isIterableType', () => {
   })
 })
 
-describe('isIterableType - extended iterable class types', () => {
+describe('isIterableType - with extended iterable class types', () => {
   beforeEach(() => {
     registerIterableClass<Map<unknown, unknown>>(
       Map,
@@ -30,7 +30,7 @@ describe('isIterableType - extended iterable class types', () => {
 
   afterEach(() => deregisterIterableClass())
 
-  it('should return true for any data type corresponding to registered iterable class', () => {
+  it('returns true for any data type corresponding to registered iterable class', () => {
     expect(isIterableType('Map')).toEqual(true)
     expect(isIterableType('Set')).toEqual(true)
   })

@@ -18,7 +18,7 @@ describe('getConfig / setConfig', () => {
     expect(getConfig().detectCircularReferences).toEqual(false)
   })
 
-  it('should not change flag that have not be explicitly set', () => {
+  it('does not change flag that have not be explicitly set', () => {
     const originalConfig = { ...getConfig() }
     setConfig({})
     expect(getConfig()).toEqual(originalConfig)

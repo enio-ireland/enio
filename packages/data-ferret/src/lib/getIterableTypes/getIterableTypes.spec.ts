@@ -3,13 +3,13 @@ import { deregisterIterableClass } from '../deregisterIterableClass/deregisterIt
 import { registerIterableClass } from '../registerIterableClass/registerIterableClass'
 
 describe('getIterableTypes', () => {
-  it('should return list of known iterable classes, containing object and array by default', () => {
+  it('returns list of known iterable classes, containing object and array by default', () => {
     expect(getIterableTypes()).toContain('array')
     expect(getIterableTypes()).toContain('object')
   })
 })
 
-describe('getIterableTypes - extended iterable class types', () => {
+describe('getIterableTypes - with extended iterable class types', () => {
   beforeEach(() => {
     registerIterableClass<Map<unknown, unknown>>(
       Map,
@@ -27,7 +27,7 @@ describe('getIterableTypes - extended iterable class types', () => {
 
   afterEach(() => deregisterIterableClass())
 
-  it('should return list of known iterable classes which should include those that have been registered', () => {
+  it('returns list of known iterable classes which should include those that have been registered', () => {
     expect(getIterableTypes()).toContain('Map')
     expect(getIterableTypes()).toContain('Set')
     expect(getIterableTypes()).toContain('array')

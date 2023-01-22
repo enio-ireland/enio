@@ -33,14 +33,14 @@ describe('selectiveCopy', () => {
     )
   })
 
-  it('should copy function references by default', () => {
+  it('copies function references by default', () => {
     const target = { method: () => true }
     const { clone, skipped } = selectiveCopy(target)
     expect(clone.method).toBe(target.method)
     expect(skipped).toEqual([])
   })
 
-  it('should skip copying functions when flagged', () => {
+  it('skips copying functions when flagged', () => {
     const target = { method: () => true }
     const { clone, skipped } = selectiveCopy(target, { skipFunctions: true })
     expect(clone).toEqual({})
@@ -125,14 +125,14 @@ describe('selectiveCopy - with config detectCircularReferences:true', () => {
     )
   })
 
-  it('should copy function references by default', () => {
+  it('copies function references by default', () => {
     const target = { method: () => true }
     const { clone, skipped } = selectiveCopy(target)
     expect(clone.method).toBe(target.method)
     expect(skipped).toEqual([])
   })
 
-  it('should skip copying functions when flagged', () => {
+  it('skips copying functions when flagged', () => {
     const target = { method: () => true }
     const { clone, skipped } = selectiveCopy(target, { skipFunctions: true })
     expect(clone).toEqual({})

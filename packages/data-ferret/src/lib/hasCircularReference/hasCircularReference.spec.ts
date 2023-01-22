@@ -3,7 +3,7 @@ import { registerIterableClass } from '../registerIterableClass/registerIterable
 import { deregisterIterableClass } from '../deregisterIterableClass/deregisterIterableClass'
 
 describe('hasCircularReference', () => {
-  it('should return false for values that are non-iterable values', () => {
+  it('returns false for values that are non-iterable values', () => {
     expect(hasCircularReference(5)).toEqual(false)
     expect(hasCircularReference('foo bar')).toEqual(false)
     expect(hasCircularReference(null)).toEqual(false)
@@ -12,13 +12,13 @@ describe('hasCircularReference', () => {
     expect(hasCircularReference(true)).toEqual(false)
   })
 
-  it('should return false for iterable values that do not have circular references', () => {
+  it('returns false for iterable values that do not have circular references', () => {
     expect(hasCircularReference({})).toEqual(false)
     expect(hasCircularReference([])).toEqual(false)
     expect(hasCircularReference({ a: { b: { c: {} } } })).toEqual(false)
   })
 
-  it('should return true for values with circular reference', () => {
+  it('returns true for values with circular reference', () => {
     const selfContainingArray: unknown[] = []
     selfContainingArray[0] = selfContainingArray
     expect(hasCircularReference(selfContainingArray)).toEqual(true)
@@ -29,7 +29,7 @@ describe('hasCircularReference', () => {
   })
 })
 
-describe('hasCircularReference - extended iterable class types', () => {
+describe('hasCircularReference - with extended iterable class types', () => {
   beforeEach(() => {
     registerIterableClass<Map<unknown, unknown>>(
       Map,
@@ -41,14 +41,14 @@ describe('hasCircularReference - extended iterable class types', () => {
 
   afterEach(() => deregisterIterableClass())
 
-  it('should return false when no circular references are encountered', () => {
+  it('returns false when no circular references are encountered', () => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const map = new Map<string, number>()
     map.set('sapphire', 35)
     expect(hasCircularReference(map)).toEqual(false)
   })
 
-  it('should return true when encountering a circular reference', () => {
+  it('returns true when encountering a circular reference', () => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const map = new Map<string, Map<string, any>>()
     map.set('emerald', map)

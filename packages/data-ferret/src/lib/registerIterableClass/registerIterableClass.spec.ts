@@ -7,7 +7,7 @@ describe('registerIterableClass', () => {
 
   afterAll(() => deregisterIterableClass())
 
-  it('should add to the list of registered iterable classes', () => {
+  it('adds to the list of registered iterable classes', () => {
     registerIterableClass<Map<unknown, unknown>>(
       Map,
       map => Array.from(map.keys()) as string[],
@@ -49,7 +49,7 @@ describe('registerIterableClass', () => {
     expect(registeredIterableClassRefs).toContain(Object)
   })
 
-  it('should register the corresponding class data types', () => {
+  it('registers the corresponding class data types', () => {
     registerIterableClass<Set<unknown>>(
       Set,
       set => Array.from(set.keys()) as string[],

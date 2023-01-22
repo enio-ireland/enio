@@ -46,7 +46,7 @@ describe('locateCircularReference', () => {
   })
 })
 
-describe('locateCircularReference - extended iterable class types', () => {
+describe('locateCircularReference - with extended iterable class types', () => {
   beforeEach(() => {
     registerIterableClass<Map<unknown, unknown>>(
       Map,
@@ -58,7 +58,7 @@ describe('locateCircularReference - extended iterable class types', () => {
 
   afterEach(() => deregisterIterableClass())
 
-  it('should return a list of circular references are encountered', () => {
+  it('returns a list of circular references are encountered', () => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const map = new Map<string, Map<string, any>>()
     map.set('emerald', map)
