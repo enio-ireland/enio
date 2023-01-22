@@ -25,7 +25,7 @@ export const sameStructure = (targetA: unknown, targetB: unknown): DataType | fa
       }
     } else {
       for (let i = 0; i < aKeyCount; i += 1) {
-        if (!(aKeys[i] in (targetB as Iterable<unknown>))) return false
+        if (!bKeys.includes(aKeys[i])) return false
       }
     }
   }
