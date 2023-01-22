@@ -6,7 +6,6 @@ import { Options, Predicate, DataPointOperation, DataPoint, CircularReference } 
 import { ReferenceStack } from '../referenceStack/referenceStack.model'
 import { referenceStack } from '../referenceStack/referenceStack'
 import { getConfig } from '../shared/consts'
-import { isMarker } from '../isMarker/isMarker'
 
 export const selectiveCopy$ = <T extends Record<string, unknown>>(
   target: T,
@@ -56,7 +55,6 @@ export const selectiveCopy$$ = <T extends Record<string, unknown>>(
   const keys = getKeys(target)
   for (let i = 0; i < keys.length; i += 1) {
     const nextKey = keys[i]
-    if (isMarker(nextKey)) continue
     const nextTarget = read(target, nextKey)
     const nextPath = path.concat(nextKey)
     const nextType = getType(nextTarget)
