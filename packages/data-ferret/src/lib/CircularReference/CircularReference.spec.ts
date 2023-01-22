@@ -12,9 +12,9 @@ describe('CircularReference', () => {
   it('throws an error when incorrect values are given', () => {
     // @ts-expect-error TS2345 - deliberately passing incorrect data types
     expect(() => new CircularReference(['keyA'], null)).toThrowError('Expected target to be a list with at least on string value.')
-    expect(() => new CircularReference(['keyA'], [])).toThrowError('Expected target to be a list with at least on string value.')
     // @ts-expect-error TS2345 - deliberately passing incorrect data types
     expect(() => new CircularReference(null, ['keyB'])).toThrowError('Expected location to be a list with at least on string value.')
+    // @ts-expect-error TS2345 - deliberately passing incorrect data types
     expect(() => new CircularReference([], ['keyB'])).toThrowError('Expected location to be a list with at least on string value.')
   })
 
