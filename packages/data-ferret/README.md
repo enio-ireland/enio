@@ -57,7 +57,7 @@ $ npm i --save @enio.ai/data-ferret
 You can import utils from [data-ferret]() just as you would with other npm packages.
 
 ```javascript
-import { isIdential, hasCircularReference } from '@enio.ai/data-ferret' // access API via import
+import { isIdential, hasCircularReference } from '@enio.ai/data-ferret'
 ```
 
 <br>
@@ -85,6 +85,7 @@ import { isIdential, hasCircularReference } from '@enio.ai/data-ferret' // acces
 | :------------------------------------------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [selectiveCopy()](./src/lib/selectiveCopy/) | Creates a clone of the target value. Options can be provided to selectively copy values, to partially clone. Due to JavaScript language limitations context of bound functions is not known, thus functions cannot be reliably cloned. This algorithm instead copies function references by default instead. For the same reason getters and setters are not replicate, only their return values. [specs :book:](https://github.com/enio-ireland/enio/tree/develop/packages/data-ferret/src/lib/selectiveCopy/selectiveCopy.spec.ts) |
 | [traverse()](./src/lib/traverse/)           | It invokes a callback function for every data point in the data structure of the target value to let you do read and write operations. A depth option is available to narrow down the iteration scope. [specs :book:](https://github.com/enio-ireland/enio/tree/develop/packages/data-ferret/src/lib/traverse/traverse.spec.ts)                                                                                                                                                                                                      |
+| [createTraversal()](./src/lib/traverse/)    | A higher-order that takes a single predicate function to generate an algorithm that traverses data points on a data structure. [specs :book:](https://github.com/enio-ireland/enio/tree/develop/packages/data-ferret/src/lib/traverse/traverse.spec.ts)                                                                                                                                                                                                                                                                              |
 
 ### Circular Reference Data Support
 
