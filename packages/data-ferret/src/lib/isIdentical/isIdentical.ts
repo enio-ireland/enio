@@ -61,12 +61,13 @@ const isIdenticalForCircularDependenciesRecursive = (
     clear()
     return targetA === targetB
   }
-  const keys = getKeysFromIterable(targetA, typeMatch)
+  const { getKeys, read } = getIterableOperators(typeMatch)
+  const keys = getKeys(targetA)
   const keyCount = keys.length
   for (let i = 0; i < keyCount; i += 1) {
     const key = keys[i] as UnknownIterableKey
-    const nextA = targetA[key]
-    const nextB = targetB[key]
+    const nextA = read(targetA, key)
+    const nextB = read(targetB, key)
     const aHasCircularRef = stacks[0].exists(nextA)
     const bHasCircularRef = stacks[1].exists(nextB)
     if (aHasCircularRef !== bHasCircularRef) {
@@ -94,6 +95,7 @@ const isIdenticalForCircularDependenciesRecursive = (
  * Returns true when both values are identical.
  * For primitive values, use strict equality comparison.
  * For non-primitive values, it checks equality by reviewing values' properties and values.
+ * It supports other iterable data types, provided these have been made known using [registerIterableClass](https://github.com/enio-ireland/enio/tree/develop/packages/data-ferret/src/lib/registerIterableClass).
  */
 export const isIdentical = (targetA: unknown, targetB: unknown): boolean => {
   const targets = [targetA, targetB] as [UnknownIterable, UnknownIterable]
