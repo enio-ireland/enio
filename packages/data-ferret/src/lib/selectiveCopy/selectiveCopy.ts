@@ -115,6 +115,7 @@ export const selectiveCopyForCircularReferencesRecursive = <T extends Record<str
  * Due to JavaScript language limitations context of bound functions is not known, thus functions cannot be reliably cloned.
  * This algorithm instead copies function references by default instead. For the same reason getters and setters are not replicate, only their
  * return values. This algorithm can replicate circular references, when configured to do so.
+ * It supports other iterable data types, provided these have been made known using [registerIterableClass](https://github.com/enio-ireland/enio/tree/develop/packages/data-ferret/src/lib/registerIterableClass).
  */
 export const selectiveCopy = <T = unknown>(target: T, options?: Options): { clone: Partial<T>; skipped: DataPoint[] } => {
   if (options !== void 0 && getType(options) !== 'object') throw new Error('Invalid options argument.')
