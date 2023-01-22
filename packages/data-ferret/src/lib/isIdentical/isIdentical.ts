@@ -10,7 +10,7 @@ import { getConfig } from '../shared/consts'
  * Returns true when both values are identical.
  * This algorithm does not check for circular references.
  */
-const identical = (targetA: UnknownIterable, targetB: UnknownIterable): boolean => {
+const isIdenticalRecursive = (targetA: UnknownIterable, targetB: UnknownIterable): boolean => {
   if (targetA === targetB) return true
   const typeMatch = sameStructure(targetA, targetB)
   if (typeMatch === false) return typeMatch
@@ -20,7 +20,7 @@ const identical = (targetA: UnknownIterable, targetB: UnknownIterable): boolean 
   const keyCount = keys.length
   for (let i = 0; i < keyCount; i += 1) {
     const key = keys[i] as UnknownIterableKey
-    if (!identical(targetA[key], targetB[key])) return false
+    if (!isIdenticalRecursive(targetA[key], targetB[key])) return false
   }
   return true
 }
@@ -35,7 +35,11 @@ const noop = () => void 0
  * Returns true when both values are identical.
  * This algorithm is able to compare values with circular references.
  */
-const identical$ = (targetA: UnknownIterable, targetB: UnknownIterable, ...stacks: ReferenceStack[]): boolean => {
+const isIdenticalForCircularDependenciesRecursive = (
+  targetA: UnknownIterable,
+  targetB: UnknownIterable,
+  ...stacks: ReferenceStack[]
+): boolean => {
   const registerRefs = () => (stacks[0].add(targetA), stacks[1].add(targetB))
   const clear = allStackEmpty(stacks) ? (registerRefs(), () => clearStacks(stacks)) : noop
   if (targetA === targetB) {
@@ -75,7 +79,7 @@ const identical$ = (targetA: UnknownIterable, targetB: UnknownIterable, ...stack
       continue
     }
     registerRefs()
-    if (!identical$(nextA, nextB, ...stacks)) {
+    if (!isIdenticalForCircularDependenciesRecursive(nextA, nextB, ...stacks)) {
       clear()
       return false
     }
@@ -91,6 +95,8 @@ const identical$ = (targetA: UnknownIterable, targetB: UnknownIterable, ...stack
  */
 export const isIdentical = (targetA: unknown, targetB: unknown): boolean => {
   const targets = [targetA, targetB] as [UnknownIterable, UnknownIterable]
-  if (getConfig().detectCircularReferences) return identical$(...targets, referenceStack(), referenceStack())
-  return identical(...targets)
+  if (getConfig().detectCircularReferences) {
+    return isIdenticalForCircularDependenciesRecursive(...targets, referenceStack(), referenceStack())
+  }
+  return isIdenticalRecursive(...targets)
 }
