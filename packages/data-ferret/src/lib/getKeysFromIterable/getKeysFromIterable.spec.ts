@@ -6,25 +6,25 @@ import { registerIterableClass } from '../registerIterableClass/registerIterable
 describe('getKeysFromIterable', () => {
   beforeEach(() => setConfig({ detectCircularReferences: false }))
 
-  it('should return keys from array', () => {
+  it('returns keys from array', () => {
     expect(getKeysFromIterable(['apple', 'banana', 'orange'], 'array')).toEqual(['0', '1', '2'])
   })
 
-  it('should return keys from object', () => {
+  it('returns keys from object', () => {
     expect(getKeysFromIterable({ name: 'J. D. Salinger', role: 'Author' }, 'object')).toEqual(['name', 'role'])
   })
 
-  it('should return empty list from data whose iterable type has not been registered', () => {
+  it('returns empty list from data whose iterable type has not been registered', () => {
     expect(getKeysFromIterable({ $: 5 }, 'unknownType')).toEqual([])
   })
 })
 
-describe('getKeysFromIterable - extended iterable class types', () => {
+describe('getKeysFromIterable - with extended iterable class types', () => {
   beforeEach(() => (setConfig({ detectCircularReferences: false }), deregisterIterableClass(Map)))
 
   afterEach(() => (setConfig({ detectCircularReferences: false }), deregisterIterableClass(Map)))
 
-  it('should return keys from Map because it has been registered', () => {
+  it('returns keys from Map because it has been registered', () => {
     const rosterWithAge = new Map<string, number>()
     rosterWithAge.set('Tom', 33)
     rosterWithAge.set('Luca', 21)
@@ -43,7 +43,7 @@ describe('getKeysFromIterable - with config detectCircularReferences:true', () =
 
   afterEach(() => setConfig({ detectCircularReferences: false }))
 
-  it('should exclude any marker properties added to track references', () => {
+  it('excludes any marker properties added to track references', () => {
     expect(getKeysFromIterable({ pizza: 'hawaiian', __$96184805415709618480541570: Symbol() }, 'object')).toEqual(['pizza'])
     expect(getKeysFromIterable({ 0: 'apple', 1: 'banana', __$96184805415709618480541570: Symbol() }, 'array')).toEqual(['0', '1'])
   })

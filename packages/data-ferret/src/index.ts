@@ -14,4 +14,6 @@ export { locateCircularReference } from './lib/locateCircularReference/locateCir
 export { isIdentical } from './lib/isIdentical/isIdentical'
 export { containsKeys } from './lib/containsKeys/containsKeys'
 export { selectiveCopy } from './lib/selectiveCopy/selectiveCopy'
-export { traverse } from './lib/traverse/traverse'
+export { traverse, createTraversal } from './lib/traverse/traverse'
+export { getValue } from './lib/getValue/getValue'
+export { getDepth } from './lib/getDepth/getDepth'

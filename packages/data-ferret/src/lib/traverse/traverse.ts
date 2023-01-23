@@ -83,6 +83,10 @@ const traversal: Traversal = (target, condition, callback, options, state) => {
   return nonCircularDependencyTraversal(...initialArgs)
 }
 
+/**
+ * A higher-order that takes a single predicate function to generate an algorithm that traverses data points
+ * on a data structure. See [traverse](https://github.com/enio-ireland/enio/tree/develop/packages/data-ferret/src/lib/traverse).
+ */
 export const createTraversal: TraversalCreator<unknown> = condition => (target, callback, options, state) =>
   traversal(target, condition, callback, options ?? { depth: [0, '*'] }, state ?? {})
 

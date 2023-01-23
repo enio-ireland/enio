@@ -1,6 +1,5 @@
 import { DataType } from '../shared/model'
-import { registeredIterableClasses, getConfig } from '../shared/consts'
-import { isMarker } from '../isMarker/isMarker'
+import { registeredIterableClasses } from '../shared/consts'
 
 /**
  * Returns keys of an iterable type data.
@@ -10,7 +9,5 @@ export const getKeysFromIterable = <T extends string = DataType>(target: unknown
   if (dataType === 'object') dataType = Object.name as T
   const iterableClass = registeredIterableClasses.find(({ classRef }) => dataType === (classRef.name as T))
   if (!iterableClass) return []
-  let keys = iterableClass.getKeys(target)
-  if (getConfig().detectCircularReferences) keys = keys.filter(key => !isMarker(key))
-  return keys
+  return iterableClass.getKeys(target)
 }

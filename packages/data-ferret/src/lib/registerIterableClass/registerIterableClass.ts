@@ -1,6 +1,8 @@
 import { RegisteredIterableClassEntry, UnknownClass } from '../shared/model'
 import { registeredIterableClasses } from '../shared/consts'
 import { registerClassTypes } from '../registerClassTypes/registerClassTypes'
+import { getConfig } from '../shared/consts'
+import { isMarker } from '../isMarker/isMarker'
 
 /**
  * Registers an iterable class which will be used on the rest of the API to treat instances
@@ -19,7 +21,9 @@ export const registerIterableClass = <T = unknown>(
   instantiate = () => new classRef()
 ): void => {
   const existingEntryLocation = registeredIterableClasses.findIndex(entry => entry.classRef === classRef)
-  const entry = { classRef, getKeys, write, read, instantiate } as RegisteredIterableClassEntry
+  const GetKeys = (target: T) =>
+    getConfig().detectCircularReferences ? [...getKeys(target)].filter(key => !isMarker(key)) : getKeys(target)
+  const entry = { classRef, getKeys: GetKeys, write, read, instantiate } as RegisteredIterableClassEntry
   if (existingEntryLocation >= 0) {
     registeredIterableClasses[existingEntryLocation] = entry
     return

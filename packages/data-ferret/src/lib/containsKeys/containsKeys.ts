@@ -4,7 +4,7 @@ import { getKeysFromIterable } from '../getKeysFromIterable/getKeysFromIterable'
 
 /**
  * A predicate that returns true when the value contains the keys that are expected.
- * It supports other iterable data types, provided these have been made known using registerIterableClass().
+ * It supports other iterable data types, provided these have been made known using [registerIterableClass](https://github.com/enio-ireland/enio/tree/develop/packages/data-ferret/src/lib/registerIterableClass).
  */
 export const containsKeys = (target: unknown, keys: string[]): boolean => {
   if (!keys.length) return false

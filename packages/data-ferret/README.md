@@ -21,9 +21,9 @@
 
 ## News
 
-- [2023-01-21](https://github.com/enio-ireland/enio/blob/develop/packages/data-ferret/CHANGELOG.md#100-2023-01-21) - A new `traverse()` function makes it to the API. This method lets you visit each data point on a data structure to perform any read or write operations you want.
-- [2023-01-20](https://github.com/enio-ireland/enio/blob/develop/packages/data-ferret/CHANGELOG.md#100-2023-01-20) - A new `locateCircularReference()` function allows you to locate all occurrences of circular references in a data structure.
-- [2022-12-27](https://github.com/enio-ireland/enio/blob/develop/packages/data-ferret/CHANGELOG.md#100-2022-12-27) - A new `selectiveCopy()` function is introduced that allows you to clone data structures easily. It can detect and replicate circular references, and provides options to selectively copy data.
+- [2023-01-23](https://github.com/enio-ireland/enio/blob/develop/packages/data-ferret/CHANGELOG.md#130-2023-01-23) - Added two new functions `getValue()` and `getDepth`. Updated API to ensure custom iterable classes are fully supported.
+- [2023-01-21](https://github.com/enio-ireland/enio/blob/develop/packages/data-ferret/CHANGELOG.md#120-2023-01-21) - A new `traverse()` function makes it to the API. This method lets you visit each data point on a data structure to perform any read or write operations you want.
+- [2023-01-20](https://github.com/enio-ireland/enio/blob/develop/packages/data-ferret/CHANGELOG.md#110-2023-01-20) - A new `locateCircularReference()` function allows you to locate all occurrences of circular references in a data structure.
 
 ## Key Features
 
@@ -35,9 +35,18 @@
 
 <br>
 
-## Status
+## Status: Complete :heavy_check_mark:
 
-This project is a rewrite of [mitsuketa](https://www.npmjs.com/package/mitsuketa) from the ground up, and it is still in the process of being migrated. So expect more features soon! ETA: 1 week.
+The project is close to completion based to all the remaining features to implement.
+It will take about a week or two to complete.
+
+If you find this project useful and would like to see more projects like this, consider signing up for support. Details are at the very end of this ReadMe.md. :point_down: :seedling: :hearts:
+
+<!-- The author :technologist: has finished implementing all the features intended. :confetti_ball:
+
+The project is now under active maintenance. This project is a spiritual successor of [mitsuketa](https://www.npmjs.com/package/mitsuketa), a former project that has been sunset.
+
+If you find this project useful and would like to see more projects like this, consider signing up for support. Details are at the very end of this ReadMe.md. :point_down: :seedling: :hearts: -->
 
 <br>
 
@@ -57,8 +66,28 @@ $ npm i --save @enio.ai/data-ferret
 You can import utils from [data-ferret]() just as you would with other npm packages.
 
 ```javascript
-import { isIdential, hasCircularReference } from '@enio.ai/data-ferret' // access API via import
+import { isIdential, hasCircularReference } from '@enio.ai/data-ferret'
 ```
+
+<br>
+
+### Overview
+
+- [:pushpin: News](#news)
+- [:trophy: Key Features](#key-features)
+- [:heavy_check_mark: Status](#status-complete-heavy_check_mark)
+- [:open_book: Installation](#installation)
+- [:open_book: How to Use](#how-to-use)
+- **[:compass: Overview](#overview)**
+- [:sparkles: API](#api)
+  - [:microscope: Data Comparison](#data-comparison)
+  - [:mag: Data Search](#data-search)
+  - [:pencil2: Data Manipulation](#data-manipulation)
+  - [:repeat: Circular Reference Data Support](#circular-reference-data-support)
+  - [:rocket: Beyond Native Constructs Support](#beyond-native-constructs-support)
+  - [:gear: Configurable Behavior](#configurable-behavior) / [Options](#options)
+- [:technologist: Contributors](#contributors-link)
+- [:people_hugging: Sponsors](#sponsors)
 
 <br>
 
@@ -77,6 +106,16 @@ import { isIdential, hasCircularReference } from '@enio.ai/data-ferret' // acces
 | [isIdentical()](./src/lib/isIdentical/)     | Returns true when both values are identical. For primitive values, use strict equality comparison. For non-primitive values, it checks equality by reviewing values' properties and values. [specs :book:](https://github.com/enio-ireland/enio/tree/develop/packages/data-ferret/src/lib/isIdentical/isIdentical.spec.ts)                                                                                                                                        |
 | [containsKeys()](./src/lib/containsKeys/)   | A predicate that returns true when the value contains the keys that are expected. It supports other iterable data types, provided these have been made known using `registerIterableClass()`. [specs :book:](https://github.com/enio-ireland/enio/tree/develop/packages/data-ferret/src/lib/containsKeys/containsKeys.spec.ts)                                                                                                                                    |
 
+### Data Search
+
+[data-ferret](https://github.com/enio-ireland/enio/tree/develop/packages/data-ferret) provides a suite of convenient util functions that allows it to perform read and search operators.
+
+| Util                                                                                                                                                                                         | Description                                                                                                                                                                                           |
+| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [getValue()](./src/lib/getValue/)                                                                                                                                                            | Drills down the data structure of the target value for each key in the path. [specs :book:](https://github.com/enio-ireland/enio/tree/develop/packages/data-ferret/src/lib/getValue/getValue.spec.ts) |
+| [getDepth()](./src/lib/getDepth/)                                                                                                                                                            | Returns the total depth of a value's data structure,                                                                                                                                                  |
+| \* and returns a list of locations that are the most deeply nested. [specs :book:](https://github.com/enio-ireland/enio/tree/develop/packages/data-ferret/src/lib/getDepth/getDepth.spec.ts) |
+
 ### Data Manipulation
 
 [data-ferret](https://github.com/enio-ireland/enio/tree/develop/packages/data-ferret) provides a suite of convenient util functions that allows it to perform quick data transformations with ease.
@@ -85,6 +124,7 @@ import { isIdential, hasCircularReference } from '@enio.ai/data-ferret' // acces
 | :------------------------------------------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [selectiveCopy()](./src/lib/selectiveCopy/) | Creates a clone of the target value. Options can be provided to selectively copy values, to partially clone. Due to JavaScript language limitations context of bound functions is not known, thus functions cannot be reliably cloned. This algorithm instead copies function references by default instead. For the same reason getters and setters are not replicate, only their return values. [specs :book:](https://github.com/enio-ireland/enio/tree/develop/packages/data-ferret/src/lib/selectiveCopy/selectiveCopy.spec.ts) |
 | [traverse()](./src/lib/traverse/)           | It invokes a callback function for every data point in the data structure of the target value to let you do read and write operations. A depth option is available to narrow down the iteration scope. [specs :book:](https://github.com/enio-ireland/enio/tree/develop/packages/data-ferret/src/lib/traverse/traverse.spec.ts)                                                                                                                                                                                                      |
+| [createTraversal()](./src/lib/traverse/)    | A higher-order that takes a single predicate function to generate an algorithm that traverses data points on a data structure. [specs :book:](https://github.com/enio-ireland/enio/tree/develop/packages/data-ferret/src/lib/traverse/traverse.spec.ts)                                                                                                                                                                                                                                                                              |
 
 ### Circular Reference Data Support
 
@@ -99,6 +139,7 @@ _Note!: Circular reference detection is not supported for immutable data. E.g. `
 | [isIdentical()](./src/lib/isIdentical/)                         | Same util as described in the previous section. Additionally, it can compare values with circular references. Just need to set the `detectCircularReferences` configuration ON. [specs :book:](https://github.com/enio-ireland/enio/tree/develop/packages/data-ferret/src/lib/isIdentical/isIdentical.spec.ts)                                                                                                |
 | [selectiveCopy()](./src/lib/selectiveCopy/)                     | Same util as described in the previous section. Additionally, it can clone values with circular references. By default, it will skip over circular references. When `detectCircularReferences` configuration ON, the algorithm will also recreate the circular references. [specs :book:](https://github.com/enio-ireland/enio/tree/develop/packages/data-ferret/src/lib/selectiveCopy/selectiveCopy.spec.ts) |
 | [traverse()](./src/lib/traverse/)                               | Same util as described in the previous section. Additionally, it can skip over circular references to avoid infinite recursion. [specs :book:](https://github.com/enio-ireland/enio/tree/develop/packages/data-ferret/src/lib/traverse/traverse.spec.ts)                                                                                                                                                      |
+| [getDepth()](./src/lib/getDepth/)                               | Same util as described in the previous section. Additionally, it can skip over circular references to avoid infinite recursion. [specs :book:](https://github.com/enio-ireland/enio/tree/develop/packages/data-ferret/src/lib/getDepth/getDepth.spec.ts)                                                                                                                                                      |
 
 ### Beyond Native Constructs Support
 

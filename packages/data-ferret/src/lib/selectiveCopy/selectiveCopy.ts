@@ -6,9 +6,8 @@ import { Options, Predicate, DataPointOperation, DataPoint, CircularReference } 
 import { ReferenceStack } from '../referenceStack/referenceStack.model'
 import { referenceStack } from '../referenceStack/referenceStack'
 import { getConfig } from '../shared/consts'
-import { isMarker } from '../isMarker/isMarker'
 
-export const selectiveCopy$ = <T extends Record<string, unknown>>(
+export const selectiveCopyRecursive = <T extends Record<string, unknown>>(
   target: T,
   path: string[],
   includeKey: Predicate,
@@ -29,7 +28,11 @@ export const selectiveCopy$ = <T extends Record<string, unknown>>(
       recordSkip(nextTarget, nextPath, nextKey, nextType)
       continue
     }
-    write(iterableInstance, selectiveCopy$(nextTarget as Record<string, unknown>, nextPath, includeKey, skipFunctions, recordSkip), nextKey)
+    write(
+      iterableInstance,
+      selectiveCopyRecursive(nextTarget as Record<string, unknown>, nextPath, includeKey, skipFunctions, recordSkip),
+      nextKey
+    )
   }
   return iterableInstance as Partial<T>
 }
@@ -38,7 +41,7 @@ export const selectiveCopy$ = <T extends Record<string, unknown>>(
  * Creates a clone of the target. Options can be provided to selectively copy values.
  * This algorithm is able detect circular references, and optionally clone them.
  */
-export const selectiveCopy$$ = <T extends Record<string, unknown>>(
+export const selectiveCopyForCircularReferencesRecursive = <T extends Record<string, unknown>>(
   target: T,
   path: string[],
   includeKey: Predicate,
@@ -56,7 +59,6 @@ export const selectiveCopy$$ = <T extends Record<string, unknown>>(
   const keys = getKeys(target)
   for (let i = 0; i < keys.length; i += 1) {
     const nextKey = keys[i]
-    if (isMarker(nextKey)) continue
     const nextTarget = read(target, nextKey)
     const nextPath = path.concat(nextKey)
     const nextType = getType(nextTarget)
@@ -72,7 +74,15 @@ export const selectiveCopy$$ = <T extends Record<string, unknown>>(
     stack.add(nextTarget)
     write(
       iterableInstance,
-      selectiveCopy$$(nextTarget as Record<string, unknown>, nextPath, includeKey, skipFunctions, recordSkip, stack, circularRefs),
+      selectiveCopyForCircularReferencesRecursive(
+        nextTarget as Record<string, unknown>,
+        nextPath,
+        includeKey,
+        skipFunctions,
+        recordSkip,
+        stack,
+        circularRefs
+      ),
       nextKey
     )
   }
@@ -105,6 +115,7 @@ export const selectiveCopy$$ = <T extends Record<string, unknown>>(
  * Due to JavaScript language limitations context of bound functions is not known, thus functions cannot be reliably cloned.
  * This algorithm instead copies function references by default instead. For the same reason getters and setters are not replicate, only their
  * return values. This algorithm can replicate circular references, when configured to do so.
+ * It supports other iterable data types, provided these have been made known using [registerIterableClass](https://github.com/enio-ireland/enio/tree/develop/packages/data-ferret/src/lib/registerIterableClass).
  */
 export const selectiveCopy = <T = unknown>(target: T, options?: Options): { clone: Partial<T>; skipped: DataPoint[] } => {
   if (options !== void 0 && getType(options) !== 'object') throw new Error('Invalid options argument.')
@@ -137,9 +148,18 @@ export const selectiveCopy = <T = unknown>(target: T, options?: Options): { clon
   const recordSkip: DataPointOperation = (target, path, key, dataType) => skipped.push({ target, path, key, dataType })
   let clone: T
   if (getConfig().detectCircularReferences) {
-    clone = selectiveCopy$$(target as Record<string, unknown>, [], includeKey, skipFunctions, recordSkip, referenceStack(), [], true) as T
+    clone = selectiveCopyForCircularReferencesRecursive(
+      target as Record<string, unknown>,
+      [],
+      includeKey,
+      skipFunctions,
+      recordSkip,
+      referenceStack(),
+      [],
+      true
+    ) as T
   } else {
-    clone = selectiveCopy$(target as Record<string, unknown>, [], includeKey, skipFunctions, recordSkip) as T
+    clone = selectiveCopyRecursive(target as Record<string, unknown>, [], includeKey, skipFunctions, recordSkip) as T
   }
   return { clone, skipped }
 }
