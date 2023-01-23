@@ -112,7 +112,8 @@
     "@nxtend/firebase": {
       "@nrwl/workspace": "15.5.3"
     },
-    "react": "18.2.0"
+    "react": "18.2.0",
+    "rxjs": "7.8.0"
   },
   "config": {
     "commitizen": {
