@@ -37,11 +37,16 @@
 
 ## Status: Complete :heavy_check_mark:
 
-The author :technologist: has finished implementing all the features intended. :confetti_ball:
+The project is close to completion based to all the remaining features to implement.
+It will take about a week or two to complete.
+
+If you find this project useful and would like to see more projects like this, consider signing up for support. Details are at the very end of this ReadMe.md. :point_down: :seedling: :hearts:
+
+<!-- The author :technologist: has finished implementing all the features intended. :confetti_ball:
 
 The project is now under active maintenance. This project is a spiritual successor of [mitsuketa](https://www.npmjs.com/package/mitsuketa), a former project that has been sunset.
 
-If you find this project useful and would like to see more projects like this, consider signing up for support. Details are at the very end of this ReadMe.md. :point_down: :seedling: :hearts:
+If you find this project useful and would like to see more projects like this, consider signing up for support. Details are at the very end of this ReadMe.md. :point_down: :seedling: :hearts: -->
 
 <br>
 
