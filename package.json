@@ -112,6 +112,10 @@
     "@nxtend/firebase": {
       "@nrwl/workspace": "15.5.3"
     },
+    "nx-electron": {
+      "@nrwl/devkit": "14.1.9",
+      "@nrwl/workspace": "$@nrwl/workspace"
+    },
     "react": "18.2.0",
     "rxjs": "7.8.0"
   },
