@@ -2,6 +2,30 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [1.3.0](https://github.com/enio-ireland/enio/compare/data-ferret-1.2.0...data-ferret-1.3.0) (2023-01-23)
+
+
+### Features
+
+* **data-ferret:** add getDepth to API :sparkles: ([5bebe08](https://github.com/enio-ireland/enio/commit/5bebe0830584524ba3b2850698d7c4a17e58f7c7))
+* **data-ferret:** add getValue to API :sparkles: ([bffacb9](https://github.com/enio-ireland/enio/commit/bffacb968b677ee8d1b37f46892221f2c2441e53))
+
+
+### Bug Fixes
+
+* **data-ferret:** built-in iterables Object and Array return correct keys and omits markers ([10b7600](https://github.com/enio-ireland/enio/commit/10b7600c15076049c30b6b7789e1058e281d6467))
+* **data-ferret:** hasCircularReference now correctly supports custom iterable types ([92c3602](https://github.com/enio-ireland/enio/commit/92c3602446c8b80fca933495114e76563b9eb041))
+* **data-ferret:** isIdentical now correctly supports custom iterable types with circular references ([845427a](https://github.com/enio-ireland/enio/commit/845427ae321a672480353b08b8a490f8aa0fde5a))
+* **data-ferret:** isIdentical now correctly supports custom iterable types without circular refs ([1a3469c](https://github.com/enio-ireland/enio/commit/1a3469c635ae792eef6c1d2f50d950fecbaa5b71))
+* **data-ferret:** locateCircularReference supports custom iterable types with circular refs ([0749394](https://github.com/enio-ireland/enio/commit/07493944c008953d8343105e5bc29a44fb074c9b))
+* **data-ferret:** registerIterableClass decorates getKeys operator to support circular references ([d6f5d86](https://github.com/enio-ireland/enio/commit/d6f5d86a16c5880ab1de60178f6664773d58def7))
+* **data-ferret:** sameStructure now correctly supports custom iterable types ([88179aa](https://github.com/enio-ireland/enio/commit/88179aa3d26176f83c1ae0a6bb08fb22aeb5dbb2))
+
+
+### Reverts
+
+* **data-ferret:** getValue's path argument can only be an array ([10504da](https://github.com/enio-ireland/enio/commit/10504da0f182b34571c9c212459bfe031d7bb3ba))
+
 ## [1.2.0](https://github.com/enio-ireland/enio/compare/data-ferret-1.1.0...data-ferret-1.2.0) (2023-01-21)
 
 
