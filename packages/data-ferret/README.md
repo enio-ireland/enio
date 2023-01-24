@@ -35,7 +35,7 @@
 
 <br>
 
-## Status: Complete :heavy_check_mark:
+## Status: Almost Complete :heavy_check_mark:
 
 The project is close to completion based to all the remaining features to implement.
 It will take about a week or two to complete.
