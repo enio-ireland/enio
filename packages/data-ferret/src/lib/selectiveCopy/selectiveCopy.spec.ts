@@ -84,7 +84,8 @@ describe('selectiveCopy', () => {
       Map,
       map => Array.from(map.keys()) as string[],
       (map, key) => map.get(key),
-      (map, value, key) => map.set(key, value)
+      (map, value, key) => map.set(key, value),
+      (map, key) => map.delete(key),
     )
     const target = { collection: new Map().set('blue', '#0000FF') }
     expect(selectiveCopy(target).clone).toEqual({ collection: new Map().set('blue', '#0000FF') })
@@ -176,7 +177,8 @@ describe('selectiveCopy - with config detectCircularReferences:true', () => {
       Map,
       map => Array.from(map.keys()) as string[],
       (map, key) => map.get(key),
-      (map, value, key) => map.set(key, value)
+      (map, value, key) => map.set(key, value),
+      (map, key) => map.delete(key),
     )
     const target = { collection: new Map().set('blue', '#0000FF') }
     expect(selectiveCopy(target).clone).toEqual({ collection: new Map().set('blue', '#0000FF') })
