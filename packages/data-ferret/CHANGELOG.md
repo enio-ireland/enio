@@ -2,6 +2,14 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [1.4.0](https://github.com/enio-ireland/enio/compare/data-ferret-1.3.0...data-ferret-1.4.0) (2023-01-24)
+
+
+### Features
+
+* **data-ferret:** add getUniqueKeys to API :sparkles: ([455115d](https://github.com/enio-ireland/enio/commit/455115df3bdba87e4bc3f43a3e8c5642e98ee296))
+* **data-ferret:** add locateKey to API :sparkles: ([df9f737](https://github.com/enio-ireland/enio/commit/df9f73747a1683b18e4e4086afe2a80cf954e75f))
+
 ## [1.3.0](https://github.com/enio-ireland/enio/compare/data-ferret-1.2.0...data-ferret-1.3.0) (2023-01-23)
 
 
