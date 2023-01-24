@@ -53,7 +53,7 @@ describe('locateCircularReference - with extended iterable class types', () => {
       map => Array.from(map.keys()) as string[],
       (map, key) => map.get(key),
       (map, value, key) => map.set(key, value),
-      (map, key) => map.delete(key),
+      (map, key) => map.delete(key)
     )
   })
 
