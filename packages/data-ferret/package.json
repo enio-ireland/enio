@@ -1,6 +1,6 @@
 {
   "name": "@enio.ai/data-ferret",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "data-ferret is a set of search and transformation utils for unarranged, deeply nested data",
   "license": "MIT",
   "author": "Enio Authors",
@@ -41,6 +41,14 @@
     "clone",
     "copy",
     "json",
-    "circular"
+    "circular",
+    "traverse",
+    "locate",
+    "transform",
+    "rename",
+    "replace",
+    "text-search",
+    "difference",
+    "diff"
   ]
 }

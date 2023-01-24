@@ -1,0 +1,1 @@
+export { locateKey } from './locateKey'
