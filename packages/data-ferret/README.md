@@ -21,9 +21,9 @@
 
 ## News
 
+- [2023-01-25](https://github.com/enio-ireland/enio/blob/develop/packages/data-ferret/CHANGELOG.md#200-2023-01-25) - Added four new functions `locateText()`, `removeKey()`, `renameKey()` and `replaceText()`.
 - [2023-01-24](https://github.com/enio-ireland/enio/blob/develop/packages/data-ferret/CHANGELOG.md#140-2023-01-24) - Added two new functions `locateKey()` and `getUniqueKeys()`.
 - [2023-01-23](https://github.com/enio-ireland/enio/blob/develop/packages/data-ferret/CHANGELOG.md#130-2023-01-23) - Added two new functions `getValue()` and `getDepth()`. Updated API to ensure custom iterable classes are fully supported.
-- [2023-01-21](https://github.com/enio-ireland/enio/blob/develop/packages/data-ferret/CHANGELOG.md#120-2023-01-21) - A new `traverse()` function makes it to the API. This method lets you visit each data point on a data structure to perform any read or write operations you want.
 
 ## Key Features
 
