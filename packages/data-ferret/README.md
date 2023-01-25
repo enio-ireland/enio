@@ -40,7 +40,7 @@
 The project is close to completion based to all the remaining features to implement.
 It will take about a week or two to complete.
 
-If you find this project useful and would like to see more projects like this, consider signing up for support. Details are at the very end of this ReadMe.md. :point_down: :seedling: :hearts:
+If you find this project useful and would like to see more projects like this, consider signing up for support. You can find details are [at the very end. :point_down: :seedling:](#sponsors)
 
 <!-- The author :technologist: has finished implementing all the features intended. :confetti_ball:
 
