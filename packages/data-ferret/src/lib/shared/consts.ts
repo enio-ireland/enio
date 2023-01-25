@@ -13,7 +13,8 @@ export const registeredIterableClasses: RegisteredIterableClassEntry[] = [
       return keys
     },
     read: (target, key) => (target as Array<unknown>)[key as number],
-    write: (target, value, key) => ((target as Array<unknown>)[key as number] = value)
+    write: (target, value, key) => ((target as Array<unknown>)[key as number] = value),
+    remove: (target, key) => (target as Array<unknown>).splice(key as number, 1)
   },
   {
     classRef: Object,
@@ -24,7 +25,8 @@ export const registeredIterableClasses: RegisteredIterableClassEntry[] = [
       return keys
     },
     read: (target, key) => (target as Record<string, unknown>)[key as string],
-    write: (target, value, key) => ((target as Record<string, unknown>)[key as string] = value)
+    write: (target, value, key) => ((target as Record<string, unknown>)[key as string] = value),
+    remove: (target, key) => delete (target as Record<string, unknown>)[key as string]
   }
 ]
 

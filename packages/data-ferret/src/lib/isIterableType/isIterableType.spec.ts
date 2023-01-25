@@ -18,13 +18,15 @@ describe('isIterableType - with extended iterable class types', () => {
       Map,
       map => Array.from(map.keys()) as string[],
       (map, key) => map.get(key),
-      (map, value, key) => map.set(key, value)
+      (map, value, key) => map.set(key, value),
+      (map, key) => map.delete(key)
     )
     registerIterableClass<Set<unknown>>(
       Set,
       set => Array.from(set.keys()) as string[],
       (_, key) => key,
-      (set, value) => set.add(value)
+      (set, value) => set.add(value),
+      (set, key) => set.delete(key)
     )
   })
 

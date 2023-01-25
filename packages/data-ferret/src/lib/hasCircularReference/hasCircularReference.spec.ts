@@ -35,7 +35,8 @@ describe('hasCircularReference - with extended iterable class types', () => {
       Map,
       map => Array.from(map.keys()) as string[],
       (map, key) => map.get(key),
-      (map, value, key) => map.set(key, value)
+      (map, value, key) => map.set(key, value),
+      (map, key) => map.delete(key)
     )
   })
 

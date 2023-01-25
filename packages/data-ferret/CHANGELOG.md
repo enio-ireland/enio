@@ -2,6 +2,25 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [2.0.0](https://github.com/enio-ireland/enio/compare/data-ferret-1.4.0...data-ferret-2.0.0) (2023-01-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* **data-ferret:** registerIterableClass function has changed
+
+### Features
+
+* **data-ferret:** add locateText to API :sparkles: ([013efd0](https://github.com/enio-ireland/enio/commit/013efd0a794f8c027eee27411801b85c49a9878a))
+* **data-ferret:** add removeKey to API :sparkles: ([3417285](https://github.com/enio-ireland/enio/commit/34172853a194b50aed9be52fb7830f475f42b778))
+* **data-ferret:** add renameKey to API :sparkles: ([e12daf7](https://github.com/enio-ireland/enio/commit/e12daf71ef48ded0566978eeb5287d08fc25adf1))
+* **data-ferret:** add replaceText to API :sparkles: ([3b3c37a](https://github.com/enio-ireland/enio/commit/3b3c37aac17a0eabc143a4d28b0eefa106d0bafc))
+
+
+### Code Refactoring
+
+* **data-ferret:** a remove function must be specified to register an iterable class ([871b058](https://github.com/enio-ireland/enio/commit/871b058028e77e32bbee03b6deba40121461043a))
+
 ## [1.4.0](https://github.com/enio-ireland/enio/compare/data-ferret-1.3.0...data-ferret-1.4.0) (2023-01-24)
 
 

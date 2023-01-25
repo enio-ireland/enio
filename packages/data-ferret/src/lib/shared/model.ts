@@ -27,6 +27,9 @@ export interface RegisteredIterableClassEntry<T = unknown> {
 
   /** Sets a new value with specific key optionally on class instance. */
   write: (instance: T, value: unknown, key?: unknown) => void
+
+  /** Removes a key from from the class instance. */
+  remove: (instance: T, key: unknown) => void
 }
 
 export interface Config {
