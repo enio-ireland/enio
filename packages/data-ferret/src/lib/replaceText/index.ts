@@ -1,0 +1,1 @@
+export { replaceText } from './replaceText'
