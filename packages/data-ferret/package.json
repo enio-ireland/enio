@@ -47,8 +47,6 @@
     "transform",
     "rename",
     "replace",
-    "text-search",
-    "difference",
-    "diff"
+    "text-search"
   ]
 }
