@@ -61,7 +61,7 @@ $ npm i --save @enio.ai/data-ferret
 You can import utils from [data-ferret]() just as you would with other npm packages.
 
 ```javascript
-import { isIdential, hasCircularReference } from '@enio.ai/data-ferret'
+import { isIdentical, hasCircularReference } from '@enio.ai/data-ferret'
 ```
 
 <br>
