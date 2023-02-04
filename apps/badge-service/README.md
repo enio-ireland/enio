@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/enio-ireland/enio/tree/develop/apps/@badge-service">@badge-service</a> is a service to generate repository badges for projects maintained in <a href="https://github.com/enio-ireland/enio">Enio</a>.
+  <a href="https://github.com/enio-ireland/enio/tree/develop/apps/badge-service">badge-service</a> is a service to generate repository badges for projects maintained in <a href="https://github.com/enio-ireland/enio">Enio</a>.
 </p>
 
 <br>
