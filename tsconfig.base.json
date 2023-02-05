@@ -16,7 +16,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "badge-service": ["apps/badge-service/src/index.ts"],
+      "firebase": ["apps/firebase/src/index.ts"],
       "@enio.ai/data-ferret": ["packages/data-ferret/src/index.ts"],
       "@enio.ai/nx-install": ["packages/nx-install/src/index.ts"],
       "@enio.ai/typedoc": ["packages/typedoc/src/index.ts"]

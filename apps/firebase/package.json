@@ -1,5 +1,5 @@
 {
-  "name": "badge-service",
+  "name": "firebase",
   "version": "0.1.0",
   "description": "A service to generate repository badges",
   "license": "MIT",
@@ -7,7 +7,7 @@
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "https://github.com/enio-ireland/enio/tree/develop/apps/badge-service"
+    "url": "https://github.com/enio-ireland/enio/tree/develop/apps/firebase"
   },
   "main": "lib/index.js",
   "engines": {
@@ -16,10 +16,10 @@
   "scripts": {
     "build": "tsc",
     "build:watch": "tsc --watch",
-    "serve": "npm run build && firebase emulators:start --only functions",
-    "shell": "npm run build && firebase functions:shell",
+    "serve": "npm install && firebase emulators:start",
+    "shell": "firebase functions:shell",
     "start": "npm run shell",
-    "deploy": "firebase deploy --only functions",
+    "deploy": "firebase deploy",
     "logs": "firebase functions:log"
   },
   "private": true,
