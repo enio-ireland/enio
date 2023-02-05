@@ -2,8 +2,8 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
-    "firebase": "apps/firebase",
     "data-ferret": "packages/data-ferret",
+    "firebase": "apps/firebase",
     "nx-install": "packages/nx-install",
     "typedoc": "packages/typedoc"
   }

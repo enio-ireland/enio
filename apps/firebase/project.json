@@ -14,9 +14,29 @@
         "assets": [
           "apps/firebase/database.rules.json",
           "apps/firebase/firebase.json",
+          "apps/firebase/firestore.rules",
           "apps/firebase/firebaserc.json",
           "apps/firebase/storage.rules"
         ]
+      }
+    },
+    "serve": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "npm install",
+            "forwardAllArgs": true
+          },
+          {
+            "command": "firebase use --add enio-ireland"
+          },
+          {
+            "command": "npm run serve"
+          }
+        ],
+        "cwd": "dist/apps/firebase",
+        "parallel": false
       }
     },
     "lint": {

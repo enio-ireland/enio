@@ -1,15 +1,19 @@
 import { https } from 'firebase-functions'
-import * as process from './lib'
+import { isValidType, sendInvalidQueryParamsError, createBuildBadge, createCodeCoverageBadge } from './lib'
 
-export const createBuildBadge = https.onRequest((request, response) => {
-  const { passed } = request.params
-  const svg = process.createBuildBadge(passed == 'true')
+export const buildBadge = https.onRequest((request, response) => {
+  const { passed } = request.query as Record<string, string>
+  if (!isValidType(passed, 'string')) return sendInvalidQueryParamsError(response, 'passed', 'string')
+  const svg = createBuildBadge(passed === 'true')
   response.send(svg)
 })
 
-export const createCodeCoverageBadge = https.onRequest((request, response) => {
-  const { percentage, minThreshold, maxThreshold } = request.params
-  const svg = process.createCodeCoverageBadge(percentage, minThreshold, maxThreshold)
+export const codeCoverageBadge = https.onRequest((request, response) => {
+  const { percentage, minThreshold, maxThreshold } = request.query as Record<string, string>
+  if (!isValidType(percentage, 'string')) return sendInvalidQueryParamsError(response, 'percentage', 'string')
+  if (!isValidType(minThreshold, 'string')) return sendInvalidQueryParamsError(response, 'minThreshold', 'string')
+  if (!isValidType(maxThreshold, 'string')) return sendInvalidQueryParamsError(response, 'maxThreshold', 'string')
+  const svg = createCodeCoverageBadge(percentage, minThreshold, maxThreshold)
   response.send(svg)
 })
 
