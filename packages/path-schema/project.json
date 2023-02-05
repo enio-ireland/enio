@@ -1,0 +1,92 @@
+{
+  "name": "path-schema",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/path-schema/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "project": "packages/path-schema/package.json",
+        "entryFile": "packages/path-schema/src/index.ts",
+        "outputPath": "dist/packages/path-schema",
+        "deleteOutputPath": true,
+        "tsConfig": "packages/path-schema/tsconfig.lib.json",
+        "format": ["cjs", "esm", "umd"],
+        "external": [],
+        "assets": [
+          {
+            "input": "./packages/path-schema",
+            "glob": "*.md",
+            "output": "./"
+          },
+          {
+            "input": "./",
+            "glob": "LICENSE.md",
+            "output": "./"
+          },
+          {
+            "input": "./",
+            "glob": "CONTRIBUTORS.md",
+            "output": "./"
+          }
+        ],
+        "compiler": "babel",
+        "generateExportsField": true,
+        "umdName": "pathSchema"
+      }
+    },
+    "publish": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/scripts/publish.mjs path-schema {args.ver} {args.tag}"
+      },
+      "dependsOn": ["build"]
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/path-schema/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "packages/path-schema/jest.config.ts",
+        "passWithNoTests": false,
+        "codeCoverage": true
+      }
+    },
+    "typedoc": {
+      "executor": "@enio.ai/typedoc:typedoc",
+      "outputs": ["docs/packages/path-schema"],
+      "options": {
+        "options": "typedoc.json"
+      },
+      "configurations": {}
+    },
+    "version": {
+      "executor": "@jscutlery/semver:version",
+      "options": {
+        "preset": "conventional"
+      }
+    },
+    "nx-install": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "npm install",
+            "forwardAllArgs": true
+          }
+        ],
+        "cwd": "packages/path-schema",
+        "parallel": false
+      }
+    }
+  },
+  "tags": []
+}
