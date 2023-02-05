@@ -1,6 +1,6 @@
 {
   "name": "@enio.ai/path-schema",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "path-schema is set of utils to define your firebase database schema",
   "license": "MIT",
   "author": "Enio Authors",
