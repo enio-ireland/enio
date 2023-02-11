@@ -30,7 +30,7 @@ Honestly, the API provided by this project is nothing revolutionary.
 The key selling points are:
 
 1. **Firebase database** use case and ease of use in mind.
-2. **No-frills approach** The API provides a no-frills approach to mapping out your database schema. 
+2. **No-frills approach** The API provides a no-frills approach to mapping out your database schema.
 3. You don't have to maintain this code yourself. _Unless you want to (we appreciate volunteers)_ :wink:
 4. **Bug-free.** We keep bugs to a minimum by testing the API thoroughly. Published versions of the project have a 100% code coverage guarantee.
 

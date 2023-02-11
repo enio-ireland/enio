@@ -1,1 +1,0 @@
-export { getReferencePath } from './getReferencePath'
