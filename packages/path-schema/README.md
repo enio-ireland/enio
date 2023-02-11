@@ -108,15 +108,15 @@ The database reference is an object created at runtime that contains the path de
 To generate a database reference, use the [getPaths()]() function and pass in your schema string as an argument.
 
 ```typescript
-import { getPaths } from '@enio.ai/path-schema';
+import { getPaths } from '@enio.ai/path-schema'
 
-const dbRefs = getPaths(yourSchemaString);
+const dbRefs = getPaths(yourSchemaString)
 ```
 
 Using the previous example, you can simply pass a template string directly.
 
 ```typescript
-import { getPaths } from '@enio.ai/path-schema';
+import { getPaths } from '@enio.ai/path-schema'
 
 const dbRefs = getPaths(`
   @root » #opensource #enterprise
@@ -126,7 +126,7 @@ const dbRefs = getPaths(`
   #badges » #coverageBadge #buildBadge
   #coverageBadge
   #buildBadge
-`);
+`)
 ```
 
 ### TypeScript Interface
@@ -136,8 +136,8 @@ Because the database reference is instanced at runtime, to get the benefit of In
 Here is an example;
 
 ```typescript
-import type { Reference } from '@enio.ai/path-schema';
-import { getPaths } from '@enio.ai/path-schema';
+import type { Reference } from '@enio.ai/path-schema'
+import { getPaths } from '@enio.ai/path-schema'
 
 type RootPaths = 'opensource' | 'enterprise'
 type ProjectCategoryPaths = 'projects'
@@ -168,7 +168,7 @@ const dbRefs = getPaths<DB>(`
   #badges » #coverageBadge #buildBadge
   #coverageBadge
   #buildBadge
-`);
+`)
 ```
 
 <p align="center">
@@ -182,9 +182,10 @@ Database schemas vary in complexity, and creating an interface could become less
 [getDefinition()]() takes in your schema string as an argument. The function will return a string that represents the TypeScript definitions for your database schema.
 
 ```typescript
-import { getDefinition } from '@enio.ai/path-schema';
+import { getDefinition } from '@enio.ai/path-schema'
 
-console.log(getDefinition(`
+console.log(
+  getDefinition(`
   @root » #opensource #enterprise
   #opensource » #projects
   #enterprise » #projects
@@ -192,7 +193,8 @@ console.log(getDefinition(`
   #badges » #coverageBadge #buildBadge
   #coverageBadge
   #buildBadge
-`));
+`)
+)
 ```
 
 <br>
