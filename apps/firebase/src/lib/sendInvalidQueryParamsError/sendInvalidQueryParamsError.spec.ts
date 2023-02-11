@@ -5,7 +5,7 @@ import { StatusCodes } from 'http-status-codes'
 describe('sendInvalidQueryParamsError', () => {
   let response: Response
 
-  beforeEach(() => response = { status: jest.fn(() => response), send: jest.fn(() => response) } as unknown as Response)
+  beforeEach(() => (response = { status: jest.fn(() => response), send: jest.fn(() => response) } as unknown as Response))
 
   it('to send status 400 and explanation of data type mismatch', () => {
     sendInvalidQueryParamsError(response, 'passed', 'string')

@@ -1,14 +1,17 @@
 import { https } from 'firebase-functions'
+import * as admin from 'firebase-admin'
 import { isValidType, sendInvalidQueryParamsError, createBuildBadge, createCodeCoverageBadge } from './lib'
 
-export const buildBadge = https.onRequest((request, response) => {
-  const { passed } = request.query as Record<string, string>
+export const generateAndStoreBuildBadge = https.onRequest((request, response) => {
+  const { project, passed } = request.query as Record<string, string>
+  if (!isValidType(project, 'string')) return sendInvalidQueryParamsError(response, 'project', 'string')
   if (!isValidType(passed, 'string')) return sendInvalidQueryParamsError(response, 'passed', 'string')
   const svg = createBuildBadge(passed === 'true')
+  admin.database().ref(useRef(root.opensource.projects.badges.build.path, { [DynamicKey.ProjectName]: project }))
   response.send(svg)
 })
 
-export const codeCoverageBadge = https.onRequest((request, response) => {
+export const generateAndStoreCodeCoverageBadge = https.onRequest((request, response) => {
   const { percentage, minThreshold, maxThreshold } = request.query as Record<string, string>
   if (!isValidType(percentage, 'string')) return sendInvalidQueryParamsError(response, 'percentage', 'string')
   if (!isValidType(minThreshold, 'string')) return sendInvalidQueryParamsError(response, 'minThreshold', 'string')
