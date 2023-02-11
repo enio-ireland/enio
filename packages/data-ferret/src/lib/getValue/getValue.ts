@@ -10,7 +10,7 @@ import { DefaultValueOptions } from './getValue.model'
  * It supports other iterable data types, provided these have been made known using [registerIterableClass](https://github.com/enio-ireland/enio/tree/develop/packages/data-ferret/src/lib/registerIterableClass).
  */
 export const getValue = <T = unknown>(target: unknown, path: [string, ...string[]], defaultValue?: DefaultValueOptions<T>): T => {
-  if (!path || !Array.isArray(path)) throw Error('Expected path to be an array.')
+  if (!path || !Array.isArray(path)) throw new Error('Expected path to be an array.')
   const hasOnMissingKeyDefault = !!(defaultValue && 'onMissingKey' in defaultValue)
   const hasOnErrorDefault = !!(defaultValue && 'onError' in defaultValue)
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -22,7 +22,7 @@ export const getValue = <T = unknown>(target: unknown, path: [string, ...string[
     scope = target
     for (let index = 0; index < path.length; index += 1) {
       const key = path[index]
-      if (!key || typeof key !== 'string') throw Error(`Expected path.${index} to be a non-empty string.`)
+      if (!key || typeof key !== 'string') throw new Error(`Expected path.${index} to be a non-empty string.`)
       scopeType = getType(scope)
       scopeIterable = isIterableType(scopeType)
       /* istanbul ignore next */
