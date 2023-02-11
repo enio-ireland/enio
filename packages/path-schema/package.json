@@ -36,6 +36,7 @@
     "path-schema",
     "paths",
     "query-builder",
+    "reference",
     "schema",
     "typescript",
     "uri-builder",
