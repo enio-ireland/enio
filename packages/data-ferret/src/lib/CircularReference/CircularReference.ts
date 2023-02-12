@@ -9,8 +9,8 @@ export class CircularReference implements ICircularReference {
   private readonly delimiter = ' → '
 
   constructor(location: Location['path'], target: Target['path']) {
-    if (!Array.isArray(location) || !location.length) throw Error(expectedValidArrayErrorMessage('location'))
-    if (!Array.isArray(target)) throw Error(expectedValidArrayErrorMessage('target'))
+    if (!Array.isArray(location) || !location.length) throw new Error(expectedValidArrayErrorMessage('location'))
+    if (!Array.isArray(target)) throw new Error(expectedValidArrayErrorMessage('target'))
     this.location = { path: location }
     this.target = { path: target }
   }

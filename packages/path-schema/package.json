@@ -1,0 +1,45 @@
+{
+  "name": "@enio.ai/path-schema",
+  "version": "0.2.0",
+  "description": "path-schema is set of utils to define your firebase database schema",
+  "license": "MIT",
+  "author": "Enio Authors",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/enio-ireland/enio/tree/develop/packages/path-schema"
+  },
+  "main": "src/index.js",
+  "private": false,
+  "contributors": [
+    {
+      "name": "Andrew Redican",
+      "email": "andrew.redican.mejia@gmail.com",
+      "url": "https://github.com/AndrewRedican/"
+    }
+  ],
+  "funding": [
+    {
+      "type": "github",
+      "url": "https://github.com/orgs/enio-ireland/dashboard"
+    }
+  ],
+  "keywords": [
+    "andrew.redican",
+    "database",
+    "database-schema",
+    "enio",
+    "enio.ai",
+    "firebase",
+    "firebase-database",
+    "graph",
+    "path-schema",
+    "paths",
+    "query-builder",
+    "reference",
+    "schema",
+    "typescript",
+    "uri-builder",
+    "url-builder"
+  ]
+}

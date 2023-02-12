@@ -2,9 +2,10 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
-    "@badge-service": "apps/@badge-service",
     "data-ferret": "packages/data-ferret",
+    "firebase": "apps/firebase",
     "nx-install": "packages/nx-install",
+    "path-schema": "packages/path-schema",
     "typedoc": "packages/typedoc"
   }
 }

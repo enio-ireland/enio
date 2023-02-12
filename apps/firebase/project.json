@@ -1,0 +1,79 @@
+{
+  "name": "firebase",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/firebase/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/firebase",
+        "main": "apps/firebase/src/index.ts",
+        "tsConfig": "apps/firebase/tsconfig.lib.json",
+        "assets": [
+          "apps/firebase/database.rules.json",
+          "apps/firebase/firebase.json",
+          "apps/firebase/firestore.rules",
+          "apps/firebase/firebaserc.json",
+          "apps/firebase/storage.rules"
+        ]
+      }
+    },
+    "serve": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "npm install",
+            "forwardAllArgs": true
+          },
+          {
+            "command": "firebase use --add enio-ireland"
+          },
+          {
+            "command": "npm run serve"
+          }
+        ],
+        "cwd": "dist/apps/firebase",
+        "parallel": false
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/firebase/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/firebase/jest.config.ts",
+        "passWithNoTests": false,
+        "codeCoverage": true
+      }
+    },
+    "version": {
+      "executor": "@jscutlery/semver:version",
+      "options": {
+        "preset": "conventional"
+      }
+    },
+    "nx-install": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "npm install",
+            "forwardAllArgs": true
+          }
+        ],
+        "cwd": "apps/firebase",
+        "parallel": false
+      }
+    }
+  },
+  "tags": []
+}

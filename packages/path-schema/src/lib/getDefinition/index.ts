@@ -1,0 +1,1 @@
+export { getDefinition } from './getDefinition'

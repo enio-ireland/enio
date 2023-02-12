@@ -1,0 +1,51 @@
+{
+  "name": "firebase",
+  "version": "0.1.0",
+  "description": "A service to generate repository badges",
+  "license": "MIT",
+  "author": "Enio Authors",
+  "type": "commonjs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/enio-ireland/enio/tree/develop/apps/firebase"
+  },
+  "main": "src/index.js",
+  "engines": {
+    "node": "16"
+  },
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "serve": "npm install && firebase emulators:start",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy",
+    "logs": "firebase functions:log"
+  },
+  "private": true,
+  "contributors": [
+    {
+      "name": "Andrew Redican",
+      "email": "andrew.redican.mejia@gmail.com",
+      "url": "https://github.com/AndrewRedican/"
+    }
+  ],
+  "funding": [
+    {
+      "type": "github",
+      "url": "https://github.com/orgs/enio-ireland/dashboard"
+    }
+  ],
+  "dependencies": {
+    "badge-maker": "^3.3.1",
+    "firebase-admin": "^11.4.1",
+    "firebase-functions": "^4.1.1",
+    "http-status-codes": "^2.2.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.6.4"
+  },
+  "keywords": [
+    "badge"
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "database": {
+    "rules": "database.rules.json"
+  },
+  "functions": [
+    {
+      "source": ".",
+      "codebase": "default",
+      "ignore": ["node_modules", ".git", "firebase-debug.log", "firebase-debug.*.log"],
+      "predeploy": ["npm --prefix \"$RESOURCE_DIR\" run build"]
+    }
+  ],
+  "firestore": {
+    "rules": "firestore.rules"
+  },
+  "hosting": {
+    "public": "public",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
+  },
+  "storage": {
+    "rules": "storage.rules"
+  },
+  "emulators": {
+    "auth": {
+      "enabled": true,
+      "port": 9099
+    },
+    "database": {
+      "enabled": true,
+      "port": 9000
+    },
+    "firestore": {
+      "enabled": true,
+      "port": 8080
+    },
+    "functions": {
+      "enabled": true,
+      "port": 5001
+    },
+    "hosting": {
+      "enabled": true,
+      "port": 5000
+    },
+    "pubsub": {
+      "enabled": true,
+      "port": 8085
+    },
+    "storage": {
+      "enabled": true,
+      "port": 9199
+    },
+    "ui": {
+      "enabled": true,
+      "port": 4000
+    }
+  }
+}
