@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import { getPaths } from '@enio.ai/path-schema'
 import type { DB } from './database.model'
 
