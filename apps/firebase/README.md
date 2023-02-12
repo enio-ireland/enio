@@ -1,7 +1,7 @@
 <br>
 
 <p align="center">
-  <img width="197" src="https://github.com/enio-ireland/enio/blob/develop/images/badge-maker.png?raw=true">
+  <img width="197" src="https://github.com/enio-ireland/enio/blob/develop/images/nxbase.png?raw=true">
 </p>
 
 <p align="center">
@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/enio-ireland/enio/tree/develop/apps/firebase">firebase</a> is a service to generate repository badges for projects maintained in <a href="https://github.com/enio-ireland/enio">Enio</a>.
+  <a href="https://github.com/enio-ireland/enio/tree/develop/apps/firebase">firebase</a> is an internal service running on the cloud for all things open source CI/CD operations for <a href="https://github.com/enio-ireland/enio">Enio</a>.
 </p>
 
 <br>
@@ -22,7 +22,9 @@ _Documentation in progress_
 
 <br>
 
-## Generating Badges
+## Services
+
+### Generating Badges
 
 _Documentation in progress_
 
