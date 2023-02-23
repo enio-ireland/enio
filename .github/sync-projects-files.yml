@@ -1,7 +1,5 @@
 enio-ireland/enterprise:
   - .husky
   - .vscode
-  - apps
   - images
-  - packages
   - tools
