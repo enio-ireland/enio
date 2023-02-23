@@ -1,5 +1,4 @@
 enio-ireland/enterprise:
-  - .github/workflows
   - .husky
   - .vscode
   - apps
