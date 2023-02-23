@@ -1,20 +1,8 @@
 enio-ireland/enterprise:
-  - source: |
-      /.github/workflows
-      /.husky
-      /.vscode
-      /apps
-      /images
-      /packages
-      /tools
-    replace: true
-    exclude: |
-      coverage
-      dist
-      docs
-      node_modules
-      tmp
-      LICENSE
-      sync-projects.yml
-      .all-contributorsrc
-
+  - .github/workflows
+  - .husky
+  - .vscode
+  - apps
+  - images
+  - packages
+  - tools
