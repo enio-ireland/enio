@@ -1,0 +1,9 @@
+enio-ireland/enterprise:
+  - source: /
+    replace: true
+    exclude: |
+      coverage
+      dist
+      node_modules
+      tmp
+      LICENSE
