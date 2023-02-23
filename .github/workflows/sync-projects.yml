@@ -21,13 +21,11 @@ jobs:
         with:
           GH_PAT: ${{ secrets.ENIO_TO_ENTERPRISE_SYNC_PAT }}
           CONFIG_PATH: .github/sync-projects-files.yml
-          REVIEWERS: |
-            AndrewRedican
           TEAM_REVIEWERS: |
             enterprise-contributors
           COMMIT_BODY: "chore: sync latest changes from enio repository"
           OVERWRITE_EXISTING_PR: true
-          COMMIT_PREFIX: ''
+          COMMIT_PREFIX: 'chore:'
           PR_BODY: ''
           ORIGINAL_MESSAGE: false
           COMMIT_AS_PR_TITLE: false
