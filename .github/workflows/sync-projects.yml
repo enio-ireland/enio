@@ -20,7 +20,7 @@ jobs:
         uses: BetaHuhn/repo-file-sync-action@v1
         with:
           GH_PAT: ${{ secrets.ENIO_TO_ENTERPRISE_SYNC_PAT }}
-          CONFIG_PATH: .github/workflows/sync-projects-files.yml
+          CONFIG_PATH: .github/sync-projects-files.yml
           REVIEWERS: |
             AndrewRedican
           TEAM_REVIEWERS: |
