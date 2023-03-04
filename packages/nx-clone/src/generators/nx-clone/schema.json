@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$id": "NxClone",
+  "cli": "nx",
+  "title": "Nx Clone",
+  "description": "Clone a project to another folder in the workspace with a different name.",
+  "type": "object",
+  "examples": [
+    {
+      "command": "nx g @enio.ai/nx-clone --project templates/my-template-app --destination apps/my-new-app",
+      "description": "Clone `templates/my-template-app` to `apps/my-new-app`"
+    }
+  ],
+  "properties": {
+    "source": {
+      "type": "string",
+      "description": "The relative path of the project to clone.",
+      "x-dropdown": "projects"
+    },
+    "destination": {
+      "type": "string",
+      "description": "The relative path to new clone project.",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      }
+    }
+  },
+  "required": ["source", "destination"]
+}
