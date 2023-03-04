@@ -3,10 +3,10 @@
   "name": "nx-clone",
   "version": "0.0.0",
   "generators": {
-    "nx-clone": {
+    "exec": {
       "factory": "./src/generators/nx-clone/generator",
       "schema": "./src/generators/nx-clone/schema.json",
-      "description": "Generator to setup nx-clone custom command"
+      "description": "Generator that uses nx-clone custom command to copy a project into a new directory"
     }
   }
 }

@@ -16,8 +16,8 @@ export const cloneProject = ({ workspaceRoot, source, destination }: Locations):
       if (replaceValues) replaceValues = absolutePath.replace(workspaceRoot, '').split('/').length <= 3
       if (replaceValues) {
         content = content
-          .replace(join(source.folderName, source.projectName), join(destination.folderName, destination.projectName))
-          .replace(source.projectName, destination.projectName)
+          .replace(new RegExp(join(source.folderName, source.projectName), 'gm'), join(destination.folderName, destination.projectName))
+          .replace(new RegExp(source.projectName, 'gm'), destination.projectName)
         writeFileSync(newAbsolutePath, content, { encoding: "utf8" })
       }
     }

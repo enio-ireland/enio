@@ -15,15 +15,12 @@
     "source": {
       "type": "string",
       "description": "The relative path of the project to clone.",
-      "x-dropdown": "projects"
+      "x-prompt": "Which project would you like to clone?"
     },
     "destination": {
       "type": "string",
       "description": "The relative path to new clone project.",
-      "$default": {
-        "$source": "argv",
-        "index": 0
-      }
+      "x-prompt": "Where would you like to clone your project into?"
     }
   },
   "required": ["source", "destination"]
