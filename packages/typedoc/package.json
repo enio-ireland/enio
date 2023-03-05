@@ -14,7 +14,7 @@
   "private": false,
   "dependencies": {
     "@nrwl/devkit": "^15.8.5",
-    "tslib": "^2.5.0"
+    "tslib": "^2.3.0"
   },
   "peerDependencies": {
     "typedoc": "^0.23.26",
