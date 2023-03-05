@@ -36,7 +36,10 @@
     "enio.ai",
     "monorepo",
     "dependencies",
-    "npm install",
-    "npm i"
+    "clone",
+    "project",
+    "template",
+    "repo",
+    "generator"
   ]
 }
