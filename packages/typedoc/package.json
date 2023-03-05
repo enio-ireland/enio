@@ -1,6 +1,6 @@
 {
   "name": "@enio.ai/typedoc",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Generator to setup Nx projects with documentation automation using typedoc",
   "license": "MIT",
   "author": "Enio Authors",
