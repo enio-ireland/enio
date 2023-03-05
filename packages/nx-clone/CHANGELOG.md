@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.1.4](https://github.com/enio-ireland/enio/compare/nx-clone-0.1.3...nx-clone-0.1.4) (2023-03-05)
+
+
+### Bug Fixes
+
+* **nx-clone:** fix issue not doing correct value replacements ([9302af3](https://github.com/enio-ireland/enio/commit/9302af32176858ba19fa0116415df823fec3967a))
+
 ## [0.1.3](https://github.com/enio-ireland/enio/compare/nx-clone-0.1.2...nx-clone-0.1.3) (2023-03-05)
 
 
