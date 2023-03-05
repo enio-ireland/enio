@@ -1,8 +1,8 @@
 <br>
 
-<!-- <p align="center">
-  <img width="197" src="https://github.com/enio-ireland/enio/blob/develop/images/nx-clone-nx-plugin.png?raw=true">
-</p> -->
+<p align="center">
+  <img width="197" src="https://github.com/enio-ireland/enio/blob/develop/images/nx-clone.png?raw=true">
+</p>
 
 <p align="center">
   <img alt="npm" src="https://img.shields.io/npm/v/@enio.ai/nx-clone?style=flat-square">
