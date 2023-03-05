@@ -1,6 +1,6 @@
 {
   "name": "@enio.ai/nx-install",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Generator to setup command to install dependencies through npm for each project",
   "license": "MIT",
   "author": "Enio Authors",
@@ -12,7 +12,10 @@
   "generators": "./generators.json",
   "executors": "./executors.json",
   "private": false,
-  "dependencies": {},
+  "dependencies": {
+    "@nrwl/devkit": "^15.8.5",
+    "tslib": "^2.5.0"
+  },
   "peerDependencies": {},
   "contributors": [
     {

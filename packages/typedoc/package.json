@@ -1,6 +1,6 @@
 {
   "name": "@enio.ai/typedoc",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Generator to setup Nx projects with documentation automation using typedoc",
   "license": "MIT",
   "author": "Enio Authors",
@@ -13,11 +13,11 @@
   "executors": "./executors.json",
   "private": false,
   "dependencies": {
-    "@nrwl/devkit": "^15.0.10",
-    "tslib": "^2.4.1"
+    "@nrwl/devkit": "^15.8.5",
+    "tslib": "^2.5.0"
   },
   "peerDependencies": {
-    "typedoc": "^0.23.20",
+    "typedoc": "^0.23.26",
     "typedoc-plugin-rename-defaults": "^0.6.4",
     "typedoc-theme-hierarchy": "^3.0.0"
   },
