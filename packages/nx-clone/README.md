@@ -13,7 +13,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/enio-ireland/enio/tree/develop/packages/nx-clone">nx-clone</a> is plugin for <a href="https://nx.dev">Nx workspaces</a> to quickly setup a custom install command on your projects. This is especially convenient for running operations on multiple projects dynamically, like running build and test on affected projects, where installing dependencies beforehand is a prerequisite. It is created, maintained, and released as open source under MIT license by a group of passionate individuals in <a href="https://github.com/enio-ireland/enio">Enio</a>.
+  <a href="https://github.com/enio-ireland/enio/tree/develop/packages/nx-clone">nx-clone</a> is plugin for <a href="https://nx.dev">Nx workspaces</a> to instantly clone an existing project with a new name and location. Typically, Nx plugins get you started with a base project, but you end up customizing it make further to make it just right for you or your team. You can move your ideal "base" project into any top-level folder like "templates" within your Nx workspace and then use `nx-clone` to instantly create a new carbon-copy project on demand. This is especially convenient as it will cut your configuration time to almost zero when you need to spin up another project using the same pattern or approach. It is created, maintained, and released as open source under MIT license by a group of passionate individuals in <a href="https://github.com/enio-ireland/enio">Enio</a>.
 </p>
 
 <br>
@@ -29,32 +29,22 @@ npm install --save-dev @enio.ai/nx-clone
 
 Run the following command at the root directory of your workspace. If `nx` is not setup globaly, you may want to add it as npm script first (see details below) or prefix with `npx` when using [npm](https://npmjs.com). You can also run this command from the [Nx Console](https://marketplace.visualstudio.com/items?itemName=nrwl.angular-console) extension for [VSCode](https://code.visualstudio.com).
 
+## Cloning projects with nx-clone
+
+Run the following command:
+
 ```shell script
-  nx g @enio.ai/nx-clone
+  nx g @enio.ai/nx-clone:exec
 ```
 
-## Installing Dependencies with nx-clone
-
-The previous command will have installed two new scripts in your root workspace package.json.
+Optionally, set up an npm script that invoke the same command for accessibility. Then simply run the `npm run clone` command.
 
 ```json
 {
   "scripts": {
-    "nx-clone": "nx nx-clone",
-    "nx-clone:affected": "nx affected --target=nx-clone --all"
+    "clone": "nx g @enio.ai/nx-clone:exec",
   }
 }
-```
-
-Then you could run the following commands, where `<project>` is the name of the project in the nx workspace you want to run it for.
-
-```shell script
-  // Installing dependencies for target project
-  npm run nx-clone <project>
-
-
-  // Installing dependencies for all affected projects
-  npm run nx-clone:affected
 ```
 
 <!-- <p align="center">
