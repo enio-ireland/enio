@@ -41,6 +41,7 @@
     "clone": "nx g @enio.ai/nx-clone:exec",
     "update": "nx migrate latest",
     "update:apply": "nx migrate --run-migrations",
+    "dependency:review": "npm-check-updates",
     "reset": "nx reset",
     "commit": "cz"
   },
@@ -99,6 +100,7 @@
     "jest": "29.4.3",
     "jest-environment-jsdom": "29.4.3",
     "jsonc-eslint-parser": "^2.1.0",
+    "npm-check-updates": "^16.7.10",
     "nx": "15.8.5",
     "nx-electron": "^14.0.2",
     "prettier": "^2.6.2",
