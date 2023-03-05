@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [1.0.8](https://github.com/enio-ireland/enio/compare/typedoc-1.0.7...typedoc-1.0.8) (2023-03-05)
+
+
+### Reverts
+
+* **typedoc:** drop tslib@2.5.0 in favor of current version used by nx ([748c421](https://github.com/enio-ireland/enio/commit/748c421683fe5dd563b62de2dcccd568d30358ea))
+
 ## [1.0.7](https://github.com/enio-ireland/enio/compare/typedoc-1.0.6...typedoc-1.0.7) (2023-03-05)
 
 ## [1.0.6](https://github.com/enio-ireland/enio/compare/typedoc-1.0.5...typedoc-1.0.6) (2023-01-15)
