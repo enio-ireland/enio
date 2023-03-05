@@ -12,7 +12,10 @@
   "generators": "./generators.json",
   "executors": "./executors.json",
   "private": false,
-  "dependencies": {},
+  "dependencies": {
+    "@nrwl/devkit": "^15.8.5",
+    "tslib": "^2.5.0"
+  },
   "peerDependencies": {},
   "contributors": [
     {

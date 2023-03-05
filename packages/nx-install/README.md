@@ -33,6 +33,8 @@ Run the following command at the root directory of your workspace. If `nx` is no
   nx g @enio.ai/nx-install
 ```
 
+> Note: [nx-install](https://github.com/enio-ireland/enio/tree/develop/packages/nx-install) has a policy to update depedencies regularly. When running into issues with conflicting dependencies using npm for example, there are options to resolve those version conflicts. See [overrides](https://docs.npmjs.com/cli/v9/configuring-npm/package-json#overrides) for npm.
+
 ## Installing Dependencies with nx-install
 
 The previous command will have installed two new scripts in your root workspace package.json.
@@ -56,10 +58,6 @@ Then you could run the following commands, where `<project>` is the name of the 
   // Installing dependencies for all affected projects
   npm run nx-install:affected
 ```
-
-<!-- <p align="center">
-  <img src="https://github.com/enio-ireland/enio/blob/develop/images/nx-install-exec-demo.gif?raw=true">
-</p> -->
 
 <br>
 
