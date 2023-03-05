@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.2.3](https://github.com/enio-ireland/enio/compare/nx-install-0.2.2...nx-install-0.2.3) (2023-03-05)
+
+
+### Reverts
+
+* **nx-install:** drop tslib@2.5.0 in favor of current version used by nx ([0d07ee1](https://github.com/enio-ireland/enio/commit/0d07ee15f4bdf48ae984dbee985535e850750da4))
+
 ## [0.2.2](https://github.com/enio-ireland/enio/compare/nx-install-0.2.1...nx-install-0.2.2) (2023-03-05)
 
 ## [0.2.1](https://github.com/enio-ireland/enio/compare/nx-install-0.2.0...nx-install-0.2.1) (2023-01-02)
