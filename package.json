@@ -43,7 +43,8 @@
     "update:apply": "nx migrate --run-migrations",
     "dependency:review": "npm-check-updates",
     "reset": "nx reset",
-    "commit": "cz"
+    "commit": "cz",
+    "prepare": "husky install"
   },
   "private": true,
   "dependencies": {
@@ -117,21 +118,11 @@
     "nx-electron": {
       "@nrwl/devkit": "15.8.5",
       "@nrwl/workspace": "15.8.5",
-      "nx": "15.8.5",
-      "tslib": "^2.3.0"
-    },
-    "@enio.ai/nx-clone": {
-      "tslib": "^2.3.0"
-    },
-    "@enio.ai/nx-install": {
-      "tslib": "^2.3.0"
-    },
-    "@enio.ai/typedoc": {
-      "tslib": "^2.3.0"
+      "nx": "15.8.5"
     },
     "react": "18.2.0",
     "rxjs": "7.8.0",
-    "tslib": "^2.5.0"
+    "tslib": "^2.3.0"
   },
   "config": {
     "commitizen": {
