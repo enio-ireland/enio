@@ -43,7 +43,8 @@
     "update:apply": "nx migrate --run-migrations",
     "dependency:review": "npm-check-updates",
     "reset": "nx reset",
-    "commit": "cz"
+    "commit": "cz",
+    "prepare": "husky install"
   },
   "private": true,
   "dependencies": {
