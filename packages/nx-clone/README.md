@@ -47,9 +47,9 @@ Optionally, set up an npm script that invoke the same command for accessibility.
 }
 ```
 
-<!-- <p align="center">
+<p align="center">
   <img src="https://github.com/enio-ireland/enio/blob/develop/images/nx-clone-exec-demo.gif?raw=true">
-</p> -->
+</p>
 
 <br>
 
