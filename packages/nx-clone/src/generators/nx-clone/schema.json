@@ -15,12 +15,51 @@
     "source": {
       "type": "string",
       "description": "The relative path of the project to clone.",
-      "x-prompt": "Which project would you like to clone?"
+      "x-prompt": "Which project would you like to clone?",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      }
     },
     "destination": {
       "type": "string",
       "description": "The relative path to new clone project.",
-      "x-prompt": "Where would you like to clone your project into?"
+      "x-prompt": "Where would you like to clone your project into?",
+      "$default": {
+        "$source": "argv",
+        "index": 1
+      }
+    },
+    "nodeModules": {
+      "type": "boolean",
+      "description": "Whether node_modules files should be cloned.",
+      "x-prompt": "Include node_modules?",
+      "default": false
+    },
+    "resetPackageVersion": {
+      "type": "boolean",
+      "description": "Whether version on package.json and package-lock.json files should be reset to 0.0.0.",
+      "x-prompt": "Reset package version?",
+      "default": true
+    },
+    "changeLog": {
+      "type": "boolean",
+      "description": "Whether CHANGELOG files should be cloned.",
+      "x-prompt": "Include CHANGELOG files?",
+      "default": false
+    },
+    "license": {
+      "alias": "licence",
+      "type": "boolean",
+      "description": "Whether LICENSE files should be cloned.",
+      "x-prompt": "Include LICENSE files?",
+      "default": true
+    },
+    "readMe": {
+      "type": "boolean",
+      "description": "Whether README files should be cloned.",
+      "x-prompt": "Include README files?",
+      "default": true
     }
   },
   "required": ["source", "destination"]
