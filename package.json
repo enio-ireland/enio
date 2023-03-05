@@ -38,6 +38,7 @@
     "publish": "nx publish --verbose",
     "graph": "nx graph",
     "remove": "nx g rm",
+    "clone": "nx g @enio.ai/nx-clone:exec",
     "update": "nx migrate latest",
     "reset": "nx reset",
     "commit": "cz"
@@ -54,6 +55,7 @@
   "devDependencies": {
     "@commitlint/cli": "^17.0.3",
     "@commitlint/config-conventional": "^17.0.3",
+    "@enio.ai/nx-clone": "^0.1.0",
     "@enio.ai/typedoc": "^1.0.6",
     "@jscutlery/semver": "^2.29.0",
     "@nrwl/cli": "15.5.3",
