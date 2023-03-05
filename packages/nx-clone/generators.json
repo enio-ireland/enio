@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "name": "nx-clone",
+  "version": "0.0.0",
+  "generators": {
+    "exec": {
+      "factory": "./src/generators/nx-clone/generator",
+      "schema": "./src/generators/nx-clone/schema.json",
+      "description": "Generator that uses nx-clone custom command to copy a project into a new directory"
+    }
+  }
+}

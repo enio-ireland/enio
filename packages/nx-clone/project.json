@@ -1,0 +1,80 @@
+{
+  "name": "nx-clone",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/nx-clone/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/nx-clone",
+        "main": "packages/nx-clone/src/index.ts",
+        "tsConfig": "packages/nx-clone/tsconfig.lib.json",
+        "assets": [
+          "packages/nx-clone/*.md",
+          {
+            "input": "./packages/nx-clone/src",
+            "glob": "**/!(*.ts)",
+            "output": "./src"
+          },
+          {
+            "input": "./packages/nx-clone/src",
+            "glob": "**/*.d.ts",
+            "output": "./src"
+          },
+          {
+            "input": "./packages/nx-clone",
+            "glob": "generators.json",
+            "output": "."
+          },
+          {
+            "input": "./packages/nx-clone",
+            "glob": "executors.json",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "packages/nx-clone/**/*.ts",
+          "packages/nx-clone/generators.json",
+          "packages/nx-clone/executors.json",
+          "packages/nx-clone/package.json"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "packages/nx-clone/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "version": {
+      "executor": "@jscutlery/semver:version",
+      "options": {
+        "preset": "conventional"
+      }
+    },
+    "nx-clone": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "npm install",
+            "forwardAllArgs": true
+          }
+        ],
+        "cwd": "packages/nx-clone",
+        "parallel": false
+      }
+    }
+  },
+  "tags": []
+}

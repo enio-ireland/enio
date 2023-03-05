@@ -4,6 +4,7 @@
   "projects": {
     "data-ferret": "packages/data-ferret",
     "firebase": "apps/firebase",
+    "nx-clone": "packages/nx-clone",
     "nx-install": "packages/nx-install",
     "path-schema": "packages/path-schema",
     "typedoc": "packages/typedoc"
