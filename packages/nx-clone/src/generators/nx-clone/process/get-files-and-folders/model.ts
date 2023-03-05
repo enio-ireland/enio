@@ -4,7 +4,7 @@ export enum RecordType {
 }
 
 export interface Record {
-  type: RecordType,
+  type: RecordType
   absolutePath: string
 }
 

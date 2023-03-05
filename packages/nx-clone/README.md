@@ -42,7 +42,7 @@ Optionally, set up an npm script that invoke the same command for accessibility.
 ```json
 {
   "scripts": {
-    "clone": "nx g @enio.ai/nx-clone:exec",
+    "clone": "nx g @enio.ai/nx-clone:exec"
   }
 }
 ```

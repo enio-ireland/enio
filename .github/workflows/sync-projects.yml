@@ -23,7 +23,7 @@ jobs:
           CONFIG_PATH: .github/sync-projects-files.yml
           TEAM_REVIEWERS: |
             enterprise-contributors
-          COMMIT_BODY: "chore: sync latest changes from enio repository"
+          COMMIT_BODY: 'chore: sync latest changes from enio repository'
           OVERWRITE_EXISTING_PR: true
           COMMIT_PREFIX: 'chore:'
           PR_BODY: ''

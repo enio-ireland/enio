@@ -14,9 +14,13 @@ const createPatternsToSkip = (schema: Schema): string[] => {
   return patterns
 }
 
-const createSkipCondition = (patternsToSkip: string[]): SkipCondition => (absolutePath) => patternsToSkip.some(p => absolutePath.includes(p))
+const createSkipCondition =
+  (patternsToSkip: string[]): SkipCondition =>
+  absolutePath =>
+    patternsToSkip.some(p => absolutePath.includes(p))
 
-const sortAlphabeticallyAndLength = (a: Record, b: Record): number => a.absolutePath < b.absolutePath ? -1 : a.absolutePath > b.absolutePath ? 1 : 0
+const sortAlphabeticallyAndLength = (a: Record, b: Record): number =>
+  a.absolutePath < b.absolutePath ? -1 : a.absolutePath > b.absolutePath ? 1 : 0
 
 const traverseThroughDirectory = (directory: string, shouldSkip: SkipCondition, list: Record[]): Record[] => {
   if (shouldSkip(directory)) return list

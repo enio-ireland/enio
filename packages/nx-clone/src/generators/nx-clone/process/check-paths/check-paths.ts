@@ -1,10 +1,10 @@
 import { join } from 'path'
 import { existsSync } from 'fs'
-import { workspaceRoot } from '@nrwl/devkit';
-import type { Schema } from '../../schema';
+import { workspaceRoot } from '@nrwl/devkit'
+import type { Schema } from '../../schema'
 import type { Locations } from './model'
 
-const INVALID_DESTINATION = (path: string) => `Invalid destination: [${path}]`;
+const INVALID_DESTINATION = (path: string) => `Invalid destination: [${path}]`
 
 const checkPathSyntax = (path: string, pathType: 'source' | 'destination'): void => {
   if (!path) throw new Error(`${INVALID_DESTINATION(path)} - Please specify a ${pathType} path.`)

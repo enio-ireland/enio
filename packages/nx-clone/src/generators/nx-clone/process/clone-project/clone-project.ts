@@ -22,13 +22,18 @@ export const cloneProject = ({ workspaceRoot, source, destination }: Locations, 
           .replace(new RegExp(join(source.folderName, source.projectName), 'gm'), join(destination.folderName, destination.projectName))
           .replace(new RegExp(source.projectName, 'gm'), destination.projectName)
       }
-      writeFileSync(newAbsolutePath, content, { encoding: "utf8" })
-      if (replaceValues && schema.resetPackageVersion && (newAbsolutePath.includes('package.json') || newAbsolutePath.includes('package-lock.json'))) {
+      writeFileSync(newAbsolutePath, content, { encoding: 'utf8' })
+      if (
+        replaceValues &&
+        schema.resetPackageVersion &&
+        (newAbsolutePath.includes('package.json') || newAbsolutePath.includes('package-lock.json'))
+      ) {
         const json = JSON.parse(readFileSync(newAbsolutePath, 'utf8').toString()) as unknown as Record<string, unknown>
         if ('version' in json) json.version = zeroVersion
-        if (('name' in json) && json.name && (json.packages?.['']?.name === json.name) && ('version' in json.packages[''])) json.packages[''].version = zeroVersion
+        if ('name' in json && json.name && json.packages?.['']?.name === json.name && 'version' in json.packages[''])
+          json.packages[''].version = zeroVersion
         content = JSON.stringify(json, null, 2)
-        writeFileSync(newAbsolutePath, content, { encoding: "utf8" })
+        writeFileSync(newAbsolutePath, content, { encoding: 'utf8' })
       }
     }
   })
