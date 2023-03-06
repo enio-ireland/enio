@@ -1,6 +1,6 @@
 {
   "name": "@enio.ai/nx-clone",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Generator to instantly replicate your favorite custom Nx projects.",
   "license": "MIT",
   "author": "Enio Authors",
