@@ -1,6 +1,6 @@
 {
   "name": "@enio.ai/nx-clone",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Generator to instantly replicate your favorite custom Nx projects.",
   "license": "MIT",
   "author": "Enio Authors",
@@ -14,9 +14,9 @@
   "private": false,
   "dependencies": {
     "@nrwl/devkit": "^15.8.5",
+    "mime-types": "^2.1.35",
     "tslib": "^2.3.0"
   },
-  "peerDependencies": {},
   "contributors": [
     {
       "name": "Andrew Redican",
@@ -44,5 +44,8 @@
     "template",
     "repo",
     "generator"
-  ]
+  ],
+  "devDependencies": {
+    "@types/mime-types": "^2.1.1"
+  }
 }

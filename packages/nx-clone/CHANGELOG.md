@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.1.5](https://github.com/enio-ireland/enio/compare/nx-clone-0.1.4...nx-clone-0.1.5) (2023-03-06)
+
+
+### Bug Fixes
+
+* **nx-clone:** fix issue where images copied were corrupted ([f9247ed](https://github.com/enio-ireland/enio/commit/f9247ed781b8e43716407e58098ee17cf08e601e))
+
 ## [0.1.4](https://github.com/enio-ireland/enio/compare/nx-clone-0.1.3...nx-clone-0.1.4) (2023-03-05)
 
 
