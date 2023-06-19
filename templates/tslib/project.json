@@ -1,0 +1,52 @@
+{
+  "name": "tslib",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "templates/tslib/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "options": {
+        "outputPath": "dist/templates/tslib",
+        "main": "templates/tslib/src/index.ts",
+        "tsConfig": "templates/tslib/tsconfig.lib.json",
+        "assets": [
+          "templates/tslib/*.md"
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": [
+        "{options.outputFile}"
+      ],
+      "options": {
+        "lintFilePatterns": [
+          "templates/tslib/**/*.ts"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
+      "options": {
+        "jestConfig": "templates/tslib/jest.config.ts",
+        "codeCoverage": true,
+        "coverageDirectory": "coverage/templates/tslib",
+        "passWithNoTests": false
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    }
+  },
+  "tags": []
+}
