@@ -49,6 +49,7 @@
   },
   "private": true,
   "dependencies": {
+    "@nrwl/nx-linux-x64-gnu": "^15.9.3",
     "@swc/helpers": "~0.4.11",
     "core-js": "^3.6.5",
     "react": "18.2.0",
