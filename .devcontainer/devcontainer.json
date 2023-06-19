@@ -1,0 +1,14 @@
+{
+	"name": "Node.js & TypeScript",
+	"image": "mcr.microsoft.com/devcontainers/typescript-node:0-20",
+	"features": {
+		"ghcr.io/devcontainers-contrib/features/nx-npm:1": {
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers-contrib/features/vercel-cli:1": {
+			"version": "latest"
+		}
+	},
+	"forwardPorts": [8080, 3000, 4200, 4201, 4202],
+	"postCreateCommand": "npm install"
+}
