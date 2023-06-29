@@ -13,7 +13,7 @@
   "executors": "./executors.json",
   "private": false,
   "dependencies": {
-    "@nrwl/devkit": "^15.8.5",
+    "@nrwl/devkit": "^16.4.0",
     "tslib": "^2.3.0"
   },
   "peerDependencies": {
